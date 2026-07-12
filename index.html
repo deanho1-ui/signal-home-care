@@ -101,6 +101,33 @@
   .empty{grid-column:1/-1;text-align:center;padding:56px 20px;color:var(--paper-faint)}
   .empty h3{font-size:16px;color:var(--paper-dim);margin-bottom:6px}
 
+  /* executive summary (Google-Trends-style top movers) */
+  .exec{margin:2px 0 20px}
+  .exec-h{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:10px}
+  .exec-h h2{font-size:15px;font-family:"Space Grotesk";font-weight:600}
+  .exec-h .hint{font-size:11px;color:var(--paper-faint)}
+  .exec-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+  @media(max-width:940px){.exec-grid{grid-template-columns:1fr 1fr}}
+  @media(max-width:560px){.exec-grid{grid-template-columns:1fr}}
+  .exec-col{background:var(--ink-2);border:1px solid var(--line);border-radius:12px;padding:11px 12px 5px}
+  .exec-col .colh{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:6px}
+  .exec-col .colh .nm{font-family:"Space Grotesk";font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--paper-dim)}
+  .exec-col .colh .ct{font-size:10.5px;color:var(--paper-faint);font-family:"Space Grotesk"}
+  .erow{display:flex;align-items:center;gap:9px;padding:7px 3px;border-top:1px solid var(--line);cursor:pointer;transition:.12s}
+  .erow:first-of-type{border-top:none}
+  .erow:hover{background:var(--ink-3)}
+  .erow .rk{font-family:"Space Grotesk";font-size:12px;font-weight:600;color:var(--paper-faint);width:13px;text-align:center;flex:0 0 auto}
+  .erow.r1 .rk{color:var(--amber)}
+  .erow .bd{flex:1;min-width:0}
+  .erow .tt{font-size:12px;color:var(--paper);line-height:1.25;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .erow .sub{font-size:10px;color:var(--paper-faint);margin-top:1px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .mini-spark{width:44px;height:20px;flex:0 0 auto;display:block}
+  .chip2{flex:0 0 auto;font-family:"Space Grotesk";font-size:10.5px;font-weight:600;padding:2px 6px;border-radius:6px;white-space:nowrap}
+  .chip2.up{color:var(--pos);background:rgba(87,201,138,.10)}
+  .chip2.dn{color:var(--neg);background:rgba(240,115,107,.10)}
+  .chip2.brk{color:var(--amber);background:rgba(246,180,69,.13)}
+  .exec-empty{font-size:11.5px;color:var(--paper-faint);padding:8px 3px}
+
   /* 52-week trend line */
   .trendrow{display:flex;align-items:center;gap:10px}
   .trendrow .lab{font-family:"Space Grotesk";font-size:9.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--paper-faint);line-height:1.25;flex:0 0 auto;width:52px}
@@ -160,6 +187,8 @@
   </header>
 
   <div class="tabs" id="tabs"></div>
+
+  <div class="exec" id="exec"></div>
 
   <div class="filters" id="filters">
     <div class="seg" id="typeSeg"></div>
@@ -299,13 +328,13 @@ function seriesFor(t){
   return out;
 }
 function seriesDelta(a){const n=a.length;if(n<8)return 0;const early=a.slice(0,4).reduce((x,y)=>x+y,0)/4;const late=a.slice(-4).reduce((x,y)=>x+y,0)/4;return early?Math.round((late-early)/early*100):0;}
-function sparkline(a,color){
-  const w=170,h=34,p=3,max=Math.max(...a),min=Math.min(...a),span=(max-min)||1;
+function sparkline(a,color,w=170,h=34,cls="spark"){
+  const p=3,max=Math.max(...a),min=Math.min(...a),span=(max-min)||1;
   const pts=a.map((v,i)=>[p+(i/(a.length-1))*(w-2*p), h-p-((v-min)/span)*(h-2*p)]);
   const line=pts.map((q,i)=>(i?"L":"M")+q[0].toFixed(1)+" "+q[1].toFixed(1)).join(" ");
   const area=`M${pts[0][0].toFixed(1)} ${h-p} `+pts.map(q=>"L"+q[0].toFixed(1)+" "+q[1].toFixed(1)).join(" ")+` L${pts[pts.length-1][0].toFixed(1)} ${h-p} Z`;
   const last=pts[pts.length-1];
-  return `<svg class="spark" viewBox="0 0 ${w} ${h}" preserveAspectRatio="none" role="img" aria-label="52-week mentions trend">
+  return `<svg class="${cls}" viewBox="0 0 ${w} ${h}" preserveAspectRatio="none" role="img" aria-label="52-week mentions trend">
     <path d="${area}" fill="${color}" opacity="0.13"/>
     <path d="${line}" fill="none" stroke="${color}" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/>
     <circle cx="${last[0].toFixed(1)}" cy="${last[1].toFixed(1)}" r="2.4" fill="${color}"/></svg>`;
@@ -405,7 +434,46 @@ function renderGrid(){
   g.querySelectorAll("[data-brief]").forEach(b=>b.onclick=()=>openBrief(VIEW[+b.dataset.brief]));
   g.querySelectorAll("[data-why]").forEach(b=>b.onclick=()=>toast(VIEW[+b.dataset.why].angle,4600));
 }
-function renderAll(){document.documentElement.style.setProperty("--accent",accent());renderTabs();renderTypeSeg();renderFilters();renderGrid();document.getElementById("stampWeek").textContent=state.week;}
+/* ---------- executive summary: top movers per category ---------- */
+const EXEC_TYPES=[{id:"owned",label:"Owned"},{id:"category",label:"Category"},{id:"competitor",label:"Competitor"},{id:"landscape",label:"Landscape"}];
+function topByType(type){
+  return state.trends.filter(inBrand).filter(t=>t.type===type)
+    .sort((a,b)=>(b.respond-a.respond)||((b.signal||60)-(a.signal||60))).slice(0,5);
+}
+function execChip(series){
+  const d=seriesDelta(series);
+  if(d>=120) return `<span class="chip2 brk">Breakout</span>`;
+  const cls=d<-3?"dn":"up";
+  return `<span class="chip2 ${cls}">${d>0?'+':''}${d}%</span>`;
+}
+function renderExec(){
+  const host=document.getElementById("exec");
+  const cols=EXEC_TYPES.map(({id,label})=>{
+    const rows=topByType(id);
+    const body=rows.length ? rows.map((t,i)=>{
+      const col=t.respond?"var(--amber)":accent();
+      return `<div class="erow ${i===0?'r1':''}" data-type="${id}">
+        <span class="rk">${i+1}</span>
+        <div class="bd"><div class="tt">${t.title||''}</div>
+          <div class="sub">${t.lbl||''} · signal ${t.signal||60}${t.respond?' · ▲ respond':''}</div></div>
+        ${sparkline(seriesFor(t),col,44,20,"mini-spark")}
+        ${execChip(seriesFor(t))}
+      </div>`;
+    }).join("") : `<div class="exec-empty">No ${label} trends for this brand.</div>`;
+    return `<div class="exec-col">
+      <div class="colh"><span class="nm">${label}</span><span class="ct">Top ${Math.min(5,rows.length)}</span></div>
+      ${body}</div>`;
+  }).join("");
+  const brandName=state.activeBrand!=="all"?` · ${(BRANDS.find(b=>b.id===state.activeBrand)||{}).name}`:" · portfolio";
+  host.innerHTML=`<div class="exec-h"><h2>Executive summary</h2>
+    <span class="hint">Top movers by category · ranked by momentum${brandName}. Tap a row for the detail below.</span></div>
+    <div class="exec-grid">${cols}</div>`;
+  host.querySelectorAll(".erow").forEach(el=>el.onclick=()=>{
+    state.activeType=el.dataset.type; state.respondOnly=false; renderAll();
+    document.getElementById("filters").scrollIntoView({behavior:"smooth",block:"start"});
+  });
+}
+function renderAll(){document.documentElement.style.setProperty("--accent",accent());renderTabs();renderExec();renderTypeSeg();renderFilters();renderGrid();document.getElementById("stampWeek").textContent=state.week;}
 
 let toastTimer; function toast(m,ms=2400){const el=document.getElementById("toast");el.textContent=m;el.classList.add("on");clearTimeout(toastTimer);toastTimer=setTimeout(()=>el.classList.remove("on"),ms);}
 
