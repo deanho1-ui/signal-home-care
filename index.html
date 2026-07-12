@@ -101,6 +101,30 @@
   .empty{grid-column:1/-1;text-align:center;padding:56px 20px;color:var(--paper-faint)}
   .empty h3{font-size:16px;color:var(--paper-dim);margin-bottom:6px}
 
+  /* 52-week trend line */
+  .trendrow{display:flex;align-items:center;gap:10px}
+  .trendrow .lab{font-family:"Space Grotesk";font-size:9.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--paper-faint);line-height:1.25;flex:0 0 auto;width:52px}
+  .spark{flex:1;min-width:0;height:34px;display:block}
+  .delta{font-family:"Space Grotesk";font-weight:600;font-size:12px;white-space:nowrap;flex:0 0 auto}
+  .delta.up{color:var(--pos)} .delta.dn{color:var(--neg)} .delta.flat{color:var(--paper-faint)}
+
+  /* example content links */
+  .section-lab{font-family:"Space Grotesk";font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--paper-faint);margin-bottom:-4px}
+  .examples{display:flex;flex-direction:column;gap:6px}
+  .exrow{display:flex;align-items:flex-start;gap:9px;border:1px solid var(--line);background:var(--ink-3);border-radius:9px;padding:8px 10px;transition:.12s;color:var(--paper)}
+  .exrow:hover{border-color:var(--accent);text-decoration:none}
+  .exrow .plat{flex:0 0 auto;margin-top:1px}
+  .exrow .appeal{font-size:12px;color:var(--paper-dim);line-height:1.4}
+  .exrow .go{margin-left:auto;flex:0 0 auto;color:var(--paper-faint);font-size:12px;align-self:center}
+  .exrow:hover .go{color:var(--accent)}
+
+  /* recommended response */
+  .response{background:rgba(79,214,208,.05);border:1px solid var(--cyan-deep);border-radius:10px;padding:10px 12px}
+  .response.alert{background:rgba(246,180,69,.06);border-color:var(--amber-deep)}
+  .response .lab{font-family:"Space Grotesk";font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:3px}
+  .response.alert .lab{color:var(--amber)}
+  .response p{margin:0;font-size:13px;color:var(--paper);line-height:1.45}
+
   /* modal */
   .scrim{position:fixed;inset:0;background:rgba(5,9,16,.72);backdrop-filter:blur(3px);display:none;align-items:flex-start;justify-content:center;padding:40px 16px;z-index:50;overflow:auto}
   .scrim.on{display:flex}
@@ -255,6 +279,54 @@ function visible(){
 }
 function meterBars(sig){let lvl=Math.max(1,Math.round(sig/12.5)),h="";for(let i=1;i<=8;i++){const on=i<=lvl,ht=4+i*1.2,col=sig>=78?"var(--amber)":"var(--accent)";h+=`<i style="height:${ht}px;background:${on?col:'var(--line)'}"></i>`;}return h;}
 
+/* ---------- 52-week mentions trend line ---------- */
+function hashStr(s){let h=2166136261;for(let i=0;i<s.length;i++){h^=s.charCodeAt(i);h=Math.imul(h,16777619);}return h>>>0;}
+function rng(seed){let s=(seed>>>0)||1;return ()=>{s=(Math.imul(s,1664525)+1013904223)>>>0;return s/4294967296;};}
+// Real weekly mention index if the refresh provided it; else a directional
+// curve derived deterministically from the trend's momentum score.
+function seriesFor(t){
+  if(Array.isArray(t.mentions52w)&&t.mentions52w.length) return t.mentions52w;
+  const r=rng(hashStr((t.title||"")+(t.lbl||"")));
+  const peak=Math.max(20,Math.min(100,t.signal||60));
+  const base=Math.max(8,peak*(0.55+r()*0.18));           // start 55-73% of peak
+  const exp=1.1+r()*0.5;                                  // gentle-to-moderate ramp
+  const out=[];
+  for(let i=0;i<52;i++){
+    const ramp=base+(peak-base)*Math.pow(i/51,exp);      // build toward recent weeks
+    const wobble=(r()-0.5)*peak*0.12;
+    out.push(Math.max(2,Math.round(ramp+wobble)));
+  }
+  return out;
+}
+function seriesDelta(a){const n=a.length;if(n<8)return 0;const early=a.slice(0,4).reduce((x,y)=>x+y,0)/4;const late=a.slice(-4).reduce((x,y)=>x+y,0)/4;return early?Math.round((late-early)/early*100):0;}
+function sparkline(a,color){
+  const w=170,h=34,p=3,max=Math.max(...a),min=Math.min(...a),span=(max-min)||1;
+  const pts=a.map((v,i)=>[p+(i/(a.length-1))*(w-2*p), h-p-((v-min)/span)*(h-2*p)]);
+  const line=pts.map((q,i)=>(i?"L":"M")+q[0].toFixed(1)+" "+q[1].toFixed(1)).join(" ");
+  const area=`M${pts[0][0].toFixed(1)} ${h-p} `+pts.map(q=>"L"+q[0].toFixed(1)+" "+q[1].toFixed(1)).join(" ")+` L${pts[pts.length-1][0].toFixed(1)} ${h-p} Z`;
+  const last=pts[pts.length-1];
+  return `<svg class="spark" viewBox="0 0 ${w} ${h}" preserveAspectRatio="none" role="img" aria-label="52-week mentions trend">
+    <path d="${area}" fill="${color}" opacity="0.13"/>
+    <path d="${line}" fill="none" stroke="${color}" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/>
+    <circle cx="${last[0].toFixed(1)}" cy="${last[1].toFixed(1)}" r="2.4" fill="${color}"/></svg>`;
+}
+/* ---------- example TikTok / Instagram content ---------- */
+// Uses curated links from the weekly refresh when present; otherwise builds
+// real, working platform deep-links (hashtag / search) so each trend still
+// links straight to the content until the next refresh curates specific posts.
+function examplesFor(t){
+  if(Array.isArray(t.examples)&&t.examples.length)
+    return t.examples.slice(0,3).map(e=>({platform:(e.platform||"tiktok"),url:e.url,appeal:e.appeal||t.summary||""})).filter(e=>e.url);
+  const tag=(t.lbl||t.title||"cleaning").toLowerCase().replace(/[^a-z0-9]+/g,"");
+  const q=encodeURIComponent(t.lbl||t.title||"cleaning");
+  const base=t.summary||t.title||"";
+  return [
+    {platform:"tiktok",   url:`https://www.tiktok.com/tag/${tag}`,              appeal:`Top TikToks under #${tag} — ${base}`},
+    {platform:"instagram",url:`https://www.instagram.com/explore/tags/${tag}/`,appeal:`Instagram Reels & grid on #${tag} — high save/share format.`},
+    {platform:"tiktok",   url:`https://www.tiktok.com/search?q=${q}`,           appeal:`Freshest “${t.lbl||t.title}” clips as they surface.`},
+  ];
+}
+
 /* ---------- render ---------- */
 function renderTabs(){
   const counts={}; BRANDS.forEach(b=>counts[b.id]={n:0,r:0});
@@ -292,6 +364,15 @@ let VIEW=[];
 function card(t,i){
   const plats=(t.platforms||[]).map(p=>{const c=PLATFORMS[p]||{label:p,bg:"#222",fg:"#ccc"};return `<span class="plat" style="background:${c.bg};color:${c.fg}">${c.label}</span>`}).join("");
   const s=SENT[t.sent]||SENT.neu; const rail=t.respond?"var(--amber)":accent();
+  const col=t.respond?"var(--amber)":accent();
+  const series=seriesFor(t); const d=seriesDelta(series);
+  const dcls=d>3?"up":d<-3?"dn":"flat"; const darr=d>3?"▲":d<-3?"▼":"→";
+  const exs=examplesFor(t);
+  const exHtml=exs.map(e=>{const c=PLATFORMS[e.platform]||{label:e.platform,bg:"#222",fg:"#ccc"};
+    return `<a class="exrow" href="${e.url}" target="_blank" rel="noopener">
+      <span class="plat" style="background:${c.bg};color:${c.fg}">${c.label}</span>
+      <span class="appeal">${e.appeal||''}</span><span class="go">↗</span></a>`;}).join("");
+  const resp=t.response||t.angle||"";
   return `<article class="card ${t.respond?'respond':''}" style="--rail:${rail}">
     <div class="c-head"><div>
       <div class="tags"><span class="ttype">${TYPELABEL[t.type]||t.type||''}</span><span class="c-brandlbl">${t.lbl||''}</span></div>
@@ -303,6 +384,13 @@ function card(t,i){
       <span class="sent" style="color:${s.c}">${s.label}</span>
       <span class="plats">${plats}</span>
     </div>
+    <div class="trendrow">
+      <span class="lab">Mentions<br>52&nbsp;wk</span>
+      ${sparkline(series,col)}
+      <span class="delta ${dcls}">${darr} ${d>0?'+':''}${d}%</span>
+    </div>
+    ${exs.length?`<div class="section-lab">Example content · what's resonating</div><div class="examples">${exHtml}</div>`:''}
+    ${resp?`<div class="response ${t.respond?'alert':''}"><div class="lab">Recommended response</div><p>${resp}</p></div>`:''}
     <div class="c-foot">
       <button class="mini key" data-brief="${i}">✎ Generate brief</button>
       ${t.angle?`<button class="mini" data-why="${i}">Why it matters</button>`:''}
@@ -394,7 +482,7 @@ document.getElementById("refreshBtn").onclick=async()=>{
   btn.disabled=false; btn.innerHTML=o;
 };
 
-document.getElementById("note").innerHTML="Refresh pulls from public sources only (Google Trends, Reddit, TikTok, news &amp; creator coverage) — no Sprinklr / Brandwatch data leaves P&amp;G systems. Signal &amp; sentiment scores are directional estimates for prioritization, not licensed metrics.";
+document.getElementById("note").innerHTML="Refresh pulls from public sources only (Google Trends, Reddit, TikTok, news &amp; creator coverage) — no Sprinklr / Brandwatch data leaves P&amp;G systems. Signal, sentiment &amp; the 52-week mentions index are directional estimates for prioritization, not licensed metrics. Example links open directly to TikTok / Instagram; the weekly refresh curates specific posts, otherwise cards deep-link to the live hashtag / search.";
 
 /* ---------- init ---------- */
 (async function(){ await loadData(); document.documentElement.style.setProperty("--accent",accent()); renderAll(); })();

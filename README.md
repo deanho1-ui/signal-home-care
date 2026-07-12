@@ -74,6 +74,39 @@ Mr. Clean and hypochlorous-acid cleaners show up under Febreze and Mr. Clean.
 
 ---
 
+## What each trend card shows
+
+Every trend renders with:
+
+- **Momentum + sentiment** — the signal meter and pos/neg/neu/mix tag.
+- **52-week mentions trend line** — a sparkline of the weekly mention index over
+  the past year with the % change (early-year vs. most-recent weeks), so you can
+  see how big it is and whether it's climbing or fading.
+- **3 example links** straight to **TikTok / Instagram**, each with a one-line
+  note on what's most appealing about that content (hook, format, why it spreads).
+- **Recommended response** — the concrete, tactical social move for P&G.
+- **Generate brief** — expands the response into a full influencer brief or a
+  ready-to-post branded post (see below).
+
+These fields are produced by the weekly refresh (`scripts/refresh.mjs`) and stored
+per trend in `data/trends.json`:
+
+```jsonc
+{
+  "response":    "concrete recommended social response for P&G",
+  "examples":  [ { "platform": "tiktok",    "url": "https://…", "appeal": "why it resonates" }, … 3 ],
+  "mentions52w": [ 52 integers, oldest→newest — directional weekly mention index (0-100) ]
+}
+```
+
+If a trend hasn't been refreshed yet (or predates these fields), the dashboard
+falls back gracefully: it derives a directional trend line from the momentum
+score and builds real TikTok / Instagram hashtag/search deep-links, then upgrades
+to the curated posts and real index on the next weekly run. The mentions index is
+a directional estimate for prioritization, not a licensed metric.
+
+---
+
 ## Briefs
 
 On the published site, briefs for **Respond-now** trends are generated during

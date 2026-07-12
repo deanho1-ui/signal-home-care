@@ -52,6 +52,9 @@ async function researchAxis(type) {
 `You are a social-listening analyst for P&G Home Care. Research ${AXES[type]}
 
 Use web_search across public sources. Find the 3-4 most significant CURRENT trends.
+For each trend, also surface 3 concrete EXAMPLE posts (prefer direct TikTok or
+Instagram links you actually found via search — real videos/reels/creators, not
+guessed URLs) and note what makes each one appealing/shareable.
 Return ONLY a JSON array (no prose, no code fences). Each item:
 {
  "lbl":"short brand/theme label",
@@ -62,16 +65,23 @@ Return ONLY a JSON array (no prose, no code fences). Each item:
  "sent":"pos"|"neg"|"neu"|"mix",
  "respond":true only if a P&G Home Care brand should act,
  "brands":[which of "cascade","dawn","febreze","swiffer","mrclean" this is relevant to; use ["all"] for portfolio-wide],
- "angle":"1 sentence on the response/opportunity angle for P&G",
+ "angle":"1 sentence on the strategic opportunity angle for P&G",
+ "response":"the single recommended SOCIAL response for P&G — concrete and tactical (1-2 sentences: what to post/seed and where)",
+ "examples":[ exactly 3 items, each {
+     "platform":"tiktok"|"instagram",
+     "url":"a real, working link straight to the post/reel/creator/hashtag you found on that platform",
+     "appeal":"one line on what's most appealing about this specific content (hook, format, why it spreads)"
+ }],
+ "mentions52w":[52 integers oldest→newest — a directional weekly mention index (0-100) tracing this trend's trajectory over the past year, so its size and momentum are visible],
  "src":"one public source URL"
 }
-Only real, current trends you can source.`;
+Only real, current trends you can source. Prefer tiktok.com / instagram.com links for the examples.`;
 
   const txt = await anthropic({
     model: MODEL,
-    max_tokens: 3000,
+    max_tokens: 4000,
     messages: [{ role: "user", content: prompt }],
-    tools: [{ type: SEARCH_TOOL, name: "web_search", max_uses: 6 }],
+    tools: [{ type: SEARCH_TOOL, name: "web_search", max_uses: 8 }],
   });
 
   return parseJSONArray(txt).map(x => ({
@@ -86,8 +96,30 @@ Only real, current trends you can source.`;
     respond: !!x.respond,
     brands: normalizeBrands(x.brands, type),
     angle: String(x.angle || ""),
+    response: String(x.response || x.angle || ""),
+    examples: normalizeExamples(x.examples),
+    mentions52w: normalizeSeries(x.mentions52w),
     src: String(x.src || ""),
   }));
+}
+
+// Keep only real TikTok/Instagram-style example links, capped at 3.
+function normalizeExamples(raw) {
+  const arr = Array.isArray(raw) ? raw : [];
+  return arr.slice(0, 3).map(e => ({
+    platform: ["tiktok","instagram"].includes(String(e?.platform||"").toLowerCase())
+      ? String(e.platform).toLowerCase() : "tiktok",
+    url: String(e?.url || "").slice(0, 400),
+    appeal: String(e?.appeal || "").slice(0, 240),
+  })).filter(e => /^https?:\/\//.test(e.url));
+}
+
+// Coerce to exactly 52 integers in 0..100 (directional weekly mention index).
+function normalizeSeries(raw) {
+  let a = Array.isArray(raw) ? raw.map(n => Math.max(0, Math.min(100, Math.round(Number(n) || 0)))) : [];
+  if (a.length > 52) a = a.slice(a.length - 52);
+  while (a.length < 52) a.unshift(a.length ? a[0] : 0);
+  return a;
 }
 
 function normalizeBrands(raw, type) {
