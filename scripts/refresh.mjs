@@ -25,26 +25,59 @@ const AXES = {
   competitor:"COMPETITOR / challenger cleaning brands vs Cascade, Dawn, Febreze, Swiffer, Mr. Clean — e.g. The Pink Stuff, Scrub Daddy, Force of Nature / hypochlorous-acid, Blueland, Method, Mrs Meyer's, Fabuloso, purple cleaners — that are gaining momentum this week."
 };
 
-async function anthropic(body) {
-  const res = await fetch(ENDPOINT, {
-    method: "POST",
-    headers: {
-      "x-api-key": API_KEY,
-      "anthropic-version": "2023-06-01",
-      "content-type": "application/json",
-    },
-    body: JSON.stringify(body),
-  });
-  if (!res.ok) throw new Error(`API ${res.status}: ${await res.text()}`);
-  const data = await res.json();
-  return (data.content || []).filter(b => b.type === "text").map(b => b.text).join("\n").trim();
+const sleep = ms => new Promise(r => setTimeout(r, ms));
+
+async function anthropic(body, tries = 3) {
+  let lastErr;
+  for (let attempt = 1; attempt <= tries; attempt++) {
+    try {
+      const res = await fetch(ENDPOINT, {
+        method: "POST",
+        headers: {
+          "x-api-key": API_KEY,
+          "anthropic-version": "2023-06-01",
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(body),
+      });
+      if (!res.ok) {
+        const text = await res.text();
+        // Retry transient server / rate-limit errors; fail fast on 4xx like auth.
+        if ((res.status === 429 || res.status >= 500) && attempt < tries) {
+          lastErr = new Error(`API ${res.status}: ${text}`);
+          await sleep(1500 * attempt); continue;
+        }
+        throw new Error(`API ${res.status}: ${text}`);
+      }
+      const data = await res.json();
+      return (data.content || []).filter(b => b.type === "text").map(b => b.text).join("\n").trim();
+    } catch (e) {
+      lastErr = e;
+      if (attempt < tries) { await sleep(1500 * attempt); continue; }
+      throw lastErr;
+    }
+  }
+  throw lastErr;
 }
 
+// Extract a JSON array from a model reply, tolerating stray prose, code fences,
+// and (best-effort) a response that was truncated mid-array by the token limit.
 function parseJSONArray(txt) {
   let s = txt.replace(/```json|```/g, "").trim();
-  const a = s.indexOf("["), b = s.lastIndexOf("]");
-  if (a >= 0 && b > a) s = s.slice(a, b + 1);
-  return JSON.parse(s);
+  const a = s.indexOf("[");
+  if (a < 0) throw new Error(`no JSON array in reply: ${s.slice(0, 60)}…`);
+  const b = s.lastIndexOf("]");
+  if (b > a) {
+    try { return JSON.parse(s.slice(a, b + 1)); } catch { /* fall through to repair */ }
+  }
+  // Repair a truncated array: keep whole objects up to the last balanced brace.
+  let depth = 0, lastComplete = -1;
+  for (let i = a; i < s.length; i++) {
+    if (s[i] === "{") depth++;
+    else if (s[i] === "}") { depth--; if (depth === 0) lastComplete = i; }
+  }
+  if (lastComplete > a) return JSON.parse(s.slice(a, lastComplete + 1) + "]");
+  throw new Error("could not parse or repair JSON array");
 }
 
 async function researchAxis(type) {
@@ -55,7 +88,9 @@ Use web_search across public sources. Find the 3-4 most significant CURRENT tren
 For each trend, also surface 3 concrete EXAMPLE posts (prefer direct TikTok or
 Instagram links you actually found via search — real videos/reels/creators, not
 guessed URLs) and note what makes each one appealing/shareable.
-Return ONLY a JSON array (no prose, no code fences). Each item:
+
+Output ONLY a JSON array — begin your reply with "[" and end with "]". No preamble,
+no explanation, no markdown code fences. Each item:
 {
  "lbl":"short brand/theme label",
  "title":"headline, <9 words",
@@ -72,35 +107,62 @@ Return ONLY a JSON array (no prose, no code fences). Each item:
      "url":"a real, working link straight to the post/reel/creator/hashtag you found on that platform",
      "appeal":"one line on what's most appealing about this specific content (hook, format, why it spreads)"
  }],
- "mentions52w":[52 integers oldest→newest — a directional weekly mention index (0-100) tracing this trend's trajectory over the past year, so its size and momentum are visible],
+ "trend":"surging"|"rising"|"steady"|"cooling"|"declining"  (its trajectory over the past ~12 months),
+ "mentionsNow":0-100 (roughly how big the conversation is right now relative to its own yearly peak),
  "src":"one public source URL"
 }
 Only real, current trends you can source. Prefer tiktok.com / instagram.com links for the examples.`;
 
   const txt = await anthropic({
     model: MODEL,
-    max_tokens: 4000,
+    max_tokens: 8000,
     messages: [{ role: "user", content: prompt }],
-    tools: [{ type: SEARCH_TOOL, name: "web_search", max_uses: 8 }],
+    tools: [{ type: SEARCH_TOOL, name: "web_search", max_uses: 6 }],
   });
 
-  return parseJSONArray(txt).map(x => ({
-    type,
-    lbl: String(x.lbl || "—").slice(0, 40),
-    title: String(x.title || "Untitled trend"),
-    summary: String(x.summary || ""),
-    platforms: (Array.isArray(x.platforms) ? x.platforms : []).filter(p =>
-      ["tiktok","instagram","facebook","reddit","youtube","x"].includes(p)),
-    signal: Math.min(99, Math.max(40, parseInt(x.signal) || 60)),
-    sent: ["pos","neg","neu","mix"].includes(x.sent) ? x.sent : "neu",
-    respond: !!x.respond,
-    brands: normalizeBrands(x.brands, type),
-    angle: String(x.angle || ""),
-    response: String(x.response || x.angle || ""),
-    examples: normalizeExamples(x.examples),
-    mentions52w: normalizeSeries(x.mentions52w),
-    src: String(x.src || ""),
-  }));
+  return parseJSONArray(txt).map(x => {
+    const signal = Math.min(99, Math.max(40, parseInt(x.signal) || 60));
+    return {
+      type,
+      lbl: String(x.lbl || "—").slice(0, 40),
+      title: String(x.title || "Untitled trend"),
+      summary: String(x.summary || ""),
+      platforms: (Array.isArray(x.platforms) ? x.platforms : []).filter(p =>
+        ["tiktok","instagram","facebook","reddit","youtube","x"].includes(p)),
+      signal,
+      sent: ["pos","neg","neu","mix"].includes(x.sent) ? x.sent : "neu",
+      respond: !!x.respond,
+      brands: normalizeBrands(x.brands, type),
+      angle: String(x.angle || ""),
+      response: String(x.response || x.angle || ""),
+      examples: normalizeExamples(x.examples),
+      // Prefer an explicit series if the model provided one; otherwise synthesize
+      // a directional 52-week curve from the trajectory + current volume.
+      mentions52w: Array.isArray(x.mentions52w) && x.mentions52w.length >= 52
+        ? normalizeSeries(x.mentions52w)
+        : synthSeries(String(x.trend || "rising").toLowerCase(), parseInt(x.mentionsNow) || signal, String(x.title||"") + String(x.lbl||"")),
+      src: String(x.src || ""),
+    };
+  });
+}
+
+/* ---- deterministic 52-week series synthesis (directional, not licensed) ---- */
+function hashStr(s){let h=2166136261;for(let i=0;i<s.length;i++){h^=s.charCodeAt(i);h=Math.imul(h,16777619);}return h>>>0;}
+function rng(seed){let s=(seed>>>0)||1;return ()=>{s=(Math.imul(s,1664525)+1013904223)>>>0;return s/4294967296;};}
+function synthSeries(shape, now, seedStr){
+  const r = rng(hashStr(seedStr || "x"));
+  now = Math.max(10, Math.min(100, now || 60));
+  // Where the year started, relative to the current level, per trajectory.
+  const startFactor = {surging:0.22, rising:0.55, steady:0.9, cooling:1.2, declining:1.6}[shape] ?? 0.6;
+  const start = Math.max(4, Math.min(100, now * startFactor));
+  const exp = shape === "surging" ? 2.0 : shape === "rising" ? 1.4 : shape === "declining" ? 1.4 : 1.0;
+  const out = [];
+  for (let i = 0; i < 52; i++) {
+    const base = start + (now - start) * Math.pow(i / 51, exp);
+    const wobble = (r() - 0.5) * now * 0.12;
+    out.push(Math.max(2, Math.min(100, Math.round(base + wobble))));
+  }
+  return out;
 }
 
 // Keep only real TikTok/Instagram-style example links, capped at 3.
