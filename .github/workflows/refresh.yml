@@ -1,0 +1,43 @@
+name: Weekly Signal refresh
+
+on:
+  schedule:
+    - cron: "0 12 * * 1"        # every Monday 12:00 UTC (~7-8am ET)
+  workflow_dispatch:            # lets you run it early from the Actions tab
+
+permissions:
+  contents: write               # allow the job to commit trends.json
+
+concurrency:
+  group: signal-refresh
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Refresh trends
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          # SIGNAL_MODEL: claude-opus-4-8   # optional: override the model
+        run: node scripts/refresh.mjs
+
+      - name: Commit updated data
+        run: |
+          git config user.name  "signal-bot"
+          git config user.email "signal-bot@users.noreply.github.com"
+          git add data/trends.json
+          if git diff --staged --quiet; then
+            echo "No changes this run."
+          else
+            git commit -m "Weekly trends refresh: $(date -u +%Y-%m-%d)"
+            git push
+          fi

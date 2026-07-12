@@ -1,0 +1,248 @@
+{
+  "week": "Jul 12, 2026",
+  "generatedAt": "2026-07-12T18:29:23.081Z",
+  "source": "seed (placeholder — replaced by weekly refresh)",
+  "count": 13,
+  "trends": [
+    {
+      "brands": [
+        "all"
+      ],
+      "type": "landscape",
+      "lbl": "CleanTok",
+      "title": "‘Underconsumption core’ backlash grows",
+      "summary": "Creators reframing cleaning-product haul/restock content as wasteful; ‘use what you have’ framing racking up millions of views.",
+      "platforms": [
+        "tiktok",
+        "instagram"
+      ],
+      "signal": 88,
+      "sent": "mix",
+      "respond": true,
+      "angle": "Portfolio reputational watch-item. Ride the sentiment with value / ‘one bottle does more’ efficacy messaging rather than fighting it.",
+      "src": "https://www.tiktok.com/search?q=underconsumption"
+    },
+    {
+      "brands": [
+        "all"
+      ],
+      "type": "landscape",
+      "lbl": "ASMR",
+      "title": "Restock & refill ASMR still a top format",
+      "summary": "‘Restock my cleaning cabinet’ decant/ASMR remains a dominant home-content format across TikTok and YouTube.",
+      "platforms": [
+        "tiktok",
+        "youtube",
+        "instagram"
+      ],
+      "signal": 74,
+      "sent": "pos",
+      "respond": false,
+      "angle": "Seed refill-friendly / decant-ready packaging moments with cleaning creators.",
+      "src": "https://www.tiktok.com/search?q=cleaning+restock"
+    },
+    {
+      "brands": [
+        "cascade",
+        "dawn"
+      ],
+      "type": "category",
+      "lbl": "Laundry",
+      "title": "‘Laundry stripping’ resurgence",
+      "summary": "Viral before/after soak videos showing ‘hidden dirt’; fuels skepticism about everyday detergent efficacy.",
+      "platforms": [
+        "tiktok",
+        "reddit",
+        "youtube"
+      ],
+      "signal": 79,
+      "sent": "mix",
+      "respond": true,
+      "angle": "Efficacy-defense moment: deep-clean proof demos (Dawn degrease, Cascade food-film removal).",
+      "src": "https://www.reddit.com/search/?q=laundry%20stripping"
+    },
+    {
+      "brands": [
+        "cascade"
+      ],
+      "type": "category",
+      "lbl": "Hard water",
+      "title": "Hard-water spot complaints trending",
+      "summary": "‘Cloudy glasses’ / dishwasher spotting frustration spiking; users blaming detergents and switching brands.",
+      "platforms": [
+        "reddit",
+        "tiktok"
+      ],
+      "signal": 66,
+      "sent": "neg",
+      "respond": true,
+      "angle": "Direct Cascade win: rinse-aid + Platinum spot-protection proof; intercept switchers with a demo.",
+      "src": "https://www.reddit.com/r/CleaningTips/"
+    },
+    {
+      "brands": [
+        "dawn"
+      ],
+      "type": "owned",
+      "lbl": "Dawn",
+      "title": "Ingredient-safety attack recirculating",
+      "summary": "‘Toxic ingredients’ posts targeting dish soaps incl. Dawn; amplified by clean-living creators, offset by wildlife-rescue goodwill.",
+      "platforms": [
+        "tiktok",
+        "instagram",
+        "facebook"
+      ],
+      "signal": 82,
+      "sent": "neg",
+      "respond": true,
+      "angle": "Lean on wildlife-rescue equity + transparent ingredient explainer with a trusted science creator. Do NOT amplify the claim directly.",
+      "src": "https://www.tiktok.com/search?q=dawn+dish+soap+ingredients"
+    },
+    {
+      "brands": [
+        "dawn"
+      ],
+      "type": "owned",
+      "lbl": "Dawn",
+      "title": "Powerwash ‘one-spray’ hacks evergreen",
+      "summary": "Powerwash over-indexes in cleaning-hack content (stovetops, sneakers, patios); strong organic advocacy.",
+      "platforms": [
+        "tiktok",
+        "instagram"
+      ],
+      "signal": 77,
+      "sent": "pos",
+      "respond": false,
+      "angle": "Amplify UGC: creator ‘surprising uses’ series; low cost, high affinity.",
+      "src": "https://www.tiktok.com/search?q=dawn+powerwash+hack"
+    },
+    {
+      "brands": [
+        "mrclean"
+      ],
+      "type": "owned",
+      "lbl": "Mr. Clean",
+      "title": "Magic Eraser ‘what NOT to use it on’ discourse",
+      "summary": "Cautionary content about surfaces it damages (screens, car paint) getting big reach; mix of helpful + alarmist.",
+      "platforms": [
+        "tiktok",
+        "reddit"
+      ],
+      "signal": 63,
+      "sent": "mix",
+      "respond": true,
+      "angle": "Get ahead with an official ‘best uses / avoid’ guide via a trusted cleaning creator; turns caution into usage confidence.",
+      "src": "https://www.reddit.com/r/CleaningTips/"
+    },
+    {
+      "brands": [
+        "febreze"
+      ],
+      "type": "owned",
+      "lbl": "Febreze",
+      "title": "‘Just masks smells’ skepticism persists",
+      "summary": "Recurring critique that air fresheners cover rather than eliminate odor; rivals leaning into ‘natural’ positioning.",
+      "platforms": [
+        "reddit",
+        "tiktok"
+      ],
+      "signal": 58,
+      "sent": "neg",
+      "respond": false,
+      "angle": "Odor-elimination proof (pet/cooking) demos; ‘eliminates vs masks’ mechanism explainer.",
+      "src": "https://www.reddit.com/search/?q=febreze"
+    },
+    {
+      "brands": [
+        "swiffer"
+      ],
+      "type": "owned",
+      "lbl": "Swiffer",
+      "title": "Refill-cost complaints vs reusable mops",
+      "summary": "‘Swiffer is a scam / buy reusable’ value critique steady; reusable-pad dupes promoted heavily.",
+      "platforms": [
+        "tiktok",
+        "reddit"
+      ],
+      "signal": 61,
+      "sent": "neg",
+      "respond": true,
+      "angle": "Value + convenience reframe; WetJet deep-clean demos; consider washable-pad narrative.",
+      "src": "https://www.tiktok.com/search?q=swiffer+worth+it"
+    },
+    {
+      "brands": [
+        "mrclean"
+      ],
+      "type": "competitor",
+      "lbl": "The Pink Stuff",
+      "title": "The Pink Stuff momentum still elevated",
+      "summary": "Cult paste sustains heavy creator adoption for ‘impossible’ stain jobs; strong earned reach, near-zero paid.",
+      "platforms": [
+        "tiktok",
+        "instagram",
+        "youtube"
+      ],
+      "signal": 85,
+      "sent": "pos",
+      "respond": true,
+      "angle": "Direct Magic Eraser overlap. Counter with a heavy-duty head-to-head scrub demo + creator seeding.",
+      "src": "https://www.tiktok.com/search?q=the+pink+stuff"
+    },
+    {
+      "brands": [
+        "febreze",
+        "mrclean"
+      ],
+      "type": "competitor",
+      "lbl": "Hypochlorous acid",
+      "title": "Hypochlorous-acid (HOCl) cleaners surging",
+      "summary": "‘Force of Nature’-style HOCl sprays framed as safe, non-toxic, kid/pet-friendly; fast-growing clean-living challenger.",
+      "platforms": [
+        "tiktok",
+        "instagram"
+      ],
+      "signal": 80,
+      "sent": "pos",
+      "respond": true,
+      "angle": "Emerging threat to multi-surface & air-care. Track claims; prep a ‘proven clean, no compromise’ counter-narrative.",
+      "src": "https://www.tiktok.com/search?q=hypochlorous+acid+cleaner"
+    },
+    {
+      "brands": [
+        "mrclean"
+      ],
+      "type": "competitor",
+      "lbl": "Purple cleaner",
+      "title": "‘Purple cleaner’ dupes targeting Mr. Clean",
+      "summary": "Generic purple multi-surface cleaners positioned as cheaper Mr. Clean alternatives; heavy dupe-culture framing.",
+      "platforms": [
+        "tiktok"
+      ],
+      "signal": 69,
+      "sent": "mix",
+      "respond": false,
+      "angle": "Defend with brand-trust + efficacy proof; monitor pricing/perception gap.",
+      "src": "https://www.tiktok.com/search?q=purple+cleaner"
+    },
+    {
+      "brands": [
+        "cascade",
+        "dawn"
+      ],
+      "type": "competitor",
+      "lbl": "Blueland",
+      "title": "Refill-tablet sustainability push",
+      "summary": "Tablet & concentrate brands leaning on plastic-reduction; resonates with ‘underconsumption’ sentiment.",
+      "platforms": [
+        "instagram",
+        "tiktok"
+      ],
+      "signal": 64,
+      "sent": "pos",
+      "respond": false,
+      "angle": "Watch sustainability perception gap vs P&G refill efforts; message accordingly.",
+      "src": "https://www.instagram.com/explore/tags/blueland/"
+    }
+  ]
+}
