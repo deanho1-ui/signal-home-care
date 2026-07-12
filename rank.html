@@ -1,0 +1,418 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Signal — Retail Search Rank · Dawn on Amazon &amp; Walmart</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0d1522; --ink-2:#121c2e; --ink-3:#18253b;
+    --line:#243349; --paper:#eef3fb; --paper-dim:#9fb0c7; --paper-faint:#66788f;
+    --cyan:#4fd6d0; --cyan-deep:#1f8f8a;
+    --amber:#f6b445; --amber-deep:#8a5c12;
+    --pos:#57c98a; --neg:#f0736b; --neu:#8aa0bd;
+    --dawn:#3d7fe0; --dawn-deep:#1f4f9c;
+    --accent:var(--dawn);
+    --radius:14px;
+    --shadow:0 1px 0 rgba(255,255,255,.03), 0 18px 40px -24px rgba(0,0,0,.7);
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;height:100%}
+  body{
+    background:
+      radial-gradient(1200px 600px at 80% -10%, rgba(61,127,224,.10), transparent 60%),
+      radial-gradient(900px 500px at -5% 110%, rgba(246,180,69,.05), transparent 55%),
+      var(--ink);
+    color:var(--paper);
+    font-family:"Inter",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+    -webkit-font-smoothing:antialiased; line-height:1.5;
+  }
+  .wrap{max-width:1160px;margin:0 auto;padding:22px 20px 80px}
+  a{color:var(--accent);text-decoration:none} a:hover{text-decoration:underline}
+  button{font-family:inherit;cursor:pointer}
+  h1,h2,h3{font-family:"Space Grotesk",sans-serif;margin:0}
+
+  header.top{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:16px}
+  .brand{display:flex;align-items:center;gap:14px}
+  .mark{width:38px;height:38px;position:relative;flex:0 0 auto}
+  .mark span{position:absolute;inset:0;border:2px solid var(--accent);border-radius:50%;opacity:.25}
+  .mark span:nth-child(2){inset:6px;opacity:.5}
+  .mark span:nth-child(3){inset:12px;opacity:1;background:var(--accent);border:none}
+  .brand h1{font-size:22px;letter-spacing:.5px;font-weight:700}
+  .brand .sub{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--paper-faint);font-family:"Space Grotesk";margin-top:2px}
+  .stamp{display:flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:flex-end}
+  .pill{font-family:"Space Grotesk";font-size:12px;color:var(--paper-dim);border:1px solid var(--line);background:var(--ink-2);padding:7px 12px;border-radius:999px;display:inline-flex;align-items:center;gap:8px}
+  .pill .dot{width:7px;height:7px;border-radius:50%;background:var(--pos);box-shadow:0 0 8px var(--pos)}
+  .pill b{color:var(--paper);font-weight:600}
+
+  /* top nav between the two tools */
+  .nav{display:flex;gap:8px;margin:2px 0 16px}
+  .nav a{font-family:"Space Grotesk";font-size:13px;font-weight:600;color:var(--paper-dim);border:1px solid var(--line);background:var(--ink-2);padding:8px 14px;border-radius:10px;display:inline-flex;align-items:center;gap:8px}
+  .nav a:hover{border-color:var(--paper-faint);text-decoration:none}
+  .nav a.on{color:var(--paper);border-color:var(--accent);background:var(--ink-3)}
+
+  /* scorecard KPI strip */
+  .board{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-bottom:16px}
+  @media(max-width:860px){.board{grid-template-columns:repeat(2,1fr)}}
+  .kpi{background:var(--ink-2);border:1px solid var(--line);border-radius:var(--radius);padding:14px 15px;box-shadow:var(--shadow);position:relative}
+  .kpi .kl{font-family:"Space Grotesk";font-size:9.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--paper-faint)}
+  .kpi .kv{font-family:"Space Grotesk";font-weight:700;font-size:30px;line-height:1.1;margin-top:6px;display:flex;align-items:baseline;gap:6px}
+  .kpi .kv small{font-size:14px;font-weight:600;color:var(--paper-dim)}
+  .kpi .kd{font-family:"Space Grotesk";font-size:12px;font-weight:600;margin-top:5px;display:inline-flex;align-items:center;gap:5px}
+  .kd.up{color:var(--pos)} .kd.dn{color:var(--neg)} .kd.flat{color:var(--paper-faint)}
+  .kpi .ksub{font-size:11px;color:var(--paper-faint);margin-top:2px}
+
+  /* filters */
+  .filters{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+  .seg{display:inline-flex;border:1px solid var(--line);border-radius:10px;overflow:hidden}
+  .seg button{background:transparent;border:none;color:var(--paper-dim);padding:8px 14px;font-size:12.5px;font-weight:600;border-right:1px solid var(--line)}
+  .seg button:last-child{border-right:none}
+  .seg button.on{background:var(--ink-3);color:var(--paper)}
+  .chip{border:1px solid var(--line);background:transparent;color:var(--paper-dim);padding:7px 12px;border-radius:999px;font-size:12px;font-weight:600;display:inline-flex;align-items:center;gap:6px}
+  .chip.on{background:var(--ink-3);color:var(--amber);border-color:var(--amber)}
+  .spacer{flex:1}
+  .count{font-size:12px;color:var(--paper-faint);font-family:"Space Grotesk"}
+
+  /* term cards */
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  @media(max-width:820px){.grid{grid-template-columns:1fr}}
+  .card{background:var(--ink-2);border:1px solid var(--line);border-radius:var(--radius);padding:16px;box-shadow:var(--shadow);position:relative;display:flex;flex-direction:column;gap:12px}
+  .card::before{content:"";position:absolute;left:0;top:14px;bottom:14px;width:3px;border-radius:2px;background:var(--rail,transparent)}
+  .card.win{--rail:var(--dawn)} .card.hold{--rail:var(--pos)} .card.gap{--rail:var(--amber)} .card.out{--rail:var(--neg)}
+  .c-head{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+  .term{font-family:"Space Grotesk";font-weight:600;font-size:17px;line-height:1.2}
+  .rtag{font-family:"Space Grotesk";font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--paper-dim);border:1px solid var(--line);border-radius:6px;padding:3px 7px;display:inline-flex;align-items:center;gap:5px;margin-top:6px}
+  .rtag .rd{width:7px;height:7px;border-radius:2px}
+  .rtag.amazon .rd{background:#ff9900} .rtag.walmart .rd{background:#0071dc}
+
+  .posbox{display:flex;align-items:center;gap:14px}
+  .bigpos{font-family:"Space Grotesk";font-weight:700;line-height:1;display:flex;align-items:baseline;gap:3px}
+  .bigpos .hash{font-size:16px;color:var(--paper-faint);font-weight:600}
+  .bigpos .n{font-size:40px}
+  .bigpos.p1 .n{color:var(--dawn)} .bigpos.p2-4 .n{color:var(--pos)} .bigpos.p5 .n{color:var(--amber)} .bigpos.pna .n{color:var(--neg);font-size:26px}
+  .posmeta{display:flex;flex-direction:column;gap:4px}
+  .badge{font-family:"Space Grotesk";font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:4px 8px;border-radius:7px;width:max-content}
+  .badge.t4{color:var(--pos);border:1px solid rgba(87,201,138,.4);background:rgba(87,201,138,.08)}
+  .badge.no{color:var(--amber);border:1px solid var(--amber-deep);background:rgba(246,180,69,.08)}
+  .badge.out{color:var(--neg);border:1px solid rgba(240,115,107,.4);background:rgba(240,115,107,.08)}
+  .lead{font-size:12px;color:var(--paper-dim)}
+  .lead b{color:var(--paper)}
+
+  /* top-4 slot ladder */
+  .slots{display:flex;flex-direction:column;gap:5px}
+  .slotlab{font-family:"Space Grotesk";font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--paper-faint)}
+  .slot{display:flex;align-items:center;gap:9px;border:1px solid var(--line);background:var(--ink-3);border-radius:8px;padding:6px 10px}
+  .slot.dawn{border-color:var(--dawn-deep);background:rgba(61,127,224,.09)}
+  .slot .rk{font-family:"Space Grotesk";font-weight:700;font-size:12px;color:var(--paper-faint);width:20px}
+  .slot.dawn .rk{color:var(--dawn)}
+  .slot .bn{font-size:13px;font-weight:600;color:var(--paper)}
+  .slot .own{margin-left:auto;font-family:"Space Grotesk";font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--dawn);border:1px solid var(--dawn-deep);border-radius:5px;padding:2px 6px}
+
+  /* rank-over-time */
+  .trendrow{display:flex;align-items:center;gap:10px}
+  .trendrow .lab{font-family:"Space Grotesk";font-size:9.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--paper-faint);line-height:1.25;flex:0 0 auto;width:56px}
+  .rankspark{flex:1;min-width:0;height:44px;display:block}
+  .delta{font-family:"Space Grotesk";font-weight:600;font-size:12px;white-space:nowrap;flex:0 0 auto;text-align:right}
+  .delta small{display:block;font-size:9px;font-weight:500;color:var(--paper-faint);letter-spacing:.04em}
+  .delta.up{color:var(--pos)} .delta.dn{color:var(--neg)} .delta.flat{color:var(--paper-faint)}
+
+  /* recommendation */
+  .rec{background:rgba(61,127,224,.06);border:1px solid var(--dawn-deep);border-radius:10px;padding:10px 12px}
+  .rec.alert{background:rgba(246,180,69,.06);border-color:var(--amber-deep)}
+  .rec .lab{font-family:"Space Grotesk";font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:3px}
+  .rec.alert .lab{color:var(--amber)}
+  .rec p{margin:0;font-size:12.5px;color:var(--paper);line-height:1.45}
+
+  .c-foot{display:flex;gap:8px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:11px;align-items:center}
+  .mini{border:1px solid var(--line);background:var(--ink-3);color:var(--paper-dim);padding:6px 10px;border-radius:9px;font-size:12px;font-weight:600}
+  .mini:hover{border-color:var(--accent);color:var(--paper)}
+  .full{display:none;flex-direction:column;gap:3px;margin-top:2px}
+  .full.on{display:flex}
+  .frow{display:flex;align-items:center;gap:8px;font-size:12px;padding:4px 8px;border-radius:7px}
+  .frow.dawn{background:rgba(61,127,224,.08)}
+  .frow .fp{font-family:"Space Grotesk";font-weight:700;color:var(--paper-faint);width:18px}
+  .frow.dawn .fp{color:var(--dawn)}
+  .frow .fprod{color:var(--paper-dim);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .frow .fsp{margin-left:auto;font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:var(--amber)}
+
+  /* recommendations panel */
+  .panel{background:var(--ink-2);border:1px solid var(--line);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow);margin-top:22px}
+  .panel h2{font-size:16px;display:flex;align-items:center;gap:9px}
+  .panel .psub{font-size:12px;color:var(--paper-faint);margin:3px 0 14px}
+  .recs{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  @media(max-width:820px){.recs{grid-template-columns:1fr}}
+  .ritem{border:1px solid var(--line);background:var(--ink-3);border-radius:11px;padding:13px 14px;display:flex;gap:12px}
+  .rnum{font-family:"Space Grotesk";font-weight:700;font-size:15px;color:var(--dawn);border:1px solid var(--dawn-deep);border-radius:9px;width:30px;height:30px;flex:0 0 auto;display:flex;align-items:center;justify-content:center}
+  .rbody{min-width:0}
+  .rt{font-family:"Space Grotesk";font-weight:600;font-size:14px}
+  .rd2{font-size:12.5px;color:var(--paper-dim);margin-top:4px;line-height:1.45}
+  .rmeta{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px;align-items:center}
+  .tagsm{font-size:10px;font-family:"Space Grotesk";letter-spacing:.03em;color:var(--paper-dim);border:1px solid var(--line);border-radius:6px;padding:2px 7px}
+  .ie{font-family:"Space Grotesk";font-size:9px;letter-spacing:.08em;text-transform:uppercase;padding:2px 7px;border-radius:6px;font-weight:700}
+  .ie.impact-high{color:var(--pos);border:1px solid rgba(87,201,138,.4)} .ie.impact-med{color:var(--amber)} .ie.impact-low{color:var(--paper-faint);border:1px solid var(--line)}
+  .ie.effort-low{color:var(--pos)} .ie.effort-med{color:var(--paper-dim)} .ie.effort-high{color:var(--neg)}
+
+  .note{font-size:11.5px;color:var(--paper-faint);text-align:center;margin-top:26px;line-height:1.6}
+  .empty{grid-column:1/-1;text-align:center;padding:56px 20px;color:var(--paper-faint)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div class="brand">
+      <div class="mark"><span></span><span></span><span></span></div>
+      <div><h1>Signal · Search Rank</h1><div class="sub">Dawn organic rank · Amazon &amp; Walmart.com</div></div>
+    </div>
+    <div class="stamp">
+      <span class="pill"><span class="dot"></span> Updated <b id="stamp">—</b> · refreshes hourly</span>
+    </div>
+  </header>
+
+  <nav class="nav">
+    <a href="index.html">Social Trends</a>
+    <a href="rank.html" class="on">Retail Search Rank</a>
+  </nav>
+
+  <div class="board" id="board"></div>
+
+  <div class="filters">
+    <div class="seg" id="retSeg"></div>
+    <button class="chip" id="oppChip">▲ Opportunities only</button>
+    <div class="spacer"></div>
+    <span class="count" id="count"></span>
+  </div>
+
+  <div class="grid" id="grid"></div>
+
+  <div class="panel">
+    <h2>◆ How to raise Dawn's organic rank</h2>
+    <p class="psub" id="recSub">Prioritized levers, synthesized from the current audit — top-4 slots first.</p>
+    <div class="recs" id="recs"></div>
+  </div>
+
+  <p class="note" id="note"></p>
+</div>
+
+<script>
+/* ============================================================
+   Signal · Retail Search Rank. Loads data/ranks.json (snapshot,
+   written hourly by the GitHub Action) + data/rank-history.json
+   (time series). Falls back to embedded seed.
+   ============================================================ */
+
+const RET = { amazon:{name:"Amazon",dot:"#ff9900"}, walmart:{name:"Walmart.com",dot:"#0071dc"} };
+const RANK_MAX = 8;   // rank scale for the sparkline (worse ranks clamp here)
+const MISS = RANK_MAX + 1;
+
+/* ---- embedded seed fallback (replaced by the hourly refresh) ---- */
+const SEED = {"updated":"Jul 12, 5:00 PM EDT (seed)","scorecard":{"amazon":{"terms":8,"number1":7,"inTop4":7,"avgBest":1,"top4Share":47},"walmart":{"terms":8,"number1":4,"inTop4":7,"avgBest":1.4,"top4Share":47}},"retailers":[{"id":"amazon","name":"Amazon","domain":"amazon.com"},{"id":"walmart","name":"Walmart.com","domain":"walmart.com"}],"terms":["dish soap","dawn dish soap","dish detergent","dishwashing liquid","liquid dish soap","dish soap for grease","dishwasher soap","dawn powerwash"],"rows":[{"term":"dish soap","retailer":"amazon","dawnBestPos":1,"dawnInTop4":true,"dawnCount":3,"top4":[{"brand":"Dawn","isDawn":true},{"brand":"Dawn","isDawn":true},{"brand":"Palmolive","isDawn":false},{"brand":"Amazon Basics","isDawn":false}],"leader":"Dawn","recommendation":"Fold high-volume generic keywords ('dish soap','grease cutting dish soap') into the Powerwash title + backend terms so it stops losing the head term to the Ultra parent listing.","results":[{"pos":1,"brand":"Dawn","product":"Dawn Ultra Dishwashing Liquid, Original, 56 oz","isDawn":true,"sponsored":false},{"pos":2,"brand":"Dawn","product":"Dawn Powerwash Spray, Fresh Scent","isDawn":true,"sponsored":false},{"pos":3,"brand":"Palmolive","product":"Palmolive Ultra Strength Liquid, 32.5 oz","isDawn":false,"sponsored":false},{"pos":4,"brand":"Amazon Basics","product":"Amazon Basics Dish Soap, Fresh Scent","isDawn":false,"sponsored":false},{"pos":5,"brand":"Seventh Generation","product":"Seventh Generation Dish Liquid, Free & Clear","isDawn":false,"sponsored":false},{"pos":6,"brand":"Method","product":"Method Gel Dish Soap, Clementine","isDawn":false,"sponsored":false},{"pos":7,"brand":"Dawn","product":"Dawn Platinum Dishwashing Liquid","isDawn":true,"sponsored":false},{"pos":8,"brand":"Ajax","product":"Ajax Ultra Dish Liquid, Lemon","isDawn":false,"sponsored":false}]},{"term":"dawn dish soap","retailer":"amazon","dawnBestPos":1,"dawnInTop4":true,"dawnCount":6,"top4":[{"brand":"Dawn","isDawn":true},{"brand":"Dawn","isDawn":true},{"brand":"Dawn","isDawn":true},{"brand":"Dawn","isDawn":true}],"leader":"Dawn","recommendation":"Consolidate scattered Dawn child ASINs under one review-rich parent so review count concentrates and Dawn owns the full top-4 for its own branded term.","results":[{"pos":1,"brand":"Dawn","product":"Dawn Ultra Dishwashing Liquid, Original","isDawn":true,"sponsored":false},{"pos":2,"brand":"Dawn","product":"Dawn Powerwash Dish Spray Starter Kit","isDawn":true,"sponsored":false},{"pos":3,"brand":"Dawn","product":"Dawn Platinum Dishwashing Liquid, Refreshing Rain","isDawn":true,"sponsored":false},{"pos":4,"brand":"Dawn","product":"Dawn EZ-Squeeze Dishwashing Liquid","isDawn":true,"sponsored":false},{"pos":5,"brand":"Dawn","product":"Dawn Free & Clear Dish Soap","isDawn":true,"sponsored":false},{"pos":6,"brand":"Palmolive","product":"Palmolive Ultra Liquid","isDawn":false,"sponsored":false},{"pos":7,"brand":"Dawn","product":"Dawn Simply Clean Dish Soap","isDawn":true,"sponsored":false},{"pos":8,"brand":"Amazon Basics","product":"Amazon Basics Dish Soap","isDawn":false,"sponsored":false}]},{"term":"dish detergent","retailer":"amazon","dawnBestPos":1,"dawnInTop4":true,"dawnCount":2,"top4":[{"brand":"Dawn","isDawn":true},{"brand":"Palmolive","isDawn":false},{"brand":"Cascade","isDawn":false},{"brand":"Finish","isDawn":false}],"leader":"Dawn","recommendation":"Add 'dish detergent' as a backend search term on Dawn Ultra and A+ compare-chart it against Palmolive/Cascade to defend the ambiguous head term.","results":[{"pos":1,"brand":"Dawn","product":"Dawn Ultra Dishwashing Liquid Dish Soap","isDawn":true,"sponsored":false},{"pos":2,"brand":"Palmolive","product":"Palmolive Ultra Dish Liquid","isDawn":false,"sponsored":false},{"pos":3,"brand":"Cascade","product":"Cascade Platinum ActionPacs","isDawn":false,"sponsored":false},{"pos":4,"brand":"Finish","product":"Finish Powerball Dishwasher Detergent","isDawn":false,"sponsored":false},{"pos":5,"brand":"Dawn","product":"Dawn Powerwash Spray","isDawn":true,"sponsored":false},{"pos":6,"brand":"Amazon Basics","product":"Amazon Basics Dishwasher Detergent Pacs","isDawn":false,"sponsored":false},{"pos":7,"brand":"Seventh Generation","product":"Seventh Generation Dish Liquid","isDawn":false,"sponsored":false},{"pos":8,"brand":"Method","product":"Method Dish Soap","isDawn":false,"sponsored":false}]},{"term":"dishwashing liquid","retailer":"amazon","dawnBestPos":1,"dawnInTop4":true,"dawnCount":2,"top4":[{"brand":"Dawn","isDawn":true},{"brand":"Palmolive","isDawn":false},{"brand":"Ajax","isDawn":false},{"brand":"Seventh Generation","isDawn":false}],"leader":"Dawn","recommendation":"Push review velocity (Vine + Subscribe & Save) on Dawn Ultra to widen the ratings gap over Palmolive and lock organic #1.","results":[{"pos":1,"brand":"Dawn","product":"Dawn Ultra Dishwashing Liquid, Original","isDawn":true,"sponsored":false},{"pos":2,"brand":"Palmolive","product":"Palmolive Ultra Strength Liquid","isDawn":false,"sponsored":false},{"pos":3,"brand":"Ajax","product":"Ajax Ultra Triple Action Liquid","isDawn":false,"sponsored":false},{"pos":4,"brand":"Seventh Generation","product":"Seventh Generation Dish Liquid","isDawn":false,"sponsored":false},{"pos":5,"brand":"Dawn","product":"Dawn Platinum Dishwashing Liquid","isDawn":true,"sponsored":false},{"pos":6,"brand":"Method","product":"Method Gel Dish Soap","isDawn":false,"sponsored":false},{"pos":7,"brand":"Mrs. Meyer's","product":"Mrs. Meyer's Clean Day Dish Soap","isDawn":false,"sponsored":false},{"pos":8,"brand":"Amazon Basics","product":"Amazon Basics Dish Soap","isDawn":false,"sponsored":false}]},{"term":"liquid dish soap","retailer":"amazon","dawnBestPos":1,"dawnInTop4":true,"dawnCount":2,"top4":[{"brand":"Dawn","isDawn":true},{"brand":"Palmolive","isDawn":false},{"brand":"Method","isDawn":false},{"brand":"Mrs. Meyer's","isDawn":false}],"leader":"Dawn","recommendation":"Improve main-image + first-3-bullets conversion so click-through beats Great Value/Palmolive; conversion is the biggest organic-rank lever here.","results":[{"pos":1,"brand":"Dawn","product":"Dawn Ultra Dishwashing Liquid","isDawn":true,"sponsored":false},{"pos":2,"brand":"Palmolive","product":"Palmolive Ultra Liquid","isDawn":false,"sponsored":false},{"pos":3,"brand":"Method","product":"Method Gel Dish Soap, Clementine","isDawn":false,"sponsored":false},{"pos":4,"brand":"Mrs. Meyer's","product":"Mrs. Meyer's Clean Day Dish Soap, Lemon Verbena","isDawn":false,"sponsored":false},{"pos":5,"brand":"Dawn","product":"Dawn Powerwash Spray","isDawn":true,"sponsored":false},{"pos":6,"brand":"Seventh Generation","product":"Seventh Generation Dish Liquid","isDawn":false,"sponsored":false},{"pos":7,"brand":"Blueland","product":"Blueland Dish Soap Starter Set","isDawn":false,"sponsored":false},{"pos":8,"brand":"Ajax","product":"Ajax Ultra Dish Liquid","isDawn":false,"sponsored":false}]},{"term":"dish soap for grease","retailer":"amazon","dawnBestPos":1,"dawnInTop4":true,"dawnCount":3,"top4":[{"brand":"Dawn","isDawn":true},{"brand":"Dawn","isDawn":true},{"brand":"Palmolive","isDawn":false},{"brand":"Krud Kutter","isDawn":false}],"leader":"Dawn","recommendation":"Own the 'grease' intent: lead the Powerwash title with 'Cuts Grease', add a grease before/after A+ module and a 15s degrease video.","results":[{"pos":1,"brand":"Dawn","product":"Dawn Powerwash Dish Spray, Fresh Scent","isDawn":true,"sponsored":false},{"pos":2,"brand":"Dawn","product":"Dawn Ultra Dishwashing Liquid, Original Scent","isDawn":true,"sponsored":false},{"pos":3,"brand":"Palmolive","product":"Palmolive Ultra Strength Grease-Cutting Liquid","isDawn":false,"sponsored":false},{"pos":4,"brand":"Krud Kutter","product":"Krud Kutter Original Cleaner Degreaser","isDawn":false,"sponsored":false},{"pos":5,"brand":"Dawn","product":"Dawn Platinum Powerwash","isDawn":true,"sponsored":false},{"pos":6,"brand":"Ajax","product":"Ajax Super Degreaser Dish Liquid","isDawn":false,"sponsored":false},{"pos":7,"brand":"Method","product":"Method Heavy Duty Degreaser","isDawn":false,"sponsored":false},{"pos":8,"brand":"Zep","product":"Zep Fast 505 Cleaner & Degreaser","isDawn":false,"sponsored":false}]},{"term":"dishwasher soap","retailer":"amazon","dawnBestPos":null,"dawnInTop4":false,"dawnCount":0,"top4":[{"brand":"Cascade","isDawn":false},{"brand":"Finish","isDawn":false},{"brand":"Cascade","isDawn":false},{"brand":"Amazon Basics","isDawn":false}],"leader":"Cascade","recommendation":"Dawn does not compete here (auto-dishwasher intent = Cascade/Finish). Either cede it or run a small Sponsored bridge for Dawn Powerwash on 'stuck-on grease' shoppers; do not chase organic.","results":[{"pos":1,"brand":"Cascade","product":"Cascade Platinum Plus ActionPacs Dishwasher Detergent","isDawn":false,"sponsored":false},{"pos":2,"brand":"Finish","product":"Finish Powerball Quantum Dishwasher Tabs","isDawn":false,"sponsored":false},{"pos":3,"brand":"Cascade","product":"Cascade Complete ActionPacs","isDawn":false,"sponsored":false},{"pos":4,"brand":"Amazon Basics","product":"Amazon Basics Dishwasher Detergent Pacs","isDawn":false,"sponsored":false},{"pos":5,"brand":"Finish","product":"Finish Ultimate Plus Dishwasher Detergent","isDawn":false,"sponsored":false},{"pos":6,"brand":"Seventh Generation","product":"Seventh Generation Dishwasher Packs","isDawn":false,"sponsored":false},{"pos":7,"brand":"Cascade","product":"Cascade Free & Clear ActionPacs","isDawn":false,"sponsored":false},{"pos":8,"brand":"Great Value","product":"Great Value Automatic Dishwasher Pacs","isDawn":false,"sponsored":false}]},{"term":"dawn powerwash","retailer":"amazon","dawnBestPos":1,"dawnInTop4":true,"dawnCount":6,"top4":[{"brand":"Dawn","isDawn":true},{"brand":"Dawn","isDawn":true},{"brand":"Dawn","isDawn":true},{"brand":"Dawn","isDawn":true}],"leader":"Dawn","recommendation":"Protect the branded term: keep the Starter Kit as the review-anchored parent, tighten refill variation naming, and defensive-bid Sponsored so no competitor buys the top slot.","results":[{"pos":1,"brand":"Dawn","product":"Dawn Powerwash Dish Spray, Fresh Scent, Starter Kit","isDawn":true,"sponsored":false},{"pos":2,"brand":"Dawn","product":"Dawn Powerwash Dish Spray Refill, 2-pack","isDawn":true,"sponsored":false},{"pos":3,"brand":"Dawn","product":"Dawn Powerwash Apple Scent Spray","isDawn":true,"sponsored":false},{"pos":4,"brand":"Dawn","product":"Dawn Ultra Powerwash Free","isDawn":true,"sponsored":false},{"pos":5,"brand":"Dawn","product":"Dawn Powerwash Citrus Scent","isDawn":true,"sponsored":false},{"pos":6,"brand":"Dawn","product":"Dawn Powerwash Away Refill Bundle","isDawn":true,"sponsored":false},{"pos":7,"brand":"Palmolive","product":"Palmolive Dish Spray","isDawn":false,"sponsored":false},{"pos":8,"brand":"Method","product":"Method Foaming Dish Soap","isDawn":false,"sponsored":false}]},{"term":"dish soap","retailer":"walmart","dawnBestPos":2,"dawnInTop4":true,"dawnCount":3,"top4":[{"brand":"Great Value","isDawn":false},{"brand":"Dawn","isDawn":true},{"brand":"Dawn","isDawn":true},{"brand":"Palmolive","isDawn":false}],"leader":"Great Value","recommendation":"Fold high-volume generic keywords ('dish soap','grease cutting dish soap') into the Powerwash title + backend terms so it stops losing the head term to the Ultra parent listing.","results":[{"pos":1,"brand":"Great Value","product":"Great Value Ultra Concentrated Dish Liquid, Original","isDawn":false,"sponsored":false},{"pos":2,"brand":"Dawn","product":"Dawn Ultra Dishwashing Liquid, Original, 56 oz","isDawn":true,"sponsored":false},{"pos":3,"brand":"Dawn","product":"Dawn Powerwash Dish Spray, Fresh Scent","isDawn":true,"sponsored":false},{"pos":4,"brand":"Palmolive","product":"Palmolive Ultra Strength Liquid","isDawn":false,"sponsored":false},{"pos":5,"brand":"Ajax","product":"Ajax Ultra Dish Liquid","isDawn":false,"sponsored":false},{"pos":6,"brand":"Dawn","product":"Dawn Platinum Dishwashing Liquid","isDawn":true,"sponsored":false},{"pos":7,"brand":"Gain","product":"Gain Ultra Dishwashing Liquid, Original","isDawn":false,"sponsored":false},{"pos":8,"brand":"Method","product":"Method Gel Dish Soap","isDawn":false,"sponsored":false}]},{"term":"dawn dish soap","retailer":"walmart","dawnBestPos":1,"dawnInTop4":true,"dawnCount":7,"top4":[{"brand":"Dawn","isDawn":true},{"brand":"Dawn","isDawn":true},{"brand":"Dawn","isDawn":true},{"brand":"Dawn","isDawn":true}],"leader":"Dawn","recommendation":"Consolidate scattered Dawn child ASINs under one review-rich parent so review count concentrates and Dawn owns the full top-4 for its own branded term.","results":[{"pos":1,"brand":"Dawn","product":"Dawn Ultra Dishwashing Liquid, Original","isDawn":true,"sponsored":false},{"pos":2,"brand":"Dawn","product":"Dawn Powerwash Dish Spray, Fresh Scent","isDawn":true,"sponsored":false},{"pos":3,"brand":"Dawn","product":"Dawn Platinum Dishwashing Liquid","isDawn":true,"sponsored":false},{"pos":4,"brand":"Dawn","product":"Dawn EZ-Squeeze Dishwashing Liquid, Original","isDawn":true,"sponsored":false},{"pos":5,"brand":"Dawn","product":"Dawn Free & Clear Dishwashing Liquid","isDawn":true,"sponsored":false},{"pos":6,"brand":"Great Value","product":"Great Value Dish Liquid, Original","isDawn":false,"sponsored":false},{"pos":7,"brand":"Dawn","product":"Dawn Simply Clean Dishwashing Liquid","isDawn":true,"sponsored":false},{"pos":8,"brand":"Dawn","product":"Dawn Platinum Powerwash","isDawn":true,"sponsored":false}]},{"term":"dish detergent","retailer":"walmart","dawnBestPos":2,"dawnInTop4":true,"dawnCount":2,"top4":[{"brand":"Great Value","isDawn":false},{"brand":"Dawn","isDawn":true},{"brand":"Palmolive","isDawn":false},{"brand":"Cascade","isDawn":false}],"leader":"Great Value","recommendation":"Add 'dish detergent' as a backend search term on Dawn Ultra and A+ compare-chart it against Palmolive/Cascade to defend the ambiguous head term.","results":[{"pos":1,"brand":"Great Value","product":"Great Value Ultra Dish Liquid","isDawn":false,"sponsored":false},{"pos":2,"brand":"Dawn","product":"Dawn Ultra Dishwashing Liquid Dish Soap","isDawn":true,"sponsored":false},{"pos":3,"brand":"Palmolive","product":"Palmolive Ultra Dish Liquid","isDawn":false,"sponsored":false},{"pos":4,"brand":"Cascade","product":"Cascade Complete Dishwasher Detergent","isDawn":false,"sponsored":false},{"pos":5,"brand":"Dawn","product":"Dawn Powerwash Spray","isDawn":true,"sponsored":false},{"pos":6,"brand":"Finish","product":"Finish Powerball Tabs","isDawn":false,"sponsored":false},{"pos":7,"brand":"Gain","product":"Gain Dishwashing Liquid","isDawn":false,"sponsored":false},{"pos":8,"brand":"Ajax","product":"Ajax Ultra Dish Liquid","isDawn":false,"sponsored":false}]},{"term":"dishwashing liquid","retailer":"walmart","dawnBestPos":1,"dawnInTop4":true,"dawnCount":2,"top4":[{"brand":"Dawn","isDawn":true},{"brand":"Great Value","isDawn":false},{"brand":"Palmolive","isDawn":false},{"brand":"Ajax","isDawn":false}],"leader":"Dawn","recommendation":"Push review velocity (Vine + Subscribe & Save) on Dawn Ultra to widen the ratings gap over Palmolive and lock organic #1.","results":[{"pos":1,"brand":"Dawn","product":"Dawn Ultra Dishwashing Liquid, Original","isDawn":true,"sponsored":false},{"pos":2,"brand":"Great Value","product":"Great Value Ultra Concentrated Dish Liquid","isDawn":false,"sponsored":false},{"pos":3,"brand":"Palmolive","product":"Palmolive Ultra Strength Liquid","isDawn":false,"sponsored":false},{"pos":4,"brand":"Ajax","product":"Ajax Ultra Triple Action Liquid","isDawn":false,"sponsored":false},{"pos":5,"brand":"Dawn","product":"Dawn Platinum Dishwashing Liquid","isDawn":true,"sponsored":false},{"pos":6,"brand":"Gain","product":"Gain Ultra Dishwashing Liquid","isDawn":false,"sponsored":false},{"pos":7,"brand":"Joy","product":"Joy Non-Ultra Dishwashing Liquid","isDawn":false,"sponsored":false},{"pos":8,"brand":"Method","product":"Method Gel Dish Soap","isDawn":false,"sponsored":false}]},{"term":"liquid dish soap","retailer":"walmart","dawnBestPos":2,"dawnInTop4":true,"dawnCount":2,"top4":[{"brand":"Great Value","isDawn":false},{"brand":"Dawn","isDawn":true},{"brand":"Palmolive","isDawn":false},{"brand":"Gain","isDawn":false}],"leader":"Great Value","recommendation":"Improve main-image + first-3-bullets conversion so click-through beats Great Value/Palmolive; conversion is the biggest organic-rank lever here.","results":[{"pos":1,"brand":"Great Value","product":"Great Value Ultra Dish Liquid, Original","isDawn":false,"sponsored":false},{"pos":2,"brand":"Dawn","product":"Dawn Ultra Dishwashing Liquid","isDawn":true,"sponsored":false},{"pos":3,"brand":"Palmolive","product":"Palmolive Ultra Liquid","isDawn":false,"sponsored":false},{"pos":4,"brand":"Gain","product":"Gain Ultra Dishwashing Liquid","isDawn":false,"sponsored":false},{"pos":5,"brand":"Dawn","product":"Dawn Powerwash Spray","isDawn":true,"sponsored":false},{"pos":6,"brand":"Method","product":"Method Gel Dish Soap","isDawn":false,"sponsored":false},{"pos":7,"brand":"Ajax","product":"Ajax Ultra Dish Liquid","isDawn":false,"sponsored":false},{"pos":8,"brand":"Mrs. Meyer's","product":"Mrs. Meyer's Clean Day Dish Soap","isDawn":false,"sponsored":false}]},{"term":"dish soap for grease","retailer":"walmart","dawnBestPos":1,"dawnInTop4":true,"dawnCount":3,"top4":[{"brand":"Dawn","isDawn":true},{"brand":"Dawn","isDawn":true},{"brand":"Great Value","isDawn":false},{"brand":"Awesome","isDawn":false}],"leader":"Dawn","recommendation":"Own the 'grease' intent: lead the Powerwash title with 'Cuts Grease', add a grease before/after A+ module and a 15s degrease video.","results":[{"pos":1,"brand":"Dawn","product":"Dawn Powerwash Dish Spray, Fresh Scent","isDawn":true,"sponsored":false},{"pos":2,"brand":"Dawn","product":"Dawn Ultra Dishwashing Liquid, Original Scent","isDawn":true,"sponsored":false},{"pos":3,"brand":"Great Value","product":"Great Value Ultra Grease-Cutting Dish Liquid","isDawn":false,"sponsored":false},{"pos":4,"brand":"Awesome","product":"LA's Totally Awesome Degreaser","isDawn":false,"sponsored":false},{"pos":5,"brand":"Palmolive","product":"Palmolive Ultra Strength Grease Fighter","isDawn":false,"sponsored":false},{"pos":6,"brand":"Dawn","product":"Dawn Platinum Powerwash","isDawn":true,"sponsored":false},{"pos":7,"brand":"Ajax","product":"Ajax Super Degreaser Dish Liquid","isDawn":false,"sponsored":false},{"pos":8,"brand":"Zep","product":"Zep Citrus Degreaser","isDawn":false,"sponsored":false}]},{"term":"dishwasher soap","retailer":"walmart","dawnBestPos":null,"dawnInTop4":false,"dawnCount":0,"top4":[{"brand":"Cascade","isDawn":false},{"brand":"Finish","isDawn":false},{"brand":"Great Value","isDawn":false},{"brand":"Cascade","isDawn":false}],"leader":"Cascade","recommendation":"Dawn does not compete here (auto-dishwasher intent = Cascade/Finish). Either cede it or run a small Sponsored bridge for Dawn Powerwash on 'stuck-on grease' shoppers; do not chase organic.","results":[{"pos":1,"brand":"Cascade","product":"Cascade Complete ActionPacs Dishwasher Detergent","isDawn":false,"sponsored":false},{"pos":2,"brand":"Finish","product":"Finish Powerball Quantum Tabs","isDawn":false,"sponsored":false},{"pos":3,"brand":"Great Value","product":"Great Value Automatic Dishwasher Pacs","isDawn":false,"sponsored":false},{"pos":4,"brand":"Cascade","product":"Cascade Platinum ActionPacs","isDawn":false,"sponsored":false},{"pos":5,"brand":"Finish","product":"Finish Ultimate Plus Dishwasher Detergent","isDawn":false,"sponsored":false},{"pos":6,"brand":"Cascade","product":"Cascade Free & Clear ActionPacs","isDawn":false,"sponsored":false},{"pos":7,"brand":"Seventh Generation","product":"Seventh Generation Dishwasher Packs","isDawn":false,"sponsored":false},{"pos":8,"brand":"Member's Mark","product":"Member's Mark Dishwasher Pacs","isDawn":false,"sponsored":false}]},{"term":"dawn powerwash","retailer":"walmart","dawnBestPos":1,"dawnInTop4":true,"dawnCount":6,"top4":[{"brand":"Dawn","isDawn":true},{"brand":"Dawn","isDawn":true},{"brand":"Dawn","isDawn":true},{"brand":"Dawn","isDawn":true}],"leader":"Dawn","recommendation":"Protect the branded term: keep the Starter Kit as the review-anchored parent, tighten refill variation naming, and defensive-bid Sponsored so no competitor buys the top slot.","results":[{"pos":1,"brand":"Dawn","product":"Dawn Powerwash Dish Spray, Fresh Scent, Starter Kit","isDawn":true,"sponsored":false},{"pos":2,"brand":"Dawn","product":"Dawn Powerwash Dish Spray Refill, 2-pack","isDawn":true,"sponsored":false},{"pos":3,"brand":"Dawn","product":"Dawn Powerwash Apple Scent Spray","isDawn":true,"sponsored":false},{"pos":4,"brand":"Dawn","product":"Dawn Powerwash Citrus","isDawn":true,"sponsored":false},{"pos":5,"brand":"Dawn","product":"Dawn Ultra Powerwash Free & Clear","isDawn":true,"sponsored":false},{"pos":6,"brand":"Great Value","product":"Great Value Foaming Dish Spray","isDawn":false,"sponsored":false},{"pos":7,"brand":"Dawn","product":"Dawn Powerwash Bundle","isDawn":true,"sponsored":false},{"pos":8,"brand":"Palmolive","product":"Palmolive Foaming Dish Spray","isDawn":false,"sponsored":false}]}],"recommendations":[{"priority":1,"title":"Make Powerwash win generic head terms","detail":"Powerwash converts but ranks behind the Ultra parent on 'dish soap' and 'liquid dish soap'. Add the generic head keywords to Powerwash's title and backend search terms and drive Sponsored to it so organic follows the conversion signal.","terms":["dish soap","liquid dish soap","dish soap for grease"],"effort":"low","impact":"high"},{"priority":2,"title":"Consolidate Dawn child ASINs into review-rich parents","detail":"Dawn's review equity is spread across many child listings, weakening any single organic slot. Parent-child roll-ups concentrate ratings and sales rank, lifting the anchor listing on both retailers.","terms":["dawn dish soap","dishwashing liquid"],"effort":"med","impact":"high"},{"priority":3,"title":"Close the Great Value gap on Walmart","detail":"Great Value out-ranks Dawn on Walmart for 'dish soap','liquid dish soap' and 'dish detergent'. Improve Walmart content quality score (imagery, attributes, 3P reviews via Spark) and Walmart Connect sponsored to reclaim slot 1-2.","terms":["dish soap","liquid dish soap","dish detergent"],"effort":"med","impact":"high"},{"priority":4,"title":"Own the 'grease' intent cluster","detail":"Dawn already leads 'dish soap for grease' — extend it by leading titles with 'Cuts Grease', adding grease before/after A+ modules and a short degrease video to defend against Palmolive and private label.","terms":["dish soap for grease","dish soap"],"effort":"low","impact":"med"},{"priority":5,"title":"Lift conversion on the head listings","detail":"Organic rank on Amazon/Walmart is conversion-driven. Refresh main images to comparison-legible packs, tighten the first three bullets to benefit-led copy, and add video to raise CVR on the Ultra and Platinum head ASINs.","terms":["dishwashing liquid","liquid dish soap","dish soap"],"effort":"med","impact":"high"},{"priority":6,"title":"Stop chasing auto-dishwasher terms","detail":"'Dishwasher soap' is auto-dishwasher intent owned by Cascade/Finish; Dawn cannot rank organically and should not try. Redirect that budget to the hand-dish terms where Dawn can hold top-4.","terms":["dishwasher soap"],"effort":"low","impact":"med"}]};
+
+let state = { data:SEED, history:{points:[]}, retailer:"amazon", oppOnly:false, source:"seed" };
+
+async function loadData(){
+  try{
+    const res = await fetch("data/ranks.json",{cache:"no-store"});
+    if(res.ok){ const j = await res.json();
+      if(j && Array.isArray(j.rows) && j.rows.length){
+        // normalize published rows to the shape the UI expects
+        j.rows = j.rows.map(r=>({ ...r, results:(r.results||[]).map(x=>({pos:x.organicPos??x.pos,brand:x.brand,product:x.product,isDawn:x.isDawn,sponsored:x.sponsored})) }));
+        state.data = j; state.source = "published";
+      }
+    }
+  }catch(e){/* running locally / not published */}
+  try{
+    const h = await fetch("data/rank-history.json",{cache:"no-store"});
+    if(h.ok){ const hj = await h.json(); if(hj && Array.isArray(hj.points)) state.history = hj; }
+  }catch(e){}
+}
+
+/* ---- history helpers ---- */
+function seriesOf(retailer, term){
+  const pts = state.history.points
+    .filter(p=>p.retailer===retailer && p.term===term)
+    .sort((a,b)=>String(a.at).localeCompare(String(b.at)));
+  return pts;
+}
+function valAt(pts, msBefore){
+  if(!pts.length) return undefined;
+  const latest = new Date(pts[pts.length-1].at).getTime();
+  const target = latest - msBefore;
+  let best = pts[0];
+  for(const p of pts){ if(new Date(p.at).getTime() <= target) best = p; else break; }
+  return best;
+}
+const DAY = 86400000;
+
+/* ---- rank sparkline (rank 1 = top; lower is better) ---- */
+function rankSpark(pts){
+  const w=160,h=44,pad=5;
+  if(!pts.length) return `<svg class="rankspark" viewBox="0 0 ${w} ${h}"></svg>`;
+  const vals = pts.map(p=> p.dawnBest==null ? MISS : Math.min(MISS, Math.max(1,p.dawnBest)));
+  const x = i => pad + (pts.length===1?0:(i/(pts.length-1))*(w-2*pad));
+  const y = v => pad + ((v-1)/(MISS-1))*(h-2*pad);            // rank1 top → MISS bottom
+  const seg=[]; let cur=[];
+  vals.forEach((v,i)=>{ if(v>=MISS){ if(cur.length){seg.push(cur);cur=[];} } else cur.push([x(i),y(v)]); });
+  if(cur.length) seg.push(cur);
+  const band = `<rect x="0" y="${y(1)}" width="${w}" height="${y(4)-y(1)}" fill="var(--pos)" opacity="0.08"/>`;
+  const gl = `<line x1="0" y1="${y(4)}" x2="${w}" y2="${y(4)}" stroke="var(--line)" stroke-dasharray="2 3" stroke-width="1"/>`;
+  const paths = seg.map(s=>{
+    const d = s.map((q,i)=>(i?"L":"M")+q[0].toFixed(1)+" "+q[1].toFixed(1)).join(" ");
+    return `<path d="${d}" fill="none" stroke="var(--dawn)" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"/>`;
+  }).join("");
+  const lastReal = [...vals].map((v,i)=>[v,i]).filter(z=>z[0]<MISS).pop();
+  const dot = lastReal ? `<circle cx="${x(lastReal[1]).toFixed(1)}" cy="${y(lastReal[0]).toFixed(1)}" r="2.6" fill="var(--dawn)"/>` : "";
+  return `<svg class="rankspark" viewBox="0 0 ${w} ${h}" preserveAspectRatio="none" role="img" aria-label="Dawn rank over time">
+    ${band}${gl}${paths}${dot}
+    <text x="2" y="${(y(1)+4).toFixed(1)}" font-size="7" fill="var(--paper-faint)" font-family="Space Grotesk">#1</text>
+    <text x="2" y="${(y(4)-1).toFixed(1)}" font-size="7" fill="var(--paper-faint)" font-family="Space Grotesk">#4</text></svg>`;
+}
+
+/* ---- scorecard ---- */
+function activeRows(){
+  let rows = state.data.rows.slice();
+  if(state.retailer!=="both") rows = rows.filter(r=>r.retailer===state.retailer);
+  if(state.oppOnly) rows = rows.filter(r=> r.dawnBestPos!==1);   // anything Dawn doesn't own outright
+  return rows;
+}
+function aggregate(rows){
+  const withDawn = rows.filter(r=>r.dawnBestPos!=null);
+  const num1 = rows.filter(r=>r.dawnBestPos===1).length;
+  const t4 = rows.filter(r=>r.dawnInTop4).length;
+  const totalSlots = rows.reduce((n,r)=>n+Math.min(4,(r.top4||[]).length),0);
+  const dawnSlots = rows.reduce((n,r)=>n+(r.top4||[]).filter(t=>t.isDawn).length,0);
+  const avg = withDawn.length ? Math.round(withDawn.reduce((s,r)=>s+r.dawnBestPos,0)/withDawn.length*10)/10 : null;
+  return { terms:rows.length, num1, t4, avg, share: totalSlots?Math.round(dawnSlots/totalSlots*100):0 };
+}
+function aggAgo(rows, msBefore){
+  // reconstruct best-position per row from history at a past time
+  let sum=0,cnt=0,slots=0,dawnSlots=0,t4=0,num1=0,total=0;
+  rows.forEach(r=>{
+    const p = valAt(seriesOf(r.retailer,r.term), msBefore);
+    total++;
+    if(p){
+      if(p.dawnBest!=null){ sum+=p.dawnBest; cnt++; if(p.dawnBest===1)num1++; if(p.dawnBest<=4)t4++; }
+      // approximate slot share by top-4 membership (1 slot when in top4)
+      slots+=4; if(p.dawnBest!=null && p.dawnBest<=4) dawnSlots+= (r.dawnCount>1 && p.dawnBest===1?Math.min(r.dawnCount,4):1);
+    }
+  });
+  return { avg: cnt?Math.round(sum/cnt*10)/10:null, share: slots?Math.round(dawnSlots/slots*100):0, t4, num1 };
+}
+function deltaHTML(nowV, agoV, lowerBetter){
+  if(nowV==null||agoV==null) return `<span class="kd flat">→ vs 7d</span>`;
+  const diff = lowerBetter ? (agoV-nowV) : (nowV-agoV);
+  const cls = diff>0.05?"up":diff<-0.05?"dn":"flat";
+  const arr = diff>0.05?"▲":diff<-0.05?"▼":"→";
+  const mag = Math.abs(Math.round(diff*10)/10);
+  return `<span class="kd ${cls}">${arr} ${mag||0} vs 7d</span>`;
+}
+function renderBoard(){
+  const rows = activeRows();
+  const now = aggregate(rows);
+  const ago = aggAgo(rows, 7*DAY);
+  const label = state.retailer==="both" ? "Amazon + Walmart" : RET[state.retailer].name;
+  const cards = [
+    {l:`#1 organic slots`, v:now.num1, sub:`of ${now.terms} terms`, d:deltaHTML(now.num1, ago.num1, false)},
+    {l:`Dawn in top 4`, v:now.t4, sub:`of ${now.terms} terms`, d:deltaHTML(now.t4, ago.t4, false)},
+    {l:`Avg best rank`, v:now.avg==null?"—":now.avg, sub:`lower is better`, d:deltaHTML(now.avg, ago.avg, true)},
+    {l:`Top-4 share of voice`, v:now.share, unit:"%", sub:`Dawn slots in top 4`, d:deltaHTML(now.share, ago.share, false)},
+    {l:`Coverage`, v:now.terms, sub:label, d:`<span class="kd flat">${state.retailer==="both"?"both retailers":"1 retailer"}</span>`},
+  ];
+  document.getElementById("board").innerHTML = cards.map(c=>`
+    <div class="kpi"><div class="kl">${c.l}</div>
+      <div class="kv">${c.v}${c.unit?`<small>${c.unit}</small>`:""}</div>
+      ${c.d}<div class="ksub">${c.sub}</div></div>`).join("");
+}
+
+/* ---- term cards ---- */
+function posClass(p){ return p==null?"pna":p===1?"p1":p<=4?"p2-4":"p5"; }
+function stateClass(r){ return r.dawnBestPos==null?"out":r.dawnBestPos===1?"win":r.dawnBestPos<=4?"hold":"gap"; }
+function card(r,i){
+  const ret = RET[r.retailer];
+  const pc = posClass(r.dawnBestPos);
+  const posDisp = r.dawnBestPos==null ? "NR" : r.dawnBestPos;
+  const badge = r.dawnBestPos==null
+    ? `<span class="badge out">Not ranked</span>`
+    : r.dawnInTop4 ? `<span class="badge t4">In top 4</span>` : `<span class="badge no">Below top 4</span>`;
+  const slots = (r.top4||[]).map((t,idx)=>`
+    <div class="slot ${t.isDawn?'dawn':''}"><span class="rk">#${idx+1}</span><span class="bn">${t.brand}</span>${t.isDawn?'<span class="own">Dawn</span>':''}</div>`).join("");
+  const pts = seriesOf(r.retailer, r.term);
+  const latest = pts.length?pts[pts.length-1]:null;
+  const ago = valAt(pts, 7*DAY);
+  let dHTML = `<span class="delta flat">→ 0<small>vs 7d</small></span>`;
+  if(latest && ago && latest.dawnBest!=null && ago.dawnBest!=null){
+    const mv = ago.dawnBest - latest.dawnBest;         // + = moved up
+    const cls = mv>0?"up":mv<0?"dn":"flat"; const arr = mv>0?"▲":mv<0?"▼":"→";
+    dHTML = `<span class="delta ${cls}">${arr} ${mv>0?'+':''}${mv} slot${Math.abs(mv)===1?'':'s'}<small>vs 7d</small></span>`;
+  } else if(latest && latest.dawnBest==null){
+    dHTML = `<span class="delta dn">off page<small>vs 7d</small></span>`;
+  }
+  const alert = r.dawnBestPos!==1;
+  const full = (r.results||[]).slice(0,8).map(x=>`
+    <div class="frow ${x.isDawn?'dawn':''}"><span class="fp">${x.pos}</span><span class="fprod">${x.brand}${x.product?` — ${x.product}`:''}</span>${x.sponsored?'<span class="fsp">Ad</span>':''}</div>`).join("");
+  return `<article class="card ${stateClass(r)}">
+    <div class="c-head">
+      <div><div class="term">${r.term}</div>
+        <span class="rtag ${r.retailer}"><span class="rd"></span>${ret.name}</span></div>
+    </div>
+    <div class="posbox">
+      <div class="bigpos ${pc}"><span class="hash">#</span><span class="n">${posDisp}</span></div>
+      <div class="posmeta">${badge}<span class="lead">#1 held by <b>${r.leader||'—'}</b>${r.dawnCount>1?` · ${r.dawnCount} Dawn listings`:''}</span></div>
+    </div>
+    <div class="slots"><span class="slotlab">Top 4 organic slots</span>${slots}</div>
+    <div class="trendrow"><span class="lab">Rank<br>~18&nbsp;day</span>${rankSpark(pts)}${dHTML}</div>
+    ${r.recommendation?`<div class="rec ${alert?'alert':''}"><div class="lab">To improve rank</div><p>${r.recommendation}</p></div>`:''}
+    <div class="c-foot">
+      <button class="mini" data-full="${i}">▾ Full top 8</button>
+    </div>
+    <div class="full" id="full-${i}">${full}</div>
+  </article>`;
+}
+function renderGrid(){
+  const rows = activeRows();
+  const g = document.getElementById("grid");
+  if(!rows.length){ g.innerHTML = `<div class="empty"><h3>Nothing matches</h3><p>Clear the Opportunities filter or switch retailer.</p></div>`; }
+  else g.innerHTML = rows.map((r,i)=>card(r,i)).join("");
+  document.getElementById("count").textContent = `${rows.length} term${rows.length===1?'':'s'} shown`;
+  g.querySelectorAll("[data-full]").forEach(b=>b.onclick=()=>{
+    const el=document.getElementById("full-"+b.dataset.full); el.classList.toggle("on");
+    b.textContent = el.classList.contains("on") ? "▴ Hide" : "▾ Full top 8";
+  });
+}
+
+/* ---- recommendations ---- */
+function renderRecs(){
+  const recs = state.data.recommendations||[];
+  document.getElementById("recs").innerHTML = recs.map(r=>`
+    <div class="ritem">
+      <div class="rnum">${r.priority}</div>
+      <div class="rbody">
+        <div class="rt">${r.title}</div>
+        <div class="rd2">${r.detail}</div>
+        <div class="rmeta">
+          <span class="ie impact-${r.impact||'med'}">Impact ${r.impact||'med'}</span>
+          <span class="ie effort-${r.effort||'med'}">Effort ${r.effort||'med'}</span>
+          ${(r.terms||[]).slice(0,4).map(t=>`<span class="tagsm">${t}</span>`).join("")}
+        </div>
+      </div>
+    </div>`).join("");
+}
+
+/* ---- controls ---- */
+function renderSeg(){
+  const opts=[{id:"amazon",l:"Amazon"},{id:"walmart",l:"Walmart"},{id:"both",l:"Both"}];
+  document.getElementById("retSeg").innerHTML = opts.map(o=>`<button data-ret="${o.id}" class="${o.id===state.retailer?'on':''}">${o.l}</button>`).join("");
+  document.querySelectorAll("#retSeg button").forEach(b=>b.onclick=()=>{state.retailer=b.dataset.ret;renderAll();});
+  const oc=document.getElementById("oppChip"); oc.classList.toggle("on",state.oppOnly);
+  oc.onclick=()=>{state.oppOnly=!state.oppOnly;renderAll();};
+}
+function renderAll(){ renderSeg(); renderBoard(); renderGrid(); renderRecs(); document.getElementById("stamp").textContent = state.data.updated || "—"; }
+
+document.getElementById("note").innerHTML = "Organic positions are read from public Amazon &amp; Walmart.com search results by an hourly job. Retail SERPs are personalized, location-dependent and change constantly, so ranks and the top-4 share are a <b>directional audit signal for prioritization</b>, not a licensed rank-tracking feed. Sponsored placements are flagged and excluded from organic rank. The rank line shades the top-4 zone; a rising line means Dawn moved toward #1.";
+
+(async function(){ await loadData(); renderAll(); })();
+</script>
+</body>
+</html>

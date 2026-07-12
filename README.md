@@ -1,8 +1,19 @@
-# Signal — Weekly Social Trends (P&G Home Care)
+# Signal — P&G Home Care
 
-A static dashboard that tracks social trends for each Home Care brand team
-(Cascade, Dawn, Febreze, Swiffer, Mr. Clean), flags what to respond to, and
-turns any trend into an influencer brief or branded post.
+Two static dashboards, one repo:
+
+1. **Social Trends** (`index.html`) — tracks social trends for each Home Care
+   brand team (Cascade, Dawn, Febreze, Swiffer, Mr. Clean), flags what to
+   respond to, and turns any trend into an influencer brief or branded post.
+   Refreshes **weekly**.
+2. **Retail Search Rank** (`rank.html`) — audits **Dawn's organic search
+   position** on **Amazon** and **Walmart.com** across the top dish-care terms
+   (dish soap, dish detergent, dishwashing liquid, dishwasher soap, …), scores
+   Dawn vs. competitors with a focus on the **top-4 organic slots**, tracks a
+   **scorecard over time**, and pre-writes **what to change to raise rank**.
+   Refreshes **hourly**. See [Retail Search Rank](#retail-search-rank-dawn-on-amazon--walmart) below.
+
+The two pages link to each other via the top nav.
 
 - **Hosting:** GitHub Pages (free, static)
 - **Auto-refresh:** a scheduled GitHub Action researches public sources once a
@@ -31,11 +42,16 @@ turns any trend into an influencer brief or branded post.
    Your site goes live at `https://<your-username>.github.io/<repo>/`.
 
 4. **Enable Actions** (first time). Open the **Actions** tab and enable
-   workflows if prompted. The refresh runs every **Monday 12:00 UTC**.
+   workflows if prompted. Two scheduled jobs run from this repo: **Weekly Signal
+   refresh** (social trends, Mondays 12:00 UTC) and **Hourly retail search-rank
+   refresh** (Dawn on Amazon & Walmart, every hour). Both use the same
+   `ANTHROPIC_API_KEY` secret.
 
-5. **Run the first refresh now** (optional): **Actions → Weekly Signal refresh
-   → Run workflow.** It researches, pre-writes briefs for the respond-now
-   trends, and commits `data/trends.json`. Pages redeploys in a minute or two.
+5. **Run the first refresh now** (optional): **Actions → Weekly Signal refresh →
+   Run workflow** (social trends) and **Actions → Hourly retail search-rank
+   refresh → Run workflow** (search rank). Each researches, pre-writes its
+   recommendations/briefs, and commits its data file. Pages redeploys in a
+   minute or two.
 
 That's it — from then on it updates itself weekly with zero effort.
 
@@ -123,12 +139,62 @@ client while enabling live generation.
 
 ---
 
+## Retail Search Rank (Dawn on Amazon & Walmart)
+
+`rank.html` is a second dashboard focused on **where Dawn shows up in organic
+search** on **Amazon** and **Walmart.com** for the terms shoppers actually
+type, and **how that's trending vs. competitors** — especially the top-4 slots.
+
+**What it shows**
+
+- **Scorecard strip** — for the selected retailer(s): how many terms Dawn holds
+  **#1 organic**, how many it's in the **top 4**, its **average best rank**, and
+  its **top-4 share of voice**, each with a **▲/▼ vs. 7 days ago** delta.
+- **Per-term cards** — Dawn's best organic position (big number), an in-top-4
+  badge, the **top-4 slot ladder** (with Dawn highlighted and the #1 holder
+  named), a **rank-over-time line** (top-4 zone shaded; a rising line = moving
+  toward #1), the **change vs. 7 days ago**, an expandable **full top-8**, and a
+  **"To improve rank"** recommendation specific to that term.
+- **"How to raise Dawn's organic rank"** — 6 prioritized, portfolio-level levers
+  (title/keyword, backend search terms, review velocity, conversion/A+ content,
+  variation strategy, price/Buy-Box, paid→organic), each tagged with impact,
+  effort, and the terms it affects.
+
+**Search terms & competitors** are configured at the top of
+`scripts/rank-refresh.mjs` (`TERMS`, `RETAILERS`, `COMPETITORS`) — edit that list
+to change coverage. Dawn is detected via the `OWNED_RE` pattern.
+
+**Data files** (written by the hourly job, read by the page):
+
+- `data/ranks.json` — the latest snapshot (per retailer × term) + scorecard + recommendations.
+- `data/rank-history.json` — the appended hourly time series that powers the
+  scorecard deltas and the rank-over-time lines (trimmed to ~25 days per series).
+
+**Schedule.** The refresh runs **hourly** via
+`.github/workflows/rank-refresh.yml` (`cron: "17 * * * *"`). Change the cron to
+adjust cadence, e.g. `"*/30 * * * *"` for every 30 min or `"17 */4 * * *"` for
+every 4 hours.
+
+**Cost note.** Hourly × 8 terms × 2 retailers is a lot of web search
+(~$10 / 1,000 searches). Each run does roughly 20–30 searches, so hourly is on
+the order of a few dollars a day. Trim `TERMS`, widen the cron interval, or set
+`RANK_MODEL` to a cheaper model to control spend.
+
+**Accuracy.** Retail SERPs are personalized, location-dependent and volatile, so
+the ranks are a **directional audit signal for prioritization**, not a licensed
+rank-tracking feed. Sponsored placements are flagged and excluded from the
+organic rank. The repo ships with **seed data** so both pages render before the
+first live refresh.
+
+---
+
 ## Test locally
 
 ```bash
-# preview the site
+# preview the site (open index.html and rank.html)
 npx serve .        # then open the printed URL
 
 # run a refresh by hand (needs the key in your shell)
-ANTHROPIC_API_KEY=sk-ant-... node scripts/refresh.mjs
+ANTHROPIC_API_KEY=sk-ant-... node scripts/refresh.mjs        # weekly social trends
+ANTHROPIC_API_KEY=sk-ant-... node scripts/rank-refresh.mjs   # hourly retail search rank
 ```

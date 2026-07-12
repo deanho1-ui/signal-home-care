@@ -1,0 +1,48 @@
+name: Hourly retail search-rank refresh
+
+on:
+  schedule:
+    - cron: "17 * * * *"        # every hour at :17 past (UTC)
+  workflow_dispatch:            # run early from the Actions tab
+
+permissions:
+  contents: write               # allow the job to commit rank data
+
+concurrency:
+  group: rank-refresh
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Refresh retail search ranks
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          # RANK_MODEL: claude-opus-4-8   # optional: override the model
+        run: node scripts/rank-refresh.mjs
+
+      - name: Commit updated data
+        run: |
+          git config user.name  "signal-bot"
+          git config user.email "signal-bot@users.noreply.github.com"
+          git add data/ranks.json data/rank-history.json
+          if git diff --staged --quiet; then
+            echo "No changes this run."
+          else
+            git commit -m "Hourly rank refresh: $(date -u +'%Y-%m-%d %H:%M') UTC"
+            # Rebase onto any concurrent commits, then push (retry on races).
+            for i in 1 2 3 4; do
+              git pull --rebase --autostash origin "${GITHUB_REF_NAME}" || true
+              git push && break
+              echo "push failed, retry $i"; sleep $((2 ** i))
+            done
+          fi

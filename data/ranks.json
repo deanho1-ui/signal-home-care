@@ -1,0 +1,1732 @@
+{
+  "generatedAt": "2026-07-12T21:00:00.000Z",
+  "updated": "Jul 12, 5:00 PM EDT (seed)",
+  "source": "seed (placeholder — replaced by the hourly refresh). Directional audit, not a licensed rank feed.",
+  "retailers": [
+    {
+      "id": "amazon",
+      "name": "Amazon",
+      "domain": "amazon.com"
+    },
+    {
+      "id": "walmart",
+      "name": "Walmart.com",
+      "domain": "walmart.com"
+    }
+  ],
+  "terms": [
+    "dish soap",
+    "dawn dish soap",
+    "dish detergent",
+    "dishwashing liquid",
+    "liquid dish soap",
+    "dish soap for grease",
+    "dishwasher soap",
+    "dawn powerwash"
+  ],
+  "scorecard": {
+    "amazon": {
+      "terms": 8,
+      "number1": 7,
+      "inTop4": 7,
+      "avgBest": 1,
+      "top4Share": 47
+    },
+    "walmart": {
+      "terms": 8,
+      "number1": 4,
+      "inTop4": 7,
+      "avgBest": 1.4,
+      "top4Share": 47
+    }
+  },
+  "rows": [
+    {
+      "term": "dish soap",
+      "retailer": "amazon",
+      "results": [
+        {
+          "pos": 1,
+          "organicPos": 1,
+          "brand": "Dawn",
+          "product": "Dawn Ultra Dishwashing Liquid, Original, 56 oz",
+          "sponsored": false,
+          "isDawn": true,
+          "url": "https://www.amazon.com/s?k=dish%20soap"
+        },
+        {
+          "pos": 2,
+          "organicPos": 2,
+          "brand": "Dawn",
+          "product": "Dawn Powerwash Spray, Fresh Scent",
+          "sponsored": false,
+          "isDawn": true,
+          "url": "https://www.amazon.com/s?k=dish%20soap"
+        },
+        {
+          "pos": 3,
+          "organicPos": 3,
+          "brand": "Palmolive",
+          "product": "Palmolive Ultra Strength Liquid, 32.5 oz",
+          "sponsored": false,
+          "isDawn": false,
+          "url": "https://www.amazon.com/s?k=dish%20soap"
+        },
+        {
+          "pos": 4,
+          "organicPos": 4,
+          "brand": "Amazon Basics",
+          "product": "Amazon Basics Dish Soap, Fresh Scent",
+          "sponsored": false,
+          "isDawn": false,
+          "url": "https://www.amazon.com/s?k=dish%20soap"
+        },
+        {
+          "pos": 5,
+          "organicPos": 5,
+          "brand": "Seventh Generation",
+          "product": "Seventh Generation Dish Liquid, Free & Clear",
+          "sponsored": false,
+          "isDawn": false,
+          "url": "https://www.amazon.com/s?k=dish%20soap"
+        },
+        {
+          "pos": 6,
+          "organicPos": 6,
+          "brand": "Method",
+          "product": "Method Gel Dish Soap, Clementine",
+          "sponsored": false,
+          "isDawn": false,
+          "url": "https://www.amazon.com/s?k=dish%20soap"
+        },
+        {
+          "pos": 7,
+          "organicPos": 7,
+          "brand": "Dawn",
+          "product": "Dawn Platinum Dishwashing Liquid",
+          "sponsored": false,
+          "isDawn": true,
+          "url": "https://www.amazon.com/s?k=dish%20soap"
+        },
+        {
+          "pos": 8,
+          "organicPos": 8,
+          "brand": "Ajax",
+          "product": "Ajax Ultra Dish Liquid, Lemon",
+          "sponsored": false,
+          "isDawn": false,
+          "url": "https://www.amazon.com/s?k=dish%20soap"
+        }
+      ],
+      "dawnBestPos": 1,
+      "dawnInTop4": true,
+      "dawnCount": 3,
+      "top4": [
+        {
+          "brand": "Dawn",
+          "isDawn": true
+        },
+        {
+          "brand": "Dawn",
+          "isDawn": true
+        },
+        {
+          "brand": "Palmolive",
+          "isDawn": false
+        },
+        {
+          "brand": "Amazon Basics",
+          "isDawn": false
+        }
+      ],
+      "leader": "Dawn",
+      "recommendation": "Fold high-volume generic keywords ('dish soap','grease cutting dish soap') into the Powerwash title + backend terms so it stops losing the head term to the Ultra parent listing."
+    },
+    {
+      "term": "dawn dish soap",
+      "retailer": "amazon",
+      "results": [
+        {
+          "pos": 1,
+          "organicPos": 1,
+          "brand": "Dawn",
+          "product": "Dawn Ultra Dishwashing Liquid, Original",
+          "sponsored": false,
+          "isDawn": true,
+          "url": "https://www.amazon.com/s?k=dawn%20dish%20soap"
+        },
+        {
+          "pos": 2,
+          "organicPos": 2,
+          "brand": "Dawn",
+          "product": "Dawn Powerwash Dish Spray Starter Kit",
+          "sponsored": false,
+          "isDawn": true,
+          "url": "https://www.amazon.com/s?k=dawn%20dish%20soap"
+        },
+        {
+          "pos": 3,
+          "organicPos": 3,
+          "brand": "Dawn",
+          "product": "Dawn Platinum Dishwashing Liquid, Refreshing Rain",
+          "sponsored": false,
+          "isDawn": true,
+          "url": "https://www.amazon.com/s?k=dawn%20dish%20soap"
+        },
+        {
+          "pos": 4,
+          "organicPos": 4,
+          "brand": "Dawn",
+          "product": "Dawn EZ-Squeeze Dishwashing Liquid",
+          "sponsored": false,
+          "isDawn": true,
+          "url": "https://www.amazon.com/s?k=dawn%20dish%20soap"
+        },
+        {
+          "pos": 5,
+          "organicPos": 5,
+          "brand": "Dawn",
+          "product": "Dawn Free & Clear Dish Soap",
+          "sponsored": false,
+          "isDawn": true,
+          "url": "https://www.amazon.com/s?k=dawn%20dish%20soap"
+        },
+        {
+          "pos": 6,
+          "organicPos": 6,
+          "brand": "Palmolive",
+          "product": "Palmolive Ultra Liquid",
+          "sponsored": false,
+          "isDawn": false,
+          "url": "https://www.amazon.com/s?k=dawn%20dish%20soap"
+        },
+        {
+          "pos": 7,
+          "organicPos": 7,
+          "brand": "Dawn",
+          "product": "Dawn Simply Clean Dish Soap",
+          "sponsored": false,
+          "isDawn": true,
+          "url": "https://www.amazon.com/s?k=dawn%20dish%20soap"
+        },
+        {
+          "pos": 8,
+          "organicPos": 8,
+          "brand": "Amazon Basics",
+          "product": "Amazon Basics Dish Soap",
+          "sponsored": false,
+          "isDawn": false,
+          "url": "https://www.amazon.com/s?k=dawn%20dish%20soap"
+        }
+      ],
+      "dawnBestPos": 1,
+      "dawnInTop4": true,
+      "dawnCount": 6,
+      "top4": [
+        {
+          "brand": "Dawn",
+          "isDawn": true
+        },
+        {
+          "brand": "Dawn",
+          "isDawn": true
+        },
+        {
+          "brand": "Dawn",
+          "isDawn": true
+        },
+        {
+          "brand": "Dawn",
+          "isDawn": true
+        }
+      ],
+      "leader": "Dawn",
+      "recommendation": "Consolidate scattered Dawn child ASINs under one review-rich parent so review count concentrates and Dawn owns the full top-4 for its own branded term."
+    },
+    {
+      "term": "dish detergent",
+      "retailer": "amazon",
+      "results": [
+        {
+          "pos": 1,
+          "organicPos": 1,
+          "brand": "Dawn",
+          "product": "Dawn Ultra Dishwashing Liquid Dish Soap",
+          "sponsored": false,
+          "isDawn": true,
+          "url": "https://www.amazon.com/s?k=dish%20detergent"
+        },
+        {
+          "pos": 2,
+          "organicPos": 2,
+          "brand": "Palmolive",
+          "product": "Palmolive Ultra Dish Liquid",
+          "sponsored": false,
+          "isDawn": false,
+          "url": "https://www.amazon.com/s?k=dish%20detergent"
+        },
+        {
+          "pos": 3,
+          "organicPos": 3,
+          "brand": "Cascade",
+          "product": "Cascade Platinum ActionPacs",
+          "sponsored": false,
+          "isDawn": false,
+          "url": "https://www.amazon.com/s?k=dish%20detergent"
+        },
+        {
+          "pos": 4,
+          "organicPos": 4,
+          "brand": "Finish",
+          "product": "Finish Powerball Dishwasher Detergent",
+          "sponsored": false,
+          "isDawn": false,
+          "url": "https://www.amazon.com/s?k=dish%20detergent"
+        },
+        {
+          "pos": 5,
+          "organicPos": 5,
+          "brand": "Dawn",
+          "product": "Dawn Powerwash Spray",
+          "sponsored": false,
+          "isDawn": true,
+          "url": "https://www.amazon.com/s?k=dish%20detergent"
+        },
+        {
+          "pos": 6,
+          "organicPos": 6,
+          "brand": "Amazon Basics",
+          "product": "Amazon Basics Dishwasher Detergent Pacs",
+          "sponsored": false,
+          "isDawn": false,
+          "url": "https://www.amazon.com/s?k=dish%20detergent"
+        },
+        {
+          "pos": 7,
+          "organicPos": 7,
+          "brand": "Seventh Generation",
+          "product": "Seventh Generation Dish Liquid",
+          "sponsored": false,
+          "isDawn": false,
+          "url": "https://www.amazon.com/s?k=dish%20detergent"
+        },
+        {
+          "pos": 8,
+          "organicPos": 8,
+          "brand": "Method",
+          "product": "Method Dish Soap",
+          "sponsored": false,
+          "isDawn": false,
+          "url": "https://www.amazon.com/s?k=dish%20detergent"
+        }
+      ],
+      "dawnBestPos": 1,
+      "dawnInTop4": true,
+      "dawnCount": 2,
+      "top4": [
+        {
+          "brand": "Dawn",
+          "isDawn": true
+        },
+        {
+          "brand": "Palmolive",
+          "isDawn": false
+        },
+        {
+          "brand": "Cascade",
+          "isDawn": false
+        },
+        {
+          "brand": "Finish",
+          "isDawn": false
+        }
+      ],
+      "leader": "Dawn",
+      "recommendation": "Add 'dish detergent' as a backend search term on Dawn Ultra and A+ compare-chart it against Palmolive/Cascade to defend the ambiguous head term."
+    },
+    {
+      "term": "dishwashing liquid",
+      "retailer": "amazon",
+      "results": [
+        {
+          "pos": 1,
+          "organicPos": 1,
+          "brand": "Dawn",
+          "product": "Dawn Ultra Dishwashing Liquid, Original",
+          "sponsored": false,
+          "isDawn": true,
+          "url": "https://www.amazon.com/s?k=dishwashing%20liquid"
+        },
+        {
+          "pos": 2,
+          "organicPos": 2,
+          "brand": "Palmolive",
+          "product": "Palmolive Ultra Strength Liquid",
+          "sponsored": false,
+          "isDawn": false,
+          "url": "https://www.amazon.com/s?k=dishwashing%20liquid"
+        },
+        {
+          "pos": 3,
+          "organicPos": 3,
+          "brand": "Ajax",
+          "product": "Ajax Ultra Triple Action Liquid",
+          "sponsored": false,
+          "isDawn": false,
+          "url": "https://www.amazon.com/s?k=dishwashing%20liquid"
+        },
+        {
+          "pos": 4,
+          "organicPos": 4,
+          "brand": "Seventh Generation",
+          "product": "Seventh Generation Dish Liquid",
+          "sponsored": false,
+          "isDawn": false,
+          "url": "https://www.amazon.com/s?k=dishwashing%20liquid"
+        },
+        {
+          "pos": 5,
+          "organicPos": 5,
+          "brand": "Dawn",
+          "product": "Dawn Platinum Dishwashing Liquid",
+          "sponsored": false,
+          "isDawn": true,
+          "url": "https://www.amazon.com/s?k=dishwashing%20liquid"
+        },
+        {
+          "pos": 6,
+          "organicPos": 6,
+          "brand": "Method",
+          "product": "Method Gel Dish Soap",
+          "sponsored": false,
+          "isDawn": false,
+          "url": "https://www.amazon.com/s?k=dishwashing%20liquid"
+        },
+        {
+          "pos": 7,
+          "organicPos": 7,
+          "brand": "Mrs. Meyer's",
+          "product": "Mrs. Meyer's Clean Day Dish Soap",
+          "sponsored": false,
+          "isDawn": false,
+          "url": "https://www.amazon.com/s?k=dishwashing%20liquid"
+        },
+        {
+          "pos": 8,
+          "organicPos": 8,
+          "brand": "Amazon Basics",
+          "product": "Amazon Basics Dish Soap",
+          "sponsored": false,
+          "isDawn": false,
+          "url": "https://www.amazon.com/s?k=dishwashing%20liquid"
+        }
+      ],
+      "dawnBestPos": 1,
+      "dawnInTop4": true,
+      "dawnCount": 2,
+      "top4": [
+        {
+          "brand": "Dawn",
+          "isDawn": true
+        },
+        {
+          "brand": "Palmolive",
+          "isDawn": false
+        },
+        {
+          "brand": "Ajax",
+          "isDawn": false
+        },
+        {
+          "brand": "Seventh Generation",
+          "isDawn": false
+        }
+      ],
+      "leader": "Dawn",
+      "recommendation": "Push review velocity (Vine + Subscribe & Save) on Dawn Ultra to widen the ratings gap over Palmolive and lock organic #1."
+    },
+    {
+      "term": "liquid dish soap",
+      "retailer": "amazon",
+      "results": [
+        {
+          "pos": 1,
+          "organicPos": 1,
+          "brand": "Dawn",
+          "product": "Dawn Ultra Dishwashing Liquid",
+          "sponsored": false,
+          "isDawn": true,
+          "url": "https://www.amazon.com/s?k=liquid%20dish%20soap"
+        },
+        {
+          "pos": 2,
+          "organicPos": 2,
+          "brand": "Palmolive",
+          "product": "Palmolive Ultra Liquid",
+          "sponsored": false,
+          "isDawn": false,
+          "url": "https://www.amazon.com/s?k=liquid%20dish%20soap"
+        },
+        {
+          "pos": 3,
+          "organicPos": 3,
+          "brand": "Method",
+          "product": "Method Gel Dish Soap, Clementine",
+          "sponsored": false,
+          "isDawn": false,
+          "url": "https://www.amazon.com/s?k=liquid%20dish%20soap"
+        },
+        {
+          "pos": 4,
+          "organicPos": 4,
+          "brand": "Mrs. Meyer's",
+          "product": "Mrs. Meyer's Clean Day Dish Soap, Lemon Verbena",
+          "sponsored": false,
+          "isDawn": false,
+          "url": "https://www.amazon.com/s?k=liquid%20dish%20soap"
+        },
+        {
+          "pos": 5,
+          "organicPos": 5,
+          "brand": "Dawn",
+          "product": "Dawn Powerwash Spray",
+          "sponsored": false,
+          "isDawn": true,
+          "url": "https://www.amazon.com/s?k=liquid%20dish%20soap"
+        },
+        {
+          "pos": 6,
+          "organicPos": 6,
+          "brand": "Seventh Generation",
+          "product": "Seventh Generation Dish Liquid",
+          "sponsored": false,
+          "isDawn": false,
+          "url": "https://www.amazon.com/s?k=liquid%20dish%20soap"
+        },
+        {
+          "pos": 7,
+          "organicPos": 7,
+          "brand": "Blueland",
+          "product": "Blueland Dish Soap Starter Set",
+          "sponsored": false,
+          "isDawn": false,
+          "url": "https://www.amazon.com/s?k=liquid%20dish%20soap"
+        },
+        {
+          "pos": 8,
+          "organicPos": 8,
+          "brand": "Ajax",
+          "product": "Ajax Ultra Dish Liquid",
+          "sponsored": false,
+          "isDawn": false,
+          "url": "https://www.amazon.com/s?k=liquid%20dish%20soap"
+        }
+      ],
+      "dawnBestPos": 1,
+      "dawnInTop4": true,
+      "dawnCount": 2,
+      "top4": [
+        {
+          "brand": "Dawn",
+          "isDawn": true
+        },
+        {
+          "brand": "Palmolive",
+          "isDawn": false
+        },
+        {
+          "brand": "Method",
+          "isDawn": false
+        },
+        {
+          "brand": "Mrs. Meyer's",
+          "isDawn": false
+        }
+      ],
+      "leader": "Dawn",
+      "recommendation": "Improve main-image + first-3-bullets conversion so click-through beats Great Value/Palmolive; conversion is the biggest organic-rank lever here."
+    },
+    {
+      "term": "dish soap for grease",
+      "retailer": "amazon",
+      "results": [
+        {
+          "pos": 1,
+          "organicPos": 1,
+          "brand": "Dawn",
+          "product": "Dawn Powerwash Dish Spray, Fresh Scent",
+          "sponsored": false,
+          "isDawn": true,
+          "url": "https://www.amazon.com/s?k=dish%20soap%20for%20grease"
+        },
+        {
+          "pos": 2,
+          "organicPos": 2,
+          "brand": "Dawn",
+          "product": "Dawn Ultra Dishwashing Liquid, Original Scent",
+          "sponsored": false,
+          "isDawn": true,
+          "url": "https://www.amazon.com/s?k=dish%20soap%20for%20grease"
+        },
+        {
+          "pos": 3,
+          "organicPos": 3,
+          "brand": "Palmolive",
+          "product": "Palmolive Ultra Strength Grease-Cutting Liquid",
+          "sponsored": false,
+          "isDawn": false,
+          "url": "https://www.amazon.com/s?k=dish%20soap%20for%20grease"
+        },
+        {
+          "pos": 4,
+          "organicPos": 4,
+          "brand": "Krud Kutter",
+          "product": "Krud Kutter Original Cleaner Degreaser",
+          "sponsored": false,
+          "isDawn": false,
+          "url": "https://www.amazon.com/s?k=dish%20soap%20for%20grease"
+        },
+        {
+          "pos": 5,
+          "organicPos": 5,
+          "brand": "Dawn",
+          "product": "Dawn Platinum Powerwash",
+          "sponsored": false,
+          "isDawn": true,
+          "url": "https://www.amazon.com/s?k=dish%20soap%20for%20grease"
+        },
+        {
+          "pos": 6,
+          "organicPos": 6,
+          "brand": "Ajax",
+          "product": "Ajax Super Degreaser Dish Liquid",
+          "sponsored": false,
+          "isDawn": false,
+          "url": "https://www.amazon.com/s?k=dish%20soap%20for%20grease"
+        },
+        {
+          "pos": 7,
+          "organicPos": 7,
+          "brand": "Method",
+          "product": "Method Heavy Duty Degreaser",
+          "sponsored": false,
+          "isDawn": false,
+          "url": "https://www.amazon.com/s?k=dish%20soap%20for%20grease"
+        },
+        {
+          "pos": 8,
+          "organicPos": 8,
+          "brand": "Zep",
+          "product": "Zep Fast 505 Cleaner & Degreaser",
+          "sponsored": false,
+          "isDawn": false,
+          "url": "https://www.amazon.com/s?k=dish%20soap%20for%20grease"
+        }
+      ],
+      "dawnBestPos": 1,
+      "dawnInTop4": true,
+      "dawnCount": 3,
+      "top4": [
+        {
+          "brand": "Dawn",
+          "isDawn": true
+        },
+        {
+          "brand": "Dawn",
+          "isDawn": true
+        },
+        {
+          "brand": "Palmolive",
+          "isDawn": false
+        },
+        {
+          "brand": "Krud Kutter",
+          "isDawn": false
+        }
+      ],
+      "leader": "Dawn",
+      "recommendation": "Own the 'grease' intent: lead the Powerwash title with 'Cuts Grease', add a grease before/after A+ module and a 15s degrease video."
+    },
+    {
+      "term": "dishwasher soap",
+      "retailer": "amazon",
+      "results": [
+        {
+          "pos": 1,
+          "organicPos": 1,
+          "brand": "Cascade",
+          "product": "Cascade Platinum Plus ActionPacs Dishwasher Detergent",
+          "sponsored": false,
+          "isDawn": false,
+          "url": "https://www.amazon.com/s?k=dishwasher%20soap"
+        },
+        {
+          "pos": 2,
+          "organicPos": 2,
+          "brand": "Finish",
+          "product": "Finish Powerball Quantum Dishwasher Tabs",
+          "sponsored": false,
+          "isDawn": false,
+          "url": "https://www.amazon.com/s?k=dishwasher%20soap"
+        },
+        {
+          "pos": 3,
+          "organicPos": 3,
+          "brand": "Cascade",
+          "product": "Cascade Complete ActionPacs",
+          "sponsored": false,
+          "isDawn": false,
+          "url": "https://www.amazon.com/s?k=dishwasher%20soap"
+        },
+        {
+          "pos": 4,
+          "organicPos": 4,
+          "brand": "Amazon Basics",
+          "product": "Amazon Basics Dishwasher Detergent Pacs",
+          "sponsored": false,
+          "isDawn": false,
+          "url": "https://www.amazon.com/s?k=dishwasher%20soap"
+        },
+        {
+          "pos": 5,
+          "organicPos": 5,
+          "brand": "Finish",
+          "product": "Finish Ultimate Plus Dishwasher Detergent",
+          "sponsored": false,
+          "isDawn": false,
+          "url": "https://www.amazon.com/s?k=dishwasher%20soap"
+        },
+        {
+          "pos": 6,
+          "organicPos": 6,
+          "brand": "Seventh Generation",
+          "product": "Seventh Generation Dishwasher Packs",
+          "sponsored": false,
+          "isDawn": false,
+          "url": "https://www.amazon.com/s?k=dishwasher%20soap"
+        },
+        {
+          "pos": 7,
+          "organicPos": 7,
+          "brand": "Cascade",
+          "product": "Cascade Free & Clear ActionPacs",
+          "sponsored": false,
+          "isDawn": false,
+          "url": "https://www.amazon.com/s?k=dishwasher%20soap"
+        },
+        {
+          "pos": 8,
+          "organicPos": 8,
+          "brand": "Great Value",
+          "product": "Great Value Automatic Dishwasher Pacs",
+          "sponsored": false,
+          "isDawn": false,
+          "url": "https://www.amazon.com/s?k=dishwasher%20soap"
+        }
+      ],
+      "dawnBestPos": null,
+      "dawnInTop4": false,
+      "dawnCount": 0,
+      "top4": [
+        {
+          "brand": "Cascade",
+          "isDawn": false
+        },
+        {
+          "brand": "Finish",
+          "isDawn": false
+        },
+        {
+          "brand": "Cascade",
+          "isDawn": false
+        },
+        {
+          "brand": "Amazon Basics",
+          "isDawn": false
+        }
+      ],
+      "leader": "Cascade",
+      "recommendation": "Dawn does not compete here (auto-dishwasher intent = Cascade/Finish). Either cede it or run a small Sponsored bridge for Dawn Powerwash on 'stuck-on grease' shoppers; do not chase organic."
+    },
+    {
+      "term": "dawn powerwash",
+      "retailer": "amazon",
+      "results": [
+        {
+          "pos": 1,
+          "organicPos": 1,
+          "brand": "Dawn",
+          "product": "Dawn Powerwash Dish Spray, Fresh Scent, Starter Kit",
+          "sponsored": false,
+          "isDawn": true,
+          "url": "https://www.amazon.com/s?k=dawn%20powerwash"
+        },
+        {
+          "pos": 2,
+          "organicPos": 2,
+          "brand": "Dawn",
+          "product": "Dawn Powerwash Dish Spray Refill, 2-pack",
+          "sponsored": false,
+          "isDawn": true,
+          "url": "https://www.amazon.com/s?k=dawn%20powerwash"
+        },
+        {
+          "pos": 3,
+          "organicPos": 3,
+          "brand": "Dawn",
+          "product": "Dawn Powerwash Apple Scent Spray",
+          "sponsored": false,
+          "isDawn": true,
+          "url": "https://www.amazon.com/s?k=dawn%20powerwash"
+        },
+        {
+          "pos": 4,
+          "organicPos": 4,
+          "brand": "Dawn",
+          "product": "Dawn Ultra Powerwash Free",
+          "sponsored": false,
+          "isDawn": true,
+          "url": "https://www.amazon.com/s?k=dawn%20powerwash"
+        },
+        {
+          "pos": 5,
+          "organicPos": 5,
+          "brand": "Dawn",
+          "product": "Dawn Powerwash Citrus Scent",
+          "sponsored": false,
+          "isDawn": true,
+          "url": "https://www.amazon.com/s?k=dawn%20powerwash"
+        },
+        {
+          "pos": 6,
+          "organicPos": 6,
+          "brand": "Dawn",
+          "product": "Dawn Powerwash Away Refill Bundle",
+          "sponsored": false,
+          "isDawn": true,
+          "url": "https://www.amazon.com/s?k=dawn%20powerwash"
+        },
+        {
+          "pos": 7,
+          "organicPos": 7,
+          "brand": "Palmolive",
+          "product": "Palmolive Dish Spray",
+          "sponsored": false,
+          "isDawn": false,
+          "url": "https://www.amazon.com/s?k=dawn%20powerwash"
+        },
+        {
+          "pos": 8,
+          "organicPos": 8,
+          "brand": "Method",
+          "product": "Method Foaming Dish Soap",
+          "sponsored": false,
+          "isDawn": false,
+          "url": "https://www.amazon.com/s?k=dawn%20powerwash"
+        }
+      ],
+      "dawnBestPos": 1,
+      "dawnInTop4": true,
+      "dawnCount": 6,
+      "top4": [
+        {
+          "brand": "Dawn",
+          "isDawn": true
+        },
+        {
+          "brand": "Dawn",
+          "isDawn": true
+        },
+        {
+          "brand": "Dawn",
+          "isDawn": true
+        },
+        {
+          "brand": "Dawn",
+          "isDawn": true
+        }
+      ],
+      "leader": "Dawn",
+      "recommendation": "Protect the branded term: keep the Starter Kit as the review-anchored parent, tighten refill variation naming, and defensive-bid Sponsored so no competitor buys the top slot."
+    },
+    {
+      "term": "dish soap",
+      "retailer": "walmart",
+      "results": [
+        {
+          "pos": 1,
+          "organicPos": 1,
+          "brand": "Great Value",
+          "product": "Great Value Ultra Concentrated Dish Liquid, Original",
+          "sponsored": false,
+          "isDawn": false,
+          "url": "https://www.walmart.com/search?q=dish%20soap"
+        },
+        {
+          "pos": 2,
+          "organicPos": 2,
+          "brand": "Dawn",
+          "product": "Dawn Ultra Dishwashing Liquid, Original, 56 oz",
+          "sponsored": false,
+          "isDawn": true,
+          "url": "https://www.walmart.com/search?q=dish%20soap"
+        },
+        {
+          "pos": 3,
+          "organicPos": 3,
+          "brand": "Dawn",
+          "product": "Dawn Powerwash Dish Spray, Fresh Scent",
+          "sponsored": false,
+          "isDawn": true,
+          "url": "https://www.walmart.com/search?q=dish%20soap"
+        },
+        {
+          "pos": 4,
+          "organicPos": 4,
+          "brand": "Palmolive",
+          "product": "Palmolive Ultra Strength Liquid",
+          "sponsored": false,
+          "isDawn": false,
+          "url": "https://www.walmart.com/search?q=dish%20soap"
+        },
+        {
+          "pos": 5,
+          "organicPos": 5,
+          "brand": "Ajax",
+          "product": "Ajax Ultra Dish Liquid",
+          "sponsored": false,
+          "isDawn": false,
+          "url": "https://www.walmart.com/search?q=dish%20soap"
+        },
+        {
+          "pos": 6,
+          "organicPos": 6,
+          "brand": "Dawn",
+          "product": "Dawn Platinum Dishwashing Liquid",
+          "sponsored": false,
+          "isDawn": true,
+          "url": "https://www.walmart.com/search?q=dish%20soap"
+        },
+        {
+          "pos": 7,
+          "organicPos": 7,
+          "brand": "Gain",
+          "product": "Gain Ultra Dishwashing Liquid, Original",
+          "sponsored": false,
+          "isDawn": false,
+          "url": "https://www.walmart.com/search?q=dish%20soap"
+        },
+        {
+          "pos": 8,
+          "organicPos": 8,
+          "brand": "Method",
+          "product": "Method Gel Dish Soap",
+          "sponsored": false,
+          "isDawn": false,
+          "url": "https://www.walmart.com/search?q=dish%20soap"
+        }
+      ],
+      "dawnBestPos": 2,
+      "dawnInTop4": true,
+      "dawnCount": 3,
+      "top4": [
+        {
+          "brand": "Great Value",
+          "isDawn": false
+        },
+        {
+          "brand": "Dawn",
+          "isDawn": true
+        },
+        {
+          "brand": "Dawn",
+          "isDawn": true
+        },
+        {
+          "brand": "Palmolive",
+          "isDawn": false
+        }
+      ],
+      "leader": "Great Value",
+      "recommendation": "Fold high-volume generic keywords ('dish soap','grease cutting dish soap') into the Powerwash title + backend terms so it stops losing the head term to the Ultra parent listing."
+    },
+    {
+      "term": "dawn dish soap",
+      "retailer": "walmart",
+      "results": [
+        {
+          "pos": 1,
+          "organicPos": 1,
+          "brand": "Dawn",
+          "product": "Dawn Ultra Dishwashing Liquid, Original",
+          "sponsored": false,
+          "isDawn": true,
+          "url": "https://www.walmart.com/search?q=dawn%20dish%20soap"
+        },
+        {
+          "pos": 2,
+          "organicPos": 2,
+          "brand": "Dawn",
+          "product": "Dawn Powerwash Dish Spray, Fresh Scent",
+          "sponsored": false,
+          "isDawn": true,
+          "url": "https://www.walmart.com/search?q=dawn%20dish%20soap"
+        },
+        {
+          "pos": 3,
+          "organicPos": 3,
+          "brand": "Dawn",
+          "product": "Dawn Platinum Dishwashing Liquid",
+          "sponsored": false,
+          "isDawn": true,
+          "url": "https://www.walmart.com/search?q=dawn%20dish%20soap"
+        },
+        {
+          "pos": 4,
+          "organicPos": 4,
+          "brand": "Dawn",
+          "product": "Dawn EZ-Squeeze Dishwashing Liquid, Original",
+          "sponsored": false,
+          "isDawn": true,
+          "url": "https://www.walmart.com/search?q=dawn%20dish%20soap"
+        },
+        {
+          "pos": 5,
+          "organicPos": 5,
+          "brand": "Dawn",
+          "product": "Dawn Free & Clear Dishwashing Liquid",
+          "sponsored": false,
+          "isDawn": true,
+          "url": "https://www.walmart.com/search?q=dawn%20dish%20soap"
+        },
+        {
+          "pos": 6,
+          "organicPos": 6,
+          "brand": "Great Value",
+          "product": "Great Value Dish Liquid, Original",
+          "sponsored": false,
+          "isDawn": false,
+          "url": "https://www.walmart.com/search?q=dawn%20dish%20soap"
+        },
+        {
+          "pos": 7,
+          "organicPos": 7,
+          "brand": "Dawn",
+          "product": "Dawn Simply Clean Dishwashing Liquid",
+          "sponsored": false,
+          "isDawn": true,
+          "url": "https://www.walmart.com/search?q=dawn%20dish%20soap"
+        },
+        {
+          "pos": 8,
+          "organicPos": 8,
+          "brand": "Dawn",
+          "product": "Dawn Platinum Powerwash",
+          "sponsored": false,
+          "isDawn": true,
+          "url": "https://www.walmart.com/search?q=dawn%20dish%20soap"
+        }
+      ],
+      "dawnBestPos": 1,
+      "dawnInTop4": true,
+      "dawnCount": 7,
+      "top4": [
+        {
+          "brand": "Dawn",
+          "isDawn": true
+        },
+        {
+          "brand": "Dawn",
+          "isDawn": true
+        },
+        {
+          "brand": "Dawn",
+          "isDawn": true
+        },
+        {
+          "brand": "Dawn",
+          "isDawn": true
+        }
+      ],
+      "leader": "Dawn",
+      "recommendation": "Consolidate scattered Dawn child ASINs under one review-rich parent so review count concentrates and Dawn owns the full top-4 for its own branded term."
+    },
+    {
+      "term": "dish detergent",
+      "retailer": "walmart",
+      "results": [
+        {
+          "pos": 1,
+          "organicPos": 1,
+          "brand": "Great Value",
+          "product": "Great Value Ultra Dish Liquid",
+          "sponsored": false,
+          "isDawn": false,
+          "url": "https://www.walmart.com/search?q=dish%20detergent"
+        },
+        {
+          "pos": 2,
+          "organicPos": 2,
+          "brand": "Dawn",
+          "product": "Dawn Ultra Dishwashing Liquid Dish Soap",
+          "sponsored": false,
+          "isDawn": true,
+          "url": "https://www.walmart.com/search?q=dish%20detergent"
+        },
+        {
+          "pos": 3,
+          "organicPos": 3,
+          "brand": "Palmolive",
+          "product": "Palmolive Ultra Dish Liquid",
+          "sponsored": false,
+          "isDawn": false,
+          "url": "https://www.walmart.com/search?q=dish%20detergent"
+        },
+        {
+          "pos": 4,
+          "organicPos": 4,
+          "brand": "Cascade",
+          "product": "Cascade Complete Dishwasher Detergent",
+          "sponsored": false,
+          "isDawn": false,
+          "url": "https://www.walmart.com/search?q=dish%20detergent"
+        },
+        {
+          "pos": 5,
+          "organicPos": 5,
+          "brand": "Dawn",
+          "product": "Dawn Powerwash Spray",
+          "sponsored": false,
+          "isDawn": true,
+          "url": "https://www.walmart.com/search?q=dish%20detergent"
+        },
+        {
+          "pos": 6,
+          "organicPos": 6,
+          "brand": "Finish",
+          "product": "Finish Powerball Tabs",
+          "sponsored": false,
+          "isDawn": false,
+          "url": "https://www.walmart.com/search?q=dish%20detergent"
+        },
+        {
+          "pos": 7,
+          "organicPos": 7,
+          "brand": "Gain",
+          "product": "Gain Dishwashing Liquid",
+          "sponsored": false,
+          "isDawn": false,
+          "url": "https://www.walmart.com/search?q=dish%20detergent"
+        },
+        {
+          "pos": 8,
+          "organicPos": 8,
+          "brand": "Ajax",
+          "product": "Ajax Ultra Dish Liquid",
+          "sponsored": false,
+          "isDawn": false,
+          "url": "https://www.walmart.com/search?q=dish%20detergent"
+        }
+      ],
+      "dawnBestPos": 2,
+      "dawnInTop4": true,
+      "dawnCount": 2,
+      "top4": [
+        {
+          "brand": "Great Value",
+          "isDawn": false
+        },
+        {
+          "brand": "Dawn",
+          "isDawn": true
+        },
+        {
+          "brand": "Palmolive",
+          "isDawn": false
+        },
+        {
+          "brand": "Cascade",
+          "isDawn": false
+        }
+      ],
+      "leader": "Great Value",
+      "recommendation": "Add 'dish detergent' as a backend search term on Dawn Ultra and A+ compare-chart it against Palmolive/Cascade to defend the ambiguous head term."
+    },
+    {
+      "term": "dishwashing liquid",
+      "retailer": "walmart",
+      "results": [
+        {
+          "pos": 1,
+          "organicPos": 1,
+          "brand": "Dawn",
+          "product": "Dawn Ultra Dishwashing Liquid, Original",
+          "sponsored": false,
+          "isDawn": true,
+          "url": "https://www.walmart.com/search?q=dishwashing%20liquid"
+        },
+        {
+          "pos": 2,
+          "organicPos": 2,
+          "brand": "Great Value",
+          "product": "Great Value Ultra Concentrated Dish Liquid",
+          "sponsored": false,
+          "isDawn": false,
+          "url": "https://www.walmart.com/search?q=dishwashing%20liquid"
+        },
+        {
+          "pos": 3,
+          "organicPos": 3,
+          "brand": "Palmolive",
+          "product": "Palmolive Ultra Strength Liquid",
+          "sponsored": false,
+          "isDawn": false,
+          "url": "https://www.walmart.com/search?q=dishwashing%20liquid"
+        },
+        {
+          "pos": 4,
+          "organicPos": 4,
+          "brand": "Ajax",
+          "product": "Ajax Ultra Triple Action Liquid",
+          "sponsored": false,
+          "isDawn": false,
+          "url": "https://www.walmart.com/search?q=dishwashing%20liquid"
+        },
+        {
+          "pos": 5,
+          "organicPos": 5,
+          "brand": "Dawn",
+          "product": "Dawn Platinum Dishwashing Liquid",
+          "sponsored": false,
+          "isDawn": true,
+          "url": "https://www.walmart.com/search?q=dishwashing%20liquid"
+        },
+        {
+          "pos": 6,
+          "organicPos": 6,
+          "brand": "Gain",
+          "product": "Gain Ultra Dishwashing Liquid",
+          "sponsored": false,
+          "isDawn": false,
+          "url": "https://www.walmart.com/search?q=dishwashing%20liquid"
+        },
+        {
+          "pos": 7,
+          "organicPos": 7,
+          "brand": "Joy",
+          "product": "Joy Non-Ultra Dishwashing Liquid",
+          "sponsored": false,
+          "isDawn": false,
+          "url": "https://www.walmart.com/search?q=dishwashing%20liquid"
+        },
+        {
+          "pos": 8,
+          "organicPos": 8,
+          "brand": "Method",
+          "product": "Method Gel Dish Soap",
+          "sponsored": false,
+          "isDawn": false,
+          "url": "https://www.walmart.com/search?q=dishwashing%20liquid"
+        }
+      ],
+      "dawnBestPos": 1,
+      "dawnInTop4": true,
+      "dawnCount": 2,
+      "top4": [
+        {
+          "brand": "Dawn",
+          "isDawn": true
+        },
+        {
+          "brand": "Great Value",
+          "isDawn": false
+        },
+        {
+          "brand": "Palmolive",
+          "isDawn": false
+        },
+        {
+          "brand": "Ajax",
+          "isDawn": false
+        }
+      ],
+      "leader": "Dawn",
+      "recommendation": "Push review velocity (Vine + Subscribe & Save) on Dawn Ultra to widen the ratings gap over Palmolive and lock organic #1."
+    },
+    {
+      "term": "liquid dish soap",
+      "retailer": "walmart",
+      "results": [
+        {
+          "pos": 1,
+          "organicPos": 1,
+          "brand": "Great Value",
+          "product": "Great Value Ultra Dish Liquid, Original",
+          "sponsored": false,
+          "isDawn": false,
+          "url": "https://www.walmart.com/search?q=liquid%20dish%20soap"
+        },
+        {
+          "pos": 2,
+          "organicPos": 2,
+          "brand": "Dawn",
+          "product": "Dawn Ultra Dishwashing Liquid",
+          "sponsored": false,
+          "isDawn": true,
+          "url": "https://www.walmart.com/search?q=liquid%20dish%20soap"
+        },
+        {
+          "pos": 3,
+          "organicPos": 3,
+          "brand": "Palmolive",
+          "product": "Palmolive Ultra Liquid",
+          "sponsored": false,
+          "isDawn": false,
+          "url": "https://www.walmart.com/search?q=liquid%20dish%20soap"
+        },
+        {
+          "pos": 4,
+          "organicPos": 4,
+          "brand": "Gain",
+          "product": "Gain Ultra Dishwashing Liquid",
+          "sponsored": false,
+          "isDawn": false,
+          "url": "https://www.walmart.com/search?q=liquid%20dish%20soap"
+        },
+        {
+          "pos": 5,
+          "organicPos": 5,
+          "brand": "Dawn",
+          "product": "Dawn Powerwash Spray",
+          "sponsored": false,
+          "isDawn": true,
+          "url": "https://www.walmart.com/search?q=liquid%20dish%20soap"
+        },
+        {
+          "pos": 6,
+          "organicPos": 6,
+          "brand": "Method",
+          "product": "Method Gel Dish Soap",
+          "sponsored": false,
+          "isDawn": false,
+          "url": "https://www.walmart.com/search?q=liquid%20dish%20soap"
+        },
+        {
+          "pos": 7,
+          "organicPos": 7,
+          "brand": "Ajax",
+          "product": "Ajax Ultra Dish Liquid",
+          "sponsored": false,
+          "isDawn": false,
+          "url": "https://www.walmart.com/search?q=liquid%20dish%20soap"
+        },
+        {
+          "pos": 8,
+          "organicPos": 8,
+          "brand": "Mrs. Meyer's",
+          "product": "Mrs. Meyer's Clean Day Dish Soap",
+          "sponsored": false,
+          "isDawn": false,
+          "url": "https://www.walmart.com/search?q=liquid%20dish%20soap"
+        }
+      ],
+      "dawnBestPos": 2,
+      "dawnInTop4": true,
+      "dawnCount": 2,
+      "top4": [
+        {
+          "brand": "Great Value",
+          "isDawn": false
+        },
+        {
+          "brand": "Dawn",
+          "isDawn": true
+        },
+        {
+          "brand": "Palmolive",
+          "isDawn": false
+        },
+        {
+          "brand": "Gain",
+          "isDawn": false
+        }
+      ],
+      "leader": "Great Value",
+      "recommendation": "Improve main-image + first-3-bullets conversion so click-through beats Great Value/Palmolive; conversion is the biggest organic-rank lever here."
+    },
+    {
+      "term": "dish soap for grease",
+      "retailer": "walmart",
+      "results": [
+        {
+          "pos": 1,
+          "organicPos": 1,
+          "brand": "Dawn",
+          "product": "Dawn Powerwash Dish Spray, Fresh Scent",
+          "sponsored": false,
+          "isDawn": true,
+          "url": "https://www.walmart.com/search?q=dish%20soap%20for%20grease"
+        },
+        {
+          "pos": 2,
+          "organicPos": 2,
+          "brand": "Dawn",
+          "product": "Dawn Ultra Dishwashing Liquid, Original Scent",
+          "sponsored": false,
+          "isDawn": true,
+          "url": "https://www.walmart.com/search?q=dish%20soap%20for%20grease"
+        },
+        {
+          "pos": 3,
+          "organicPos": 3,
+          "brand": "Great Value",
+          "product": "Great Value Ultra Grease-Cutting Dish Liquid",
+          "sponsored": false,
+          "isDawn": false,
+          "url": "https://www.walmart.com/search?q=dish%20soap%20for%20grease"
+        },
+        {
+          "pos": 4,
+          "organicPos": 4,
+          "brand": "Awesome",
+          "product": "LA's Totally Awesome Degreaser",
+          "sponsored": false,
+          "isDawn": false,
+          "url": "https://www.walmart.com/search?q=dish%20soap%20for%20grease"
+        },
+        {
+          "pos": 5,
+          "organicPos": 5,
+          "brand": "Palmolive",
+          "product": "Palmolive Ultra Strength Grease Fighter",
+          "sponsored": false,
+          "isDawn": false,
+          "url": "https://www.walmart.com/search?q=dish%20soap%20for%20grease"
+        },
+        {
+          "pos": 6,
+          "organicPos": 6,
+          "brand": "Dawn",
+          "product": "Dawn Platinum Powerwash",
+          "sponsored": false,
+          "isDawn": true,
+          "url": "https://www.walmart.com/search?q=dish%20soap%20for%20grease"
+        },
+        {
+          "pos": 7,
+          "organicPos": 7,
+          "brand": "Ajax",
+          "product": "Ajax Super Degreaser Dish Liquid",
+          "sponsored": false,
+          "isDawn": false,
+          "url": "https://www.walmart.com/search?q=dish%20soap%20for%20grease"
+        },
+        {
+          "pos": 8,
+          "organicPos": 8,
+          "brand": "Zep",
+          "product": "Zep Citrus Degreaser",
+          "sponsored": false,
+          "isDawn": false,
+          "url": "https://www.walmart.com/search?q=dish%20soap%20for%20grease"
+        }
+      ],
+      "dawnBestPos": 1,
+      "dawnInTop4": true,
+      "dawnCount": 3,
+      "top4": [
+        {
+          "brand": "Dawn",
+          "isDawn": true
+        },
+        {
+          "brand": "Dawn",
+          "isDawn": true
+        },
+        {
+          "brand": "Great Value",
+          "isDawn": false
+        },
+        {
+          "brand": "Awesome",
+          "isDawn": false
+        }
+      ],
+      "leader": "Dawn",
+      "recommendation": "Own the 'grease' intent: lead the Powerwash title with 'Cuts Grease', add a grease before/after A+ module and a 15s degrease video."
+    },
+    {
+      "term": "dishwasher soap",
+      "retailer": "walmart",
+      "results": [
+        {
+          "pos": 1,
+          "organicPos": 1,
+          "brand": "Cascade",
+          "product": "Cascade Complete ActionPacs Dishwasher Detergent",
+          "sponsored": false,
+          "isDawn": false,
+          "url": "https://www.walmart.com/search?q=dishwasher%20soap"
+        },
+        {
+          "pos": 2,
+          "organicPos": 2,
+          "brand": "Finish",
+          "product": "Finish Powerball Quantum Tabs",
+          "sponsored": false,
+          "isDawn": false,
+          "url": "https://www.walmart.com/search?q=dishwasher%20soap"
+        },
+        {
+          "pos": 3,
+          "organicPos": 3,
+          "brand": "Great Value",
+          "product": "Great Value Automatic Dishwasher Pacs",
+          "sponsored": false,
+          "isDawn": false,
+          "url": "https://www.walmart.com/search?q=dishwasher%20soap"
+        },
+        {
+          "pos": 4,
+          "organicPos": 4,
+          "brand": "Cascade",
+          "product": "Cascade Platinum ActionPacs",
+          "sponsored": false,
+          "isDawn": false,
+          "url": "https://www.walmart.com/search?q=dishwasher%20soap"
+        },
+        {
+          "pos": 5,
+          "organicPos": 5,
+          "brand": "Finish",
+          "product": "Finish Ultimate Plus Dishwasher Detergent",
+          "sponsored": false,
+          "isDawn": false,
+          "url": "https://www.walmart.com/search?q=dishwasher%20soap"
+        },
+        {
+          "pos": 6,
+          "organicPos": 6,
+          "brand": "Cascade",
+          "product": "Cascade Free & Clear ActionPacs",
+          "sponsored": false,
+          "isDawn": false,
+          "url": "https://www.walmart.com/search?q=dishwasher%20soap"
+        },
+        {
+          "pos": 7,
+          "organicPos": 7,
+          "brand": "Seventh Generation",
+          "product": "Seventh Generation Dishwasher Packs",
+          "sponsored": false,
+          "isDawn": false,
+          "url": "https://www.walmart.com/search?q=dishwasher%20soap"
+        },
+        {
+          "pos": 8,
+          "organicPos": 8,
+          "brand": "Member's Mark",
+          "product": "Member's Mark Dishwasher Pacs",
+          "sponsored": false,
+          "isDawn": false,
+          "url": "https://www.walmart.com/search?q=dishwasher%20soap"
+        }
+      ],
+      "dawnBestPos": null,
+      "dawnInTop4": false,
+      "dawnCount": 0,
+      "top4": [
+        {
+          "brand": "Cascade",
+          "isDawn": false
+        },
+        {
+          "brand": "Finish",
+          "isDawn": false
+        },
+        {
+          "brand": "Great Value",
+          "isDawn": false
+        },
+        {
+          "brand": "Cascade",
+          "isDawn": false
+        }
+      ],
+      "leader": "Cascade",
+      "recommendation": "Dawn does not compete here (auto-dishwasher intent = Cascade/Finish). Either cede it or run a small Sponsored bridge for Dawn Powerwash on 'stuck-on grease' shoppers; do not chase organic."
+    },
+    {
+      "term": "dawn powerwash",
+      "retailer": "walmart",
+      "results": [
+        {
+          "pos": 1,
+          "organicPos": 1,
+          "brand": "Dawn",
+          "product": "Dawn Powerwash Dish Spray, Fresh Scent, Starter Kit",
+          "sponsored": false,
+          "isDawn": true,
+          "url": "https://www.walmart.com/search?q=dawn%20powerwash"
+        },
+        {
+          "pos": 2,
+          "organicPos": 2,
+          "brand": "Dawn",
+          "product": "Dawn Powerwash Dish Spray Refill, 2-pack",
+          "sponsored": false,
+          "isDawn": true,
+          "url": "https://www.walmart.com/search?q=dawn%20powerwash"
+        },
+        {
+          "pos": 3,
+          "organicPos": 3,
+          "brand": "Dawn",
+          "product": "Dawn Powerwash Apple Scent Spray",
+          "sponsored": false,
+          "isDawn": true,
+          "url": "https://www.walmart.com/search?q=dawn%20powerwash"
+        },
+        {
+          "pos": 4,
+          "organicPos": 4,
+          "brand": "Dawn",
+          "product": "Dawn Powerwash Citrus",
+          "sponsored": false,
+          "isDawn": true,
+          "url": "https://www.walmart.com/search?q=dawn%20powerwash"
+        },
+        {
+          "pos": 5,
+          "organicPos": 5,
+          "brand": "Dawn",
+          "product": "Dawn Ultra Powerwash Free & Clear",
+          "sponsored": false,
+          "isDawn": true,
+          "url": "https://www.walmart.com/search?q=dawn%20powerwash"
+        },
+        {
+          "pos": 6,
+          "organicPos": 6,
+          "brand": "Great Value",
+          "product": "Great Value Foaming Dish Spray",
+          "sponsored": false,
+          "isDawn": false,
+          "url": "https://www.walmart.com/search?q=dawn%20powerwash"
+        },
+        {
+          "pos": 7,
+          "organicPos": 7,
+          "brand": "Dawn",
+          "product": "Dawn Powerwash Bundle",
+          "sponsored": false,
+          "isDawn": true,
+          "url": "https://www.walmart.com/search?q=dawn%20powerwash"
+        },
+        {
+          "pos": 8,
+          "organicPos": 8,
+          "brand": "Palmolive",
+          "product": "Palmolive Foaming Dish Spray",
+          "sponsored": false,
+          "isDawn": false,
+          "url": "https://www.walmart.com/search?q=dawn%20powerwash"
+        }
+      ],
+      "dawnBestPos": 1,
+      "dawnInTop4": true,
+      "dawnCount": 6,
+      "top4": [
+        {
+          "brand": "Dawn",
+          "isDawn": true
+        },
+        {
+          "brand": "Dawn",
+          "isDawn": true
+        },
+        {
+          "brand": "Dawn",
+          "isDawn": true
+        },
+        {
+          "brand": "Dawn",
+          "isDawn": true
+        }
+      ],
+      "leader": "Dawn",
+      "recommendation": "Protect the branded term: keep the Starter Kit as the review-anchored parent, tighten refill variation naming, and defensive-bid Sponsored so no competitor buys the top slot."
+    }
+  ],
+  "recommendations": [
+    {
+      "priority": 1,
+      "title": "Make Powerwash win generic head terms",
+      "detail": "Powerwash converts but ranks behind the Ultra parent on 'dish soap' and 'liquid dish soap'. Add the generic head keywords to Powerwash's title and backend search terms and drive Sponsored to it so organic follows the conversion signal.",
+      "terms": [
+        "dish soap",
+        "liquid dish soap",
+        "dish soap for grease"
+      ],
+      "effort": "low",
+      "impact": "high"
+    },
+    {
+      "priority": 2,
+      "title": "Consolidate Dawn child ASINs into review-rich parents",
+      "detail": "Dawn's review equity is spread across many child listings, weakening any single organic slot. Parent-child roll-ups concentrate ratings and sales rank, lifting the anchor listing on both retailers.",
+      "terms": [
+        "dawn dish soap",
+        "dishwashing liquid"
+      ],
+      "effort": "med",
+      "impact": "high"
+    },
+    {
+      "priority": 3,
+      "title": "Close the Great Value gap on Walmart",
+      "detail": "Great Value out-ranks Dawn on Walmart for 'dish soap','liquid dish soap' and 'dish detergent'. Improve Walmart content quality score (imagery, attributes, 3P reviews via Spark) and Walmart Connect sponsored to reclaim slot 1-2.",
+      "terms": [
+        "dish soap",
+        "liquid dish soap",
+        "dish detergent"
+      ],
+      "effort": "med",
+      "impact": "high"
+    },
+    {
+      "priority": 4,
+      "title": "Own the 'grease' intent cluster",
+      "detail": "Dawn already leads 'dish soap for grease' — extend it by leading titles with 'Cuts Grease', adding grease before/after A+ modules and a short degrease video to defend against Palmolive and private label.",
+      "terms": [
+        "dish soap for grease",
+        "dish soap"
+      ],
+      "effort": "low",
+      "impact": "med"
+    },
+    {
+      "priority": 5,
+      "title": "Lift conversion on the head listings",
+      "detail": "Organic rank on Amazon/Walmart is conversion-driven. Refresh main images to comparison-legible packs, tighten the first three bullets to benefit-led copy, and add video to raise CVR on the Ultra and Platinum head ASINs.",
+      "terms": [
+        "dishwashing liquid",
+        "liquid dish soap",
+        "dish soap"
+      ],
+      "effort": "med",
+      "impact": "high"
+    },
+    {
+      "priority": 6,
+      "title": "Stop chasing auto-dishwasher terms",
+      "detail": "'Dishwasher soap' is auto-dishwasher intent owned by Cascade/Finish; Dawn cannot rank organically and should not try. Redirect that budget to the hand-dish terms where Dawn can hold top-4.",
+      "terms": [
+        "dishwasher soap"
+      ],
+      "effort": "low",
+      "impact": "med"
+    }
+  ],
+  "count": 16
+}
