@@ -19,7 +19,7 @@ const ENDPOINT      = "https://api.anthropic.com/v1/messages";
 const BRAND_IDS     = ["cascade", "dawn", "febreze", "swiffer", "mrclean"];
 
 const AXES = {
-  landscape: "the biggest ALL-social breakout trends this week across TikTok, Instagram, Facebook, Reddit, YouTube and X (general culture, not cleaning-specific).",
+  landscape: "the biggest MAINSTREAM CULTURAL MOMENTS happening right now or in the next few weeks that a brand could newsjack — major sports (World Cup, Olympics, Super Bowl, playoffs, big matches), award shows, celebrity / creator news & viral comments, blockbuster releases, huge memes, and seasonal / holiday moments. These are NOT cleaning-specific — they are the tentpole culture P&G Home Care could tap into. For EACH, the value is the activation angle: which brand should ride it and how.",
   category:  "the CLEANING & home-care product category conversation this week — CleanTok, cleaning hacks, detergents, dish, surface cleaners, air/odor, floor care, viral products and methods.",
   owned:     "P&G Home Care brands specifically — Cascade, Dawn, Febreze, Swiffer, Mr. Clean — mentions, hacks, praise, criticism or narratives about these exact brands this week.",
   competitor:"COMPETITOR / challenger cleaning brands vs Cascade, Dawn, Febreze, Swiffer, Mr. Clean — e.g. The Pink Stuff, Scrub Daddy, Force of Nature / hypochlorous-acid, Blueland, Method, Mrs Meyer's, Fabuloso, purple cleaners — that are gaining momentum this week."
@@ -111,6 +111,10 @@ no explanation, no markdown code fences. Each item:
  "mentionsNow":0-100 (roughly how big the conversation is right now relative to its own yearly peak),
  "src":"one public source URL"
 }
+If a trend or moment is not itself about a P&G brand (e.g. a sports match, a
+celebrity comment, a meme), STILL include it — set "brands" to ["all"] and put
+the P&G relevance in "angle"/"response" (how Home Care should newsjack it).
+Always return the JSON array even for non-cleaning culture; never reply with prose.
 Only real, current trends you can source. Prefer tiktok.com / instagram.com links for the examples.`;
 
   const txt = await anthropic({
@@ -120,7 +124,25 @@ Only real, current trends you can source. Prefer tiktok.com / instagram.com link
     tools: [{ type: SEARCH_TOOL, name: "web_search", max_uses: 6 }],
   });
 
-  return parseJSONArray(txt).map(x => {
+  let raw;
+  try {
+    raw = parseJSONArray(txt);
+  } catch (e) {
+    // The model sometimes answers in prose (esp. the culture axis). Salvage by
+    // asking it to reformat its own reply into the array — no re-research needed.
+    console.warn(`  ${type}: reply was not JSON (${e.message}); attempting reformat…`);
+    const fixed = await anthropic({
+      model: MODEL,
+      max_tokens: 8000,
+      messages: [{ role: "user", content:
+        `Convert the following into ONLY a JSON array of trend objects using the schema you were given ` +
+        `(lbl, title, summary, platforms, signal, sent, respond, brands, angle, response, examples, trend, mentionsNow, src). ` +
+        `Begin with "[" and end with "]". No prose. If it contains no usable trends, return [].\n\n${String(txt).slice(0, 12000)}` }],
+    });
+    raw = parseJSONArray(fixed);
+  }
+
+  return raw.map(x => {
     const signal = Math.min(99, Math.max(40, parseInt(x.signal) || 60));
     return {
       type,

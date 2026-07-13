@@ -244,7 +244,7 @@ const TYPES = [
   {id:"owned",     label:"Owned"},
   {id:"category",  label:"Category"},
   {id:"competitor",label:"Competitor"},
-  {id:"landscape", label:"Landscape"},
+  {id:"landscape", label:"Culture"},
 ];
 const PLATFORMS = {
   tiktok:{label:"TikTok",bg:"#25252b",fg:"#ff5b8a"}, instagram:{label:"Instagram",bg:"#2a2033",fg:"#e08bd0"},
@@ -252,10 +252,11 @@ const PLATFORMS = {
   youtube:{label:"YouTube",bg:"#2e1a1c",fg:"#ff7a7a"}, x:{label:"X",bg:"#20262e",fg:"#c8d4e2"},
 };
 const SENT={pos:{label:"Positive",c:"var(--pos)"},neg:{label:"Negative",c:"var(--neg)"},neu:{label:"Neutral",c:"var(--neu)"},mix:{label:"Mixed",c:"var(--mix)"}};
-const TYPELABEL={owned:"Owned",category:"Category",competitor:"Competitor",landscape:"Landscape"};
+const TYPELABEL={owned:"Owned",category:"Category",competitor:"Competitor",landscape:"Culture"};
 
 /* ---------- seed (illustrative until the first weekly refresh) ---------- */
 const SEED = [
+ {brands:["all"],type:"landscape",lbl:"World Cup 2026",title:"World Cup final week grips global feeds",summary:"FIFA World Cup 2026 (US/Canada/Mexico) hits its final stretch — watch-party, host-the-game and matchday-snack content is flooding TikTok and Instagram.",platforms:["tiktok","instagram","x"],signal:96,sent:"pos",respond:true,angle:"The biggest hosting moment of the year: watch parties mean spills, greasy snacks and guest bathrooms.",response:"Run a ‘post-match cleanup in 60 seconds’ series — Dawn Powerwash for wing/nacho grease, Febreze for the couch, Mr. Clean for spilled-drink floors — seeded with sports & food creators during final week.",src:"https://www.tiktok.com/tag/worldcup"},
  {brands:["all"],type:"landscape",lbl:"CleanTok",title:"‘Underconsumption core’ backlash grows",summary:"Creators reframing cleaning-product haul/restock content as wasteful; ‘use what you have’ framing racking up millions of views.",platforms:["tiktok","instagram"],signal:88,sent:"mix",respond:true,angle:"Portfolio reputational watch-item. Ride the sentiment with value / ‘one bottle does more’ efficacy messaging rather than fighting it.",src:"https://www.tiktok.com/search?q=underconsumption"},
  {brands:["all"],type:"landscape",lbl:"ASMR",title:"Restock & refill ASMR still a top format",summary:"‘Restock my cleaning cabinet’ decant/ASMR remains a dominant home-content format across TikTok and YouTube.",platforms:["tiktok","youtube","instagram"],signal:74,sent:"pos",respond:false,angle:"Seed refill-friendly / decant-ready packaging moments with cleaning creators.",src:"https://www.tiktok.com/search?q=cleaning+restock"},
  {brands:["cascade","dawn"],type:"category",lbl:"Laundry",title:"‘Laundry stripping’ resurgence",summary:"Viral before/after soak videos showing ‘hidden dirt’; fuels skepticism about everyday detergent efficacy.",platforms:["tiktok","reddit","youtube"],signal:79,sent:"mix",respond:true,angle:"Efficacy-defense moment: deep-clean proof demos (Dawn degrease, Cascade food-film removal).",src:"https://www.reddit.com/search/?q=laundry%20stripping"},
@@ -435,7 +436,7 @@ function renderGrid(){
   g.querySelectorAll("[data-why]").forEach(b=>b.onclick=()=>toast(VIEW[+b.dataset.why].angle,4600));
 }
 /* ---------- executive summary: top movers per category ---------- */
-const EXEC_TYPES=[{id:"owned",label:"Owned"},{id:"category",label:"Category"},{id:"competitor",label:"Competitor"},{id:"landscape",label:"Landscape"}];
+const EXEC_TYPES=[{id:"owned",label:"Owned"},{id:"category",label:"Category"},{id:"competitor",label:"Competitor"},{id:"landscape",label:"Culture"}];
 function topByType(type){
   return state.trends.filter(inBrand).filter(t=>t.type===type)
     .sort((a,b)=>(b.respond-a.respond)||((b.signal||60)-(a.signal||60))).slice(0,5);
