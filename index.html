@@ -126,6 +126,9 @@
   .chip2.up{color:var(--pos);background:rgba(87,201,138,.10)}
   .chip2.dn{color:var(--neg);background:rgba(240,115,107,.10)}
   .chip2.brk{color:var(--amber);background:rgba(246,180,69,.13)}
+  .chip2.flat{color:var(--paper-dim);background:rgba(255,255,255,.05)}
+  .notice-bar{margin:2px 0 16px;padding:9px 13px;border:1px solid var(--amber-deep);background:rgba(246,180,69,.07);color:var(--amber);border-radius:10px;font-size:12px;line-height:1.5}
+  .notice-bar b{font-weight:600}
   .exec-empty{font-size:11.5px;color:var(--paper-faint);padding:8px 3px}
 
   /* 52-week trend line */
@@ -185,6 +188,8 @@
       <button class="btn" id="refreshBtn">↻ Refresh</button>
     </div>
   </header>
+
+  <div class="notice-bar"><b>AI-generated leads from public web — not verified market data.</b> Brand &amp; product names, claims and links are surfaced by an AI research pass and can be wrong or out of date; “Buzz” trajectories are <b>modeled directional estimates, not measured metrics</b>. Treat every card as a lead to confirm — click through and verify before acting.</div>
 
   <div class="tabs" id="tabs"></div>
 
@@ -341,20 +346,27 @@ function sparkline(a,color,w=170,h=34,cls="spark"){
     <circle cx="${last[0].toFixed(1)}" cy="${last[1].toFixed(1)}" r="2.4" fill="${color}"/></svg>`;
 }
 /* ---------- example TikTok / Instagram content ---------- */
-// Uses curated links from the weekly refresh when present; otherwise builds
-// real, working platform deep-links (hashtag / search) so each trend still
-// links straight to the content until the next refresh curates specific posts.
-function examplesFor(t){
-  if(Array.isArray(t.examples)&&t.examples.length)
-    return t.examples.slice(0,3).map(e=>({platform:(e.platform||"tiktok"),url:e.url,appeal:e.appeal||t.summary||""})).filter(e=>e.url);
-  const tag=(t.lbl||t.title||"cleaning").toLowerCase().replace(/[^a-z0-9]+/g,"");
-  const q=encodeURIComponent(t.lbl||t.title||"cleaning");
-  const base=t.summary||t.title||"";
+// Honest, always-valid platform SEARCH links for a trend's key term. We deliberately
+// do NOT surface model-written "specific post" URLs — an LLM cannot reliably produce
+// real post links, so those were unverifiable/hallucinated. A search link makes no
+// claim about a specific post; it just runs the query against live platform results.
+function searchLinks(t){
+  const term=(t.lbl && t.lbl.replace(/[^a-z0-9]/gi,"").length>2) ? t.lbl : (t.title||"cleaning");
+  const q=encodeURIComponent(term);
   return [
-    {platform:"tiktok",   url:`https://www.tiktok.com/tag/${tag}`,              appeal:`Top TikToks under #${tag} — ${base}`},
-    {platform:"instagram",url:`https://www.instagram.com/explore/tags/${tag}/`,appeal:`Instagram Reels & grid on #${tag} — high save/share format.`},
-    {platform:"tiktok",   url:`https://www.tiktok.com/search?q=${q}`,           appeal:`Freshest “${t.lbl||t.title}” clips as they surface.`},
+    {platform:"tiktok",    label:"Search TikTok",     url:`https://www.tiktok.com/search?q=${q}`},
+    {platform:"instagram", label:"Find on Instagram", url:`https://www.google.com/search?q=${encodeURIComponent(term+" site:instagram.com")}`},
+    {platform:"reddit",    label:"Search Reddit",     url:`https://www.reddit.com/search/?q=${q}`},
   ];
+}
+// 12-month trajectory as a WORD (Surging/Rising/Steady/Cooling), not a fake-precise %.
+// Prefer the model's own read (t.trend) when present; else derive from the modeled curve.
+function trajLabel(t){
+  const map={surging:"Surging",rising:"Rising",steady:"Steady",cooling:"Cooling",declining:"Cooling"};
+  let w=map[String(t.trend||"").toLowerCase()];
+  if(!w){const d=seriesDelta(seriesFor(t)); w=d>=55?"Surging":d>=15?"Rising":d>-15?"Steady":"Cooling";}
+  const up=(w==="Surging"||w==="Rising"), dn=(w==="Cooling");
+  return {word:w, cls:up?"up":dn?"dn":"flat", arr:w==="Surging"?"▲":up?"▲":dn?"▼":"→"};
 }
 
 /* ---------- render ---------- */
@@ -395,13 +407,12 @@ function card(t,i){
   const plats=(t.platforms||[]).map(p=>{const c=PLATFORMS[p]||{label:p,bg:"#222",fg:"#ccc"};return `<span class="plat" style="background:${c.bg};color:${c.fg}">${c.label}</span>`}).join("");
   const s=SENT[t.sent]||SENT.neu; const rail=t.respond?"var(--amber)":accent();
   const col=t.respond?"var(--amber)":accent();
-  const series=seriesFor(t); const d=seriesDelta(series);
-  const dcls=d>3?"up":d<-3?"dn":"flat"; const darr=d>3?"▲":d<-3?"▼":"→";
-  const exs=examplesFor(t);
-  const exHtml=exs.map(e=>{const c=PLATFORMS[e.platform]||{label:e.platform,bg:"#222",fg:"#ccc"};
+  const series=seriesFor(t); const traj=trajLabel(t);
+  const links=searchLinks(t);
+  const linkHtml=links.map(e=>{const c=PLATFORMS[e.platform]||{label:e.platform,bg:"#222",fg:"#ccc"};
     return `<a class="exrow" href="${e.url}" target="_blank" rel="noopener">
       <span class="plat" style="background:${c.bg};color:${c.fg}">${c.label}</span>
-      <span class="appeal">${e.appeal||''}</span><span class="go">↗</span></a>`;}).join("");
+      <span class="appeal">${e.label} — live results for “${(t.lbl||t.title||'').replace(/"/g,'')}”</span><span class="go">↗</span></a>`;}).join("");
   const resp=t.response||t.angle||"";
   return `<article class="card ${t.respond?'respond':''}" style="--rail:${rail}">
     <div class="c-head"><div>
@@ -414,12 +425,12 @@ function card(t,i){
       <span class="sent" style="color:${s.c}">${s.label}</span>
       <span class="plats">${plats}</span>
     </div>
-    <div class="trendrow">
-      <span class="lab">Mentions<br>52&nbsp;wk</span>
+    <div class="trendrow" title="Modeled trajectory — a directional estimate, not a measured metric">
+      <span class="lab">Buzz<br>est.</span>
       ${sparkline(series,col)}
-      <span class="delta ${dcls}">${darr} ${d>0?'+':''}${d}%</span>
+      <span class="delta ${traj.cls}">${traj.arr} ${traj.word}</span>
     </div>
-    ${exs.length?`<div class="section-lab">Example content · what's resonating</div><div class="examples">${exHtml}</div>`:''}
+    <div class="section-lab">Find live examples on the platforms</div><div class="examples">${linkHtml}</div>
     ${resp?`<div class="response ${t.respond?'alert':''}"><div class="lab">Recommended response</div><p>${resp}</p></div>`:''}
     <div class="c-foot">
       <button class="mini key" data-brief="${i}">✎ Generate brief</button>
@@ -441,11 +452,10 @@ function topByType(type){
   return state.trends.filter(inBrand).filter(t=>t.type===type)
     .sort((a,b)=>(b.respond-a.respond)||((b.signal||60)-(a.signal||60))).slice(0,5);
 }
-function execChip(series){
-  const d=seriesDelta(series);
-  if(d>=120) return `<span class="chip2 brk">Breakout</span>`;
-  const cls=d<-3?"dn":"up";
-  return `<span class="chip2 ${cls}">${d>0?'+':''}${d}%</span>`;
+function execChip(t){
+  const j=trajLabel(t);
+  const cls=j.word==="Surging"?"brk":j.cls;
+  return `<span class="chip2 ${cls}">${j.word}</span>`;
 }
 function renderExec(){
   const host=document.getElementById("exec");
@@ -458,7 +468,7 @@ function renderExec(){
         <div class="bd"><div class="tt">${t.title||''}</div>
           <div class="sub">${t.lbl||''} · signal ${t.signal||60}${t.respond?' · ▲ respond':''}</div></div>
         ${sparkline(seriesFor(t),col,44,20,"mini-spark")}
-        ${execChip(seriesFor(t))}
+        ${execChip(t)}
       </div>`;
     }).join("") : `<div class="exec-empty">No ${label} trends for this brand.</div>`;
     return `<div class="exec-col">
@@ -551,7 +561,7 @@ document.getElementById("refreshBtn").onclick=async()=>{
   btn.disabled=false; btn.innerHTML=o;
 };
 
-document.getElementById("note").innerHTML="Refresh pulls from public sources only (Google Trends, Reddit, TikTok, news &amp; creator coverage) — no Sprinklr / Brandwatch data leaves P&amp;G systems. Signal, sentiment &amp; the 52-week mentions index are directional estimates for prioritization, not licensed metrics. Example links open directly to TikTok / Instagram; the weekly refresh curates specific posts, otherwise cards deep-link to the live hashtag / search.";
+document.getElementById("note").innerHTML="How to read this: an AI research pass scans public sources (Google Trends, Reddit, TikTok, news &amp; creator coverage) once a week and drafts these cards. It can hallucinate — product names, launches, figures and claims may be inaccurate, so verify anything before acting on it. Signal, sentiment and the “Buzz” trajectory are modeled directional estimates for prioritization, not licensed or measured metrics. The “Find live examples” buttons run a live search on each platform — they are searches, not specific verified posts. No Sprinklr / Brandwatch data leaves P&amp;G systems.";
 
 /* ---------- init ---------- */
 (async function(){ await loadData(); document.documentElement.style.setProperty("--accent",accent()); renderAll(); })();

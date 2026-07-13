@@ -115,7 +115,17 @@ If a trend or moment is not itself about a P&G brand (e.g. a sports match, a
 celebrity comment, a meme), STILL include it — set "brands" to ["all"] and put
 the P&G relevance in "angle"/"response" (how Home Care should newsjack it).
 Always return the JSON array even for non-cleaning culture; never reply with prose.
-Only real, current trends you can source. Prefer tiktok.com / instagram.com links for the examples.`;
+
+ACCURACY IS CRITICAL — this feeds a brand-facing dashboard:
+- Do NOT invent product names, launches, campaigns, hashtags, creators or statistics.
+  Only state a specific product/launch/figure if it clearly appears in your search
+  results. If you are not certain a specific thing exists, describe the theme
+  generically instead. Being general and true beats being specific and wrong.
+- For "src", use a real URL you actually saw in a search result (an article, a
+  brand's official page, or a real post). Do NOT guess or construct URLs.
+- For "examples[].url", prefer a platform SEARCH URL (e.g. https://www.tiktok.com/search?q=TERM)
+  or a real official/source page — never a fabricated "specific post" link.
+Only real, current trends you can source.`;
 
   const txt = await anthropic({
     model: MODEL,
@@ -158,6 +168,9 @@ Only real, current trends you can source. Prefer tiktok.com / instagram.com link
       angle: String(x.angle || ""),
       response: String(x.response || x.angle || ""),
       examples: normalizeExamples(x.examples),
+      // Model's own read of the 12-month trajectory (drives the UI "Buzz" label).
+      trend: ["surging","rising","steady","cooling","declining"].includes(String(x.trend||"").toLowerCase())
+        ? String(x.trend).toLowerCase() : "rising",
       // Prefer an explicit series if the model provided one; otherwise synthesize
       // a directional 52-week curve from the trajectory + current volume.
       mentions52w: Array.isArray(x.mentions52w) && x.mentions52w.length >= 52
