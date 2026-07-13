@@ -1,165 +1,579 @@
 {
-  "week": "Jul 12, 2026",
-  "generatedAt": "2026-07-12T18:29:23.081Z",
-  "source": "seed (placeholder — replaced by weekly refresh)",
-  "count": 13,
+  "week": "Jul 13, 2026",
+  "generatedAt": "2026-07-13T00:10:29.307Z",
+  "source": "public web (Google Trends, Reddit, TikTok, news)",
+  "count": 12,
   "trends": [
     {
-      "brands": [
-        "all"
-      ],
-      "type": "landscape",
-      "lbl": "CleanTok",
-      "title": "‘Underconsumption core’ backlash grows",
-      "summary": "Creators reframing cleaning-product haul/restock content as wasteful; ‘use what you have’ framing racking up millions of views.",
+      "type": "category",
+      "lbl": "Dawn Powerwash",
+      "title": "Dawn Powerwash used as all-purpose grease blaster",
+      "summary": "Creators keep repurposing Dawn Powerwash spray foam beyond dishes — bathtubs, stovetops, stainless steel, even car interiors — framing it as a 'one bottle does everything' degreaser.",
       "platforms": [
         "tiktok",
         "instagram"
-      ],
-      "signal": 88,
-      "sent": "mix",
-      "respond": true,
-      "angle": "Portfolio reputational watch-item. Ride the sentiment with value / ‘one bottle does more’ efficacy messaging rather than fighting it.",
-      "src": "https://www.tiktok.com/search?q=underconsumption"
-    },
-    {
-      "brands": [
-        "all"
-      ],
-      "type": "landscape",
-      "lbl": "ASMR",
-      "title": "Restock & refill ASMR still a top format",
-      "summary": "‘Restock my cleaning cabinet’ decant/ASMR remains a dominant home-content format across TikTok and YouTube.",
-      "platforms": [
-        "tiktok",
-        "youtube",
-        "instagram"
-      ],
-      "signal": 74,
-      "sent": "pos",
-      "respond": false,
-      "angle": "Seed refill-friendly / decant-ready packaging moments with cleaning creators.",
-      "src": "https://www.tiktok.com/search?q=cleaning+restock"
-    },
-    {
-      "brands": [
-        "cascade",
-        "dawn"
-      ],
-      "type": "category",
-      "lbl": "Laundry",
-      "title": "‘Laundry stripping’ resurgence",
-      "summary": "Viral before/after soak videos showing ‘hidden dirt’; fuels skepticism about everyday detergent efficacy.",
-      "platforms": [
-        "tiktok",
-        "reddit",
-        "youtube"
-      ],
-      "signal": 79,
-      "sent": "mix",
-      "respond": true,
-      "angle": "Efficacy-defense moment: deep-clean proof demos (Dawn degrease, Cascade food-film removal).",
-      "src": "https://www.reddit.com/search/?q=laundry%20stripping"
-    },
-    {
-      "brands": [
-        "cascade"
-      ],
-      "type": "category",
-      "lbl": "Hard water",
-      "title": "Hard-water spot complaints trending",
-      "summary": "‘Cloudy glasses’ / dishwasher spotting frustration spiking; users blaming detergents and switching brands.",
-      "platforms": [
-        "reddit",
-        "tiktok"
-      ],
-      "signal": 66,
-      "sent": "neg",
-      "respond": true,
-      "angle": "Direct Cascade win: rinse-aid + Platinum spot-protection proof; intercept switchers with a demo.",
-      "src": "https://www.reddit.com/r/CleaningTips/"
-    },
-    {
-      "brands": [
-        "dawn"
-      ],
-      "type": "owned",
-      "lbl": "Dawn",
-      "title": "Ingredient-safety attack recirculating",
-      "summary": "‘Toxic ingredients’ posts targeting dish soaps incl. Dawn; amplified by clean-living creators, offset by wildlife-rescue goodwill.",
-      "platforms": [
-        "tiktok",
-        "instagram",
-        "facebook"
       ],
       "signal": 82,
-      "sent": "neg",
+      "sent": "pos",
       "respond": true,
-      "angle": "Lean on wildlife-rescue equity + transparent ingredient explainer with a trusted science creator. Do NOT amplify the claim directly.",
-      "src": "https://www.tiktok.com/search?q=dawn+dish+soap+ingredients"
-    },
-    {
       "brands": [
         "dawn"
       ],
-      "type": "owned",
-      "lbl": "Dawn",
-      "title": "Powerwash ‘one-spray’ hacks evergreen",
-      "summary": "Powerwash over-indexes in cleaning-hack content (stovetops, sneakers, patios); strong organic advocacy.",
+      "angle": "Lean into the 'beyond dishes' multi-surface use case that consumers are already demonstrating for free, turning organic hacks into brand-endorsed use cases.",
+      "response": "Duet/stitch top-performing Powerwash multi-surface hack videos from real creators and repost with a 'yes, we approve this hack' caption on @dawn TikTok/IG to validate and amplify organic UGC.",
+      "examples": [
+        {
+          "platform": "tiktok",
+          "url": "https://www.tiktok.com/tag/dawnpowerwash",
+          "appeal": "Hashtag hub aggregates dozens of quick before/after grease-removal clips — the visual transformation is the hook."
+        },
+        {
+          "platform": "tiktok",
+          "url": "https://www.tiktok.com/tag/cleantok",
+          "appeal": "Broader CleanTok feed where Dawn hacks routinely surface alongside satisfying wipe-down ASMR audio."
+        },
+        {
+          "platform": "instagram",
+          "url": "https://www.instagram.com/explore/tags/dawnpowerwash/",
+          "appeal": "Reel-format tutorials showing the foam clinging to vertical grease surfaces — high shareability due to instant gratification."
+        }
+      ],
+      "mentions52w": [
+        42,
+        47,
+        47,
+        45,
+        48,
+        48,
+        43,
+        49,
+        42,
+        51,
+        47,
+        49,
+        51,
+        47,
+        49,
+        46,
+        49,
+        47,
+        54,
+        56,
+        49,
+        57,
+        56,
+        54,
+        58,
+        59,
+        59,
+        54,
+        61,
+        60,
+        61,
+        58,
+        62,
+        59,
+        67,
+        65,
+        61,
+        61,
+        70,
+        67,
+        65,
+        72,
+        69,
+        74,
+        73,
+        77,
+        77,
+        79,
+        79,
+        79,
+        75,
+        82
+      ],
+      "src": "https://www.tiktok.com/tag/dawnpowerwash",
+      "briefs": {
+        "influencer": "# Creator/Influencer Brief\n\n## Objective\nCapture and amplify the organic \"Dawn Powerwash as all-purpose degreaser\" trend before it plateaus. Convert existing consumer-generated hacks into brand-endorsed, repeatable use cases that expand Powerwash's mental availability beyond the sink.\n\n## Which P&G brand\nDawn (Powerwash line)\n\n## Target creators\n- Cleaning/organization creators (mid-tier, 50K–500K) with proven \"satisfying clean\" content\n- Home hack & lifestyle creators who already post multi-surface or car-detailing content\n- A few DIY auto-detailing creators to validate the car-interior use case\n- Avoid mega-celebrity talent — authenticity/UGC-adjacent tone outperforms polished ads here\n\n## Key message\n\"One bottle, every surface: Dawn Powerwash isn't just for dishes — it's your all-purpose grease blaster for the whole house (and garage).\"\n\n## Hook / opening\n\"I've been using this dish soap on everything BUT dishes and it's actually unhinged how well it works...\"\n(Or: \"POV: you find out your dish spray is secretly a degreaser for your whole house\")\n\n## Do\n- Show real before/after on at least 2 non-dish surfaces (stovetop, tub, stainless steel, car mats/interior panels)\n- Emphasize the foam-activated spray mechanic (\"just spray, let it sit, wipe\")\n- Keep it low-production, phone-shot, authentic hack energy\n- Reference the \"one bottle does everything\" idea explicitly\n- Tag @Dawn and use branded hashtag even in organic-style posts\n\n## Don't\n- Don't claim it replaces specialized cleaners for safety-sensitive surfaces (no unsealed stone, no electronics, no raw wood)\n- Don't overclaim \"disinfects\" or \"sanitizes\" — stick to grease/grime cutting\n- Don't over-produce — no studio lighting, no scripted VO reads\n- Don't ignore surface caveats in caption (add small disclaimer: \"always spot test\")\n\n## Suggested content\n1. \"5 Things Dawn Powerwash Cleans That Aren't Dishes\" carousel/TikTok series\n2. Car interior detailing before/after using Powerwash foam\n3. Kitchen grease-splatter stovetop reset video\n4. Bathroom tub/soap-scum satisfying wipe-down\n5. Duet/stitch trend: react to viral Powerwash hacks and add a new surface\n\n## Hashtags & CTA\n#PowerwashPossibilities #DawnPowerwash #OneBottleWonder\nCTA: \"Tag the surface you want us to test next 👇\"\n\n## KPI\n- Video views + completion rate (TikTok/IG Reels)\n- Comment sentiment & hack-suggestion volume (proxy for trend continuation)\n- Branded hashtag UGC volume (owned + earned)\n- Sales lift / velocity on Powerwash SKU during flight window\n- Share of \"new use case\" mentions vs. baseline dish-only mentions in social listening",
+        "post": "## Platform & format\nTikTok primary (15-30s multi-clip montage) + Instagram Reels crosspost. Static carousel version for IG feed as backup.\n\n## Caption (ready to post)\nY'all really said \"dishes who?\" 😭 We watched you Powerwash your stovetops, your tubs, your STAINLESS STEEL, and honestly? We're not mad. One bottle, zero excuses for grease anywhere in your house. Go off. 🧽✨\n\n## Hook (first line / first 2s)\n\"POV: you bought Dawn Powerwash for dishes and now it's the boss of your entire kitchen.\"\n\n## Visual direction\nFast-cut montage stitched to look like organic UGC style:\n- Clip 1: Foam spray hitting a greasy stovetop, wipe reveal\n- Clip 2: Bathtub ring dissolving under foam\n- Clip 3: Stainless steel fridge getting streak-free wipe down\n- Clip 4: Car cupholder/interior grime blasted\n- Text overlays calling out each surface like a checklist (\"Stovetop ✅ Tub ✅ Steel ✅ Car ✅\")\n- End card: bottle spin with tagline \"Beyond Dishes. Beyond Expectations.\"\nKeep it lo-fi, handheld, natural lighting — no studio gloss, this should feel like it belongs in the comments section it's replying to.\n\n## Hashtags\n#DawnPowerwash #BeyondDishes #CleanTok #GreaseGone #DawnDoesItAll #PowerwashHack\n\n## CTA\n\"Tag the surface you're trying this on next 👇 (we already know it's gonna work).\""
+      }
+    },
+    {
+      "type": "category",
+      "lbl": "Magic Eraser",
+      "title": "Magic Eraser 'use it on everything' hacks persist",
+      "summary": "The evergreen CleanTok staple keeps resurfacing with new applications — whitening sneakers, scrubbing crayon off walls, cleaning grout and even car interiors — proving the melamine sponge remains a top shareable 'hack' prop.",
       "platforms": [
         "tiktok",
         "instagram"
       ],
-      "signal": 77,
+      "signal": 75,
       "sent": "pos",
-      "respond": false,
-      "angle": "Amplify UGC: creator ‘surprising uses’ series; low cost, high affinity.",
-      "src": "https://www.tiktok.com/search?q=dawn+powerwash+hack"
-    },
-    {
+      "respond": true,
       "brands": [
         "mrclean"
       ],
-      "type": "owned",
-      "lbl": "Mr. Clean",
-      "title": "Magic Eraser ‘what NOT to use it on’ discourse",
-      "summary": "Cautionary content about surfaces it damages (screens, car paint) getting big reach; mix of helpful + alarmist.",
+      "angle": "Capitalize on the sponge's meme status as the ultimate multi-surface fix by seeding creator content around unexpected new-use discoveries (sneakers, car trim, grout).",
+      "response": "Run a creator seeding push sending Magic Erasers plus a 'weirdest surface you've cleaned' prompt to mid-tier CleanTok creators for @mrclean, then compile a branded roundup Reel.",
+      "examples": [
+        {
+          "platform": "tiktok",
+          "url": "https://www.tiktok.com/tag/magiceraser",
+          "appeal": "Rapid-fire before/after scrubbing clips with dramatic reveal cuts — a proven satisfying-video format."
+        },
+        {
+          "platform": "tiktok",
+          "url": "https://www.tiktok.com/tag/cleaningtok",
+          "appeal": "Community hashtag where Magic Eraser 'did you know' tips regularly trend due to novelty use-cases."
+        },
+        {
+          "platform": "instagram",
+          "url": "https://www.instagram.com/explore/tags/magiceraser/",
+          "appeal": "Grid of transformation photos/reels showing stained sneakers and walls restored — strong save/share behavior."
+        }
+      ],
+      "mentions52w": [
+        59,
+        61,
+        60,
+        57,
+        58,
+        60,
+        56,
+        61,
+        60,
+        62,
+        60,
+        58,
+        58,
+        61,
+        58,
+        64,
+        63,
+        61,
+        59,
+        58,
+        59,
+        61,
+        63,
+        63,
+        61,
+        60,
+        62,
+        59,
+        65,
+        60,
+        62,
+        62,
+        61,
+        63,
+        60,
+        66,
+        65,
+        64,
+        60,
+        62,
+        62,
+        61,
+        66,
+        62,
+        66,
+        63,
+        62,
+        66,
+        69,
+        63,
+        61,
+        64
+      ],
+      "src": "https://www.tiktok.com/tag/magiceraser",
+      "briefs": {
+        "influencer": "## Objective\nRide the evergreen \"Magic Eraser use it on everything\" wave to reinforce Mr. Clean Magic Eraser as THE multi-surface hack tool, driving fresh discovery use-cases and organic reach among CleanTok/InstaClean audiences.\n\n## Which P&G brand\nMr. Clean (Magic Eraser)\n\n## Target creators\n- CleanTok/organizing micro-creators (50K–500K followers)\n- Sneakerhead/shoe care niche\n- Car detailing & car-mom creators\n- Home reno/DIY & renter-hack accounts\n- Parenting creators (crayon-on-walls angle)\n\n## Key message\n\"If it's dirty, there's a good chance Magic Eraser gets it clean — sneakers, grout, car trim, walls, and beyond.\" Position the sponge as the ultimate multi-surface problem-solver, not just a wall cleaner.\n\n## Hook / opening\n\"Wait, this works on THAT too?!\" — open on the dirtiest/most surprising surface (yellowed sneaker sole, crusty car door trim, grimy grout line) before revealing the eraser.\n\n## Do\n- Show real before/after with visible transformation (good lighting, close-up shots)\n- Feature at least one *unexpected* surface beyond walls/counters\n- Include quick \"how-to\" (wet sponge, light pressure, no harsh scrubbing)\n- Tag @MrClean and use branded packaging visibly in frame\n- Keep it authentic/DIY tone, not overly polished\n\n## Don't\n- Use on unsafe/unapproved surfaces (glossy/painted furniture, screens, skin) — always test-safe surfaces only\n- Overclaim (\"removes anything permanently\") — stick to demonstrated results\n- Bury the brand — product must be visible/named in first 3 seconds\n- Add unnecessary chemicals/mixing with other cleaners on camera\n\n## Suggested content\n1. \"5 Things You Didn't Know Magic Eraser Could Clean\" carousel/reel\n2. Sneaker restoration duet/stitch trend\n3. Car interior detailing POV (steering wheel, door panels, cup holders)\n4. Grout line satisfying scrub close-up (ASMR-style)\n5. Parent hack: crayon/marker wall removal in real time\n\n## Hashtags & CTA\n#MagicEraserHack #MrCleanMagicEraser #CleanTok #UseItOnEverything #CleanWithMe\nCTA: \"Duet this with YOUR wildest Magic Eraser use — tag @MrClean to get featured.\"\n\n## KPI\n- Views/reach on branded hashtag content\n- Engagement rate (saves/shares as hack-value proxy)\n- UGC volume (duets/stitches using #MagicEraserHack)\n- Sentiment/comment analysis (surprise/positive reaction rate)\n- Incremental branded search lift for \"Magic Eraser uses\"",
+        "post": "## Platform & format\nTikTok primary (15–30s multi-clip hack montage) + Instagram Reels/Carousel cross-post\n\n## Caption (ready to post)\nSneakers: clean. Grout: clean. Crayon masterpiece your toddler left on the wall: gone. The Magic Eraser doesn't care what you throw at it — it just works. Tell us the wildest thing you've cleaned with one. We'll wait. 🧽✨\n\n## Hook (first line / first 2s)\n\"POV: you just found out the Magic Eraser works on THIS too 👀\"\n\n## Visual direction\nFast-cut hack montage, 4 surprising surfaces in quick succession:\n1. Dirty white sneaker → swipe → bright white (before/after wipe transition)\n2. Crayon-scribbled wall → gone in one pass\n3. Grimy grout lines → visibly lighter\n4. Car door panel/console scuff → wiped clean\nEnd on hand holding the eraser to camera, slight dramatic pause + text overlay: \"What ISN'T this thing for?\"\nUse satisfying macro shots + quick zoom on the \"reveal\" moment for each. Trending upbeat/glitch sound cut to each wipe.\n\n## Hashtags\n#MagicEraser #MrClean #CleanTok #CleaningHacks #LifeHack #ThatGirlClean #CleanWithMe #HomeHacks\n\n## CTA\nDuet this with YOUR craziest Magic Eraser use — best one gets featured on our page 🧽"
+      }
+    },
+    {
+      "type": "category",
+      "lbl": "Swiffer DIY Refill",
+      "title": "DIY reusable Swiffer pad hacks gain traction",
+      "summary": "Budget- and sustainability-minded creators are sharing tutorials for making washable microfiber pads or refilling WetJet bottles with homemade solution to avoid buying disposable refills, framing name-brand refills as wasteful/expensive.",
       "platforms": [
         "tiktok",
+        "instagram",
         "reddit"
       ],
-      "signal": 63,
+      "signal": 68,
       "sent": "mix",
       "respond": true,
-      "angle": "Get ahead with an official ‘best uses / avoid’ guide via a trusted cleaning creator; turns caution into usage confidence.",
-      "src": "https://www.reddit.com/r/CleaningTips/"
-    },
-    {
-      "brands": [
-        "febreze"
-      ],
-      "type": "owned",
-      "lbl": "Febreze",
-      "title": "‘Just masks smells’ skepticism persists",
-      "summary": "Recurring critique that air fresheners cover rather than eliminate odor; rivals leaning into ‘natural’ positioning.",
-      "platforms": [
-        "reddit",
-        "tiktok"
-      ],
-      "signal": 58,
-      "sent": "neg",
-      "respond": false,
-      "angle": "Odor-elimination proof (pet/cooking) demos; ‘eliminates vs masks’ mechanism explainer.",
-      "src": "https://www.reddit.com/search/?q=febreze"
-    },
-    {
       "brands": [
         "swiffer"
       ],
+      "angle": "Reframe the sustainability conversation by promoting Swiffer's own reusable/washable pad options and refillable devices rather than ceding the eco narrative to DIY hacks.",
+      "response": "Launch a short-form campaign on @swiffer TikTok/IG showing the official reusable/washable pad line and refill-cost math, directly answering the DIY-hack comparison videos.",
+      "examples": [
+        {
+          "platform": "tiktok",
+          "url": "https://www.tiktok.com/tag/swifferhack",
+          "appeal": "Cost-comparison and money-saving framing drives high save/share rates among budget-conscious viewers."
+        },
+        {
+          "platform": "tiktok",
+          "url": "https://www.tiktok.com/tag/cleantok",
+          "appeal": "DIY refill tutorials sit inside the broader satisfying-cleaning content stream, boosting discoverability."
+        },
+        {
+          "platform": "instagram",
+          "url": "https://www.instagram.com/explore/tags/swiffer/",
+          "appeal": "Reels contrasting store-bought vs. homemade solution appeal to eco- and price-conscious audiences."
+        }
+      ],
+      "mentions52w": [
+        31,
+        34,
+        34,
+        31,
+        33,
+        33,
+        32,
+        38,
+        37,
+        38,
+        36,
+        33,
+        36,
+        37,
+        39,
+        36,
+        35,
+        40,
+        41,
+        39,
+        43,
+        38,
+        43,
+        42,
+        41,
+        45,
+        42,
+        46,
+        47,
+        45,
+        48,
+        45,
+        50,
+        46,
+        49,
+        51,
+        47,
+        52,
+        49,
+        52,
+        56,
+        51,
+        53,
+        56,
+        57,
+        57,
+        53,
+        54,
+        55,
+        60,
+        62,
+        61
+      ],
+      "src": "https://www.tiktok.com/tag/swifferhack",
+      "briefs": {
+        "influencer": "# CREATOR/INFLUENCER BRIEF\n\n## Objective\nReclaim the sustainability narrative from DIY Swiffer hack content by spotlighting Swiffer's existing reusable/washable pad options and refillable systems — showing creators don't need to hack the brand to be eco- and budget-conscious.\n\n## Which P&G brand\nSwiffer\n\n## Target creators\n- Sustainability/eco-lifestyle micro-creators (10K–250K) on TikTok & IG who already post cleaning hacks or \"swap this for that\" content\n- Budget/frugal-living creators on Reddit (r/ZeroWaste, r/Frugal, r/CleaningTips adjacent audiences) who can speak authentically, not scripted\n- Home organization/cleaning creators with existing Swiffer mentions (positive or neutral) — easier authenticity bridge\n- Avoid mommy-blog overly polished brand-ad accounts; prioritize \"real person testing this out\" energy\n\n## Key message\n\"You don't have to hack Swiffer to make it sustainable — we already built the reusable option.\" Position Swiffer's washable/reusable pads and refillable devices as the smarter, tested, mess-free alternative to DIY solutions that can void warranties, streak floors, or damage WetJet mechanisms.\n\n## Hook / opening\n\"Wait... Swiffer already makes a reusable pad?\" or \"I tried the viral DIY Swiffer hack vs. the actual reusable Swiffer — here's what happened.\"\n\n## Do\n- Show a real side-by-side: DIY hack attempt vs. Swiffer reusable pad/refillable option\n- Acknowledge the DIY trend respectfully (\"smart instinct, wrong execution\") before pivoting\n- Highlight cost-per-use math and wash-and-reuse count to counter \"wasteful\" framing\n- Show product performing on real mess (pet hair, spills, dust) — visual proof over claims\n- Disclose partnership clearly (#ad/#partner) per platform guidelines\n- Let creators use their own voice/editing style — no scripted VO\n\n## Don't\n- Don't disparage or mock creators doing DIY hacks — no \"you're doing it wrong\" tone\n- Don't claim DIY hacks damage devices without citing real product guidance (stick to facts: warranty language, WetJet chemical compatibility)\n- Don't over-promise on sustainability (no \"zero waste\" claims Swiffer can't fully back)\n- Don't hard-sell in first 3 seconds — hook must feel native to trend, not like an ad open\n\n## Suggested content\n1. **TikTok/Reel duet or stitch** of a popular DIY hack video, testing it live, then revealing Swiffer's reusable pad as the \"cheat code\"\n2. **Before/after cost breakdown graphic** (cost per clean: DIY vs. disposable vs. Swiffer reusable)\n3. **Reddit AMA-style comment/post** in relevant subs: creator genuinely reviewing reusable Swiffer pads after seeing the trend, inviting discussion\n4. **\"Things I stopped DIY-ing\" carousel** (IG) positioning Swiffer reusable as one smart swap among others\n\n## Hashtags & CTA\n**Hashtags:** #SwifferReusable #CleanSmarter #SwifferHack #SustainableClean #RefillNotLandfill\n**CTA:** \"Try the reusable pad before you DIY one — link in bio\" / drive to Swiffer.com reusable product page or retail locator\n\n## KPI\n- Engagement rate vs. baseline DI",
+        "post": "## Platform & format\nTikTok + Instagram Reels (30-45s side-by-side demo), cross-posted stills + caption to Reddit (r/CleaningTips friendly, less salesy tone) as a native comment/post from the brand account.\n\n## Caption (ready to post)\nOkay, we see the DIY pad tutorials. Respect the hustle 🙏 but let's talk about what's actually in that homemade solution vs. what's engineered to trap dust, hair, and grime without scratching your floors or streaking them.\n\nSwiffer's got reusable options too — washable microfiber pads that hold up wash after wash, and refillable solution options so you're not tossing bottles every week. Sustainability doesn't mean a science experiment under your sink.\n\nSame convenience. Less guesswork. Still Swiffer clean.\n\n## Hook (first line / first 2s)\n\"You don't need a lab coat to clean sustainably.\"\n\n## Visual direction\nSplit screen: left side = chaotic DIY hack (cutting up old t-shirts, mixing questionable liquids, uneven pad shape flopping off the mop). Right side = clean, quick unboxing/snap-on of Swiffer's washable microfiber pad + refillable bottle setup. End on both mops cleaning the same messy floor side-by-side — Swiffer side visibly cleaner, faster, no streaks. Text overlay: \"DIY vs. Done-For-You (that's actually reusable).\"\n\n## Hashtags\n#SwifferSustainable #CleanSmarter #ReusableClean #SwifferHack #EcoCleaning #CleanTok\n\n## CTA\n\"Try our washable pads + refillable solution — link in bio. Let's keep the planet AND your floors happy 🌎✨\""
+      }
+    },
+    {
+      "type": "category",
+      "lbl": "Febreze Scent Layering",
+      "title": "Febreze 'scent layering' and car-clip combos trend",
+      "summary": "Home-fragrance-obsessed creators are mixing Febreze sprays, Unstopables boosters, and car vent clips in layered combinations to build signature 'scent stacks,' a spin-off of the broader perfume-layering trend applied to home/car care.",
+      "platforms": [
+        "tiktok",
+        "instagram"
+      ],
+      "signal": 70,
+      "sent": "pos",
+      "respond": true,
+      "brands": [
+        "febreze"
+      ],
+      "angle": "Ride the fragrance-layering craze by publishing official 'best combo' guides and limited-edition scent pairings for Febreze products and car clips.",
+      "response": "Post a @febreze 'scent stack of the week' series pairing specific spray + Unstopables + car clip SKUs, and reshare top fan-made layering videos with credit.",
+      "examples": [
+        {
+          "platform": "tiktok",
+          "url": "https://www.tiktok.com/tag/febreze",
+          "appeal": "ASMR-style spray/shake close-ups paired with 'smell test' reactions make for satisfying, replayable clips."
+        },
+        {
+          "platform": "tiktok",
+          "url": "https://www.tiktok.com/tag/scentoftheday",
+          "appeal": "Cross-pollinates with the fragrance community, widening reach beyond typical CleanTok audiences."
+        },
+        {
+          "platform": "instagram",
+          "url": "https://www.instagram.com/explore/tags/febreze/",
+          "appeal": "Carousel/reel combos showing product lineups appeal to viewers who enjoy 'shelfie' and haul-style content."
+        }
+      ],
+      "mentions52w": [
+        41,
+        36,
+        36,
+        37,
+        38,
+        43,
+        37,
+        40,
+        45,
+        40,
+        39,
+        47,
+        48,
+        43,
+        46,
+        47,
+        49,
+        49,
+        46,
+        45,
+        51,
+        48,
+        51,
+        49,
+        52,
+        51,
+        55,
+        57,
+        53,
+        58,
+        57,
+        53,
+        56,
+        56,
+        55,
+        60,
+        57,
+        63,
+        58,
+        59,
+        63,
+        62,
+        60,
+        64,
+        65,
+        71,
+        68,
+        71,
+        72,
+        69,
+        69,
+        71
+      ],
+      "src": "https://www.tiktok.com/tag/febreze",
+      "briefs": {
+        "influencer": "# CREATOR/INFLUENCER BRIEF\n\n## Objective\nCapitalize on the organic \"scent layering\" trend by positioning Febreze as the official authority on scent stacking—driving trial of multi-product combos (spray + Unstopables + car clip) and boosting basket size across the Febreze line.\n\n## Which P&G brand\nFebreze (hero); optional crossover mention of Swiffer for \"clean home, layered scent\" routines.\n\n## Target creators\n- Home/cleaning & organization creators (50K–500K followers)\n- Car detailing / car lifestyle TikTokers\n- Fragrance/perfume-layering creators pivoting to home scent\n- ASMR \"clean & fresh\" niche accounts\n- Mix of micro (10–50K, high engagement) + 3–5 mid-tier anchors for reach\n\n## Key message\n\"Don't just spray it—stack it. Febreze scent layering lets you build your own signature stack across home and car, so your space smells as curated as your playlist.\"\n\n## Hook / opening\n\"POV: your car and your living room now have the same 'signature scent'... here's my Febreze stack 🧴🚗✨\"\nor\n\"I layered 3 Febreze products and now my apartment smells like a candle store. Recipe below 👇\"\n\n## Do\n- Show the full stack build: base spray → fabric/air layer → Unstopables boost → car clip finish\n- Reference official \"Febreze Scent Stack\" combo names (brand to supply pairing guide)\n- Film in relatable spaces: bedroom, living room, car interior\n- Use trending layering/reveal editing style (satisfying transitions, close-ups on product)\n- Tag @Febreze and use branded hashtag\n- Encourage followers to share their own stack in comments/duets\n\n## Don't\n- Don't imply products replace deep cleaning (pair with \"freshness,\" not \"dirt removal\")\n- Don't overpromise scent duration/claims not on packaging\n- Don't mix competitor air care products into the \"stack\"\n- Don't skip disclosure (#ad/#sponsored per FTC)\n\n## Suggested content\n1. **\"Build My Stack\" tutorial** – 3-step layering demo, home + car versions\n2. **\"Scent Stack Swap\"** – duet/react trend where creators try each other's combos\n3. **Limited-edition drop reveal** – unbox new seasonal Febreze pairing kit first\n4. **\"Which stack are you?\"** – quiz-style content matching personality to combo\n5. **Car clip cam** – dashboard POV showing clip + spray combo in daily driver\n\n## Hashtags & CTA\n**Hashtags:** #FebrezeScentStack #ScentLayering #FebrezeFinds #StackYourScent\n**CTA:** \"Build your stack, tag @Febreze, and show us your combo for a chance to be featured + score the limited-edition kit.\"\n\n## KPI\n- Video views & completion rate (target: 65%+ avg watch)\n- Branded hashtag UGC volume (target: 500+ creator posts in 30 days)\n- Engagement rate vs. brand benchmark (+20%)\n- Click-through to retail locator/product page\n- Multi-item basket lift (combo purchase rate) tracked via retail partner data",
+        "post": "## Platform & format\nTikTok primary (15-30s trend-style video) + Instagram Reels/Carousel cross-post\n\n## Caption (ready to post)\nscent stacking is a LIFESTYLE now and we're not mad about it 🧴🚗✨\n\nwe made the official Febreze Scent Stack guide bc y'all keep out-perfuming us in the comments\n\ndrop your stack below, we might just put it in the app 👀\n\n## Hook (first line / first 2s)\n\"POV: your car smells better than your situationship ever did\"\n\n## Visual direction\n- Quick cuts: hand spraying Febreze fabric refresher on car seats → shake of Unstopables booster sprinkled on floor mats → satisfying click of vent clip into place\n- Overlay text labeling each layer like a recipe: \"Base: Fresh Linen Fabric Refresher\" / \"Mid: Unstopables Fresh\" / \"Top: Vent Clip Wild Currant\"\n- End on a \"scent stack card\" graphic (like a trading card) showing the combo name, e.g. \"THE COZY COMMUTE\"\n- Split-screen or before/after sniff reaction from a passenger get in the car\n\n## Hashtags\n#FebrezeScentStack #ScentLayering #FebrezeCombo #CarClipCombo #SmellGoodCar #HomeFragranceTok #FebrezeUnstopables\n\n## CTA\nComment your scent stack combo 👇 we're turning the best ones into limited-edition drops"
+      }
+    },
+    {
       "type": "owned",
-      "lbl": "Swiffer",
-      "title": "Refill-cost complaints vs reusable mops",
-      "summary": "‘Swiffer is a scam / buy reusable’ value critique steady; reusable-pad dupes promoted heavily.",
+      "lbl": "Dawn Powerwash",
+      "title": "Dawn Powerwash grease-blast clips keep going viral",
+      "summary": "Close-up 'oddly satisfying' clips of Dawn Powerwash spray instantly dissolving baked-on grease and grime continue to circulate on CleanTok/InstaClean, reinforcing Dawn's core efficacy claim through organic creator content.",
+      "platforms": [
+        "tiktok",
+        "instagram"
+      ],
+      "signal": 78,
+      "sent": "pos",
+      "respond": true,
+      "brands": [
+        "dawn"
+      ],
+      "angle": "Ride the organic 'satisfying grease removal' aesthetic to reinforce Dawn's efficacy positioning without looking like an ad.",
+      "response": "Duet/stitch top-performing Powerwash grease-cutting clips from @dawn's TikTok and reshare to Instagram Reels/Stories with a light UGC-style caption, no hard sell.",
+      "examples": [
+        {
+          "platform": "tiktok",
+          "url": "https://www.tiktok.com/tag/dawnpowerwash",
+          "appeal": "Macro slow-motion grease dissolving is inherently satisfying, algorithm-friendly ASMR content."
+        },
+        {
+          "platform": "tiktok",
+          "url": "https://www.tiktok.com/tag/dawndishsoap",
+          "appeal": "Before/after stovetop and pan transformations give an instant, shareable payoff."
+        },
+        {
+          "platform": "instagram",
+          "url": "https://www.instagram.com/explore/tags/dawnpowerwash/",
+          "appeal": "Reel format lets creators loop the 'spray-and-wipe' moment for maximum satisfaction replay value."
+        }
+      ],
+      "mentions52w": [
+        38,
+        36,
+        39,
+        39,
+        40,
+        42,
+        40,
+        46,
+        38,
+        46,
+        43,
+        46,
+        42,
+        42,
+        43,
+        43,
+        42,
+        42,
+        47,
+        51,
+        46,
+        48,
+        54,
+        54,
+        50,
+        48,
+        48,
+        51,
+        53,
+        51,
+        55,
+        53,
+        57,
+        59,
+        60,
+        61,
+        58,
+        57,
+        60,
+        62,
+        66,
+        63,
+        64,
+        67,
+        64,
+        64,
+        71,
+        69,
+        69,
+        72,
+        69,
+        72
+      ],
+      "src": "https://www.tiktok.com/tag/dawnpowerwash",
+      "briefs": {
+        "influencer": "# CREATOR/INFLUENCER BRIEF\n\n## Objective\nAmplify the organic \"grease-blast\" trend already happening on CleanTok/InstaClean to reinforce Dawn Powerwash's core efficacy claim — without disrupting the authentic, unbranded aesthetic driving its virality.\n\n## Which P&G brand\nDawn (Powerwash)\n\n## Target creators\n- Micro/mid-tier cleaning & \"oddly satisfying\" creators (10K–500K followers)\n- CleanTok regulars, kitchen-restoration accounts, satisfying-content pages (slow pans, ASMR audio)\n- Prioritize creators whose existing content already features grease/grime cleanup — authenticity > reach\n\n## Key message\nDawn Powerwash's spray-activated suds cut through baked-on grease on contact — no scrubbing, no soaking, just visible, instant results.\n\n## Hook / opening\nOpen on the nastiest baked-on grease/pan/stovetop you've got — then one spray, and watch it melt before your eyes.\n(Text overlay: \"wait for it...\" / \"satisfying is an understatement\")\n\n## Do\n- Keep it close-up, macro-lens, ASMR-style — let the product do the talking\n- Use real dirty surfaces (grills, oven trays, range hoods, stovetops)\n- Show the spray-to-dissolve moment in one continuous, unedited shot\n- Let natural reactions/sounds carry it — minimal voiceover\n- Disclose partnership per platform guidelines (#ad/#partner), but keep tone native\n\n## Don't\n- Don't over-produce, script hard sells, or add \"buy now\" CTAs\n- Don't cut away from the payoff moment — the dissolve IS the content\n- Don't compare to competitors or make unqualified claims\n- Don't use staged/fake grease (viewers spot it instantly)\n\n## Suggested content\n1. **The Reveal** — worst grease surface you own, one spray, slow-mo dissolve\n2. **Before/After Split Screen** — same pan, timer overlay showing seconds elapsed\n3. **POV Series** — \"cleaning my grill for the first time in a year\" with Powerwash as the twist\n4. **Sound-on ASMR cut** — no talking, just spray/sizzle/wipe audio\n\n## Hashtags & CTA\n#DawnPowerwash #CleanTok #OddlySatisfying #GreaseGone #PowerwashChallenge\nCTA: \"Tag someone who needs to see this\" / \"Duet your dirtiest pan\"\n\n## KPI\n- View-through rate & completion rate on grease-dissolve moment\n- Engagement rate (saves/shares > likes — signals \"satisfying\" resonance)\n- Sentiment/comment analysis for organic efficacy mentions (\"wow,\" \"no scrubbing,\" etc.)\n- Branded hashtag volume lift week-over-week\n- Earned media pickup / resharing by CleanTok aggregator accounts",
+        "post": "## Platform & format\nTikTok + Instagram Reels — 9:16 vertical, macro close-up shot, native \"clean-fluid\" cut style (same aesthetic as the viral CleanTok clips, no logos-first, no VO ad-read)\n\n## Caption (ready to post)\ngrease said \"run\" 🏃‍♂️💨\n\nwe didn't even edit this. it just... does that.\n\n## Hook (first line / first 2s)\nSpray. Watch. Gone.\n(no text overlay yet — just the foam hitting baked-on grease in extreme macro)\n\n## Visual direction\n- Extreme macro shot: crusty, baked-on grease on a pan or stovetop grate\n- Single spray of Powerwash foam hits the surface\n- Slow-mo/real-time split: grease visibly lifts, bubbles, slides off in one wipe\n- Natural kitchen lighting, no studio gloss — needs to look creator-shot, not commercial\n- End on the clean surface reflecting light, one soft \"huh.\" beat before logo bug appears bottom corner (small, not intrusive)\n- Optional: duet/stitch bait — leave 1 sec of dead air at the end for creators to react\n\n## Hashtags\n#DawnPowerwash #CleanTok #OddlySatisfying #GreaseGone #InstaClean #CleaningTok #DawnDish #SatisfyingClean\n\n## CTA\nComment your nastiest pan pic. We'll pick one to Powerwash on camera. 👇"
+      }
+    },
+    {
+      "type": "owned",
+      "lbl": "Magic Eraser Hacks",
+      "title": "Magic Eraser 'cleans literally anything' hacks trend",
+      "summary": "Mr. Clean Magic Eraser remains a CleanTok staple for dramatic before/after transformations (scuffed shoes, walls, grout, stove grease), though some creators flag it can scratch delicate or satin-finish surfaces if used carelessly.",
+      "platforms": [
+        "tiktok",
+        "instagram"
+      ],
+      "signal": 74,
+      "sent": "mix",
+      "respond": true,
+      "brands": [
+        "mrclean"
+      ],
+      "angle": "Lean into the beloved transformation format while proactively addressing the scratching concern to protect trust.",
+      "response": "Publish a short 'where NOT to use Magic Eraser' educational Reel/TikTok from the Mr. Clean handle, paired with reshares of top transformation UGC to keep sentiment positive.",
+      "examples": [
+        {
+          "platform": "tiktok",
+          "url": "https://www.tiktok.com/tag/magiceraser",
+          "appeal": "Dramatic before/after wipes on shoes and walls deliver an instant visual payoff that drives shares."
+        },
+        {
+          "platform": "tiktok",
+          "url": "https://www.tiktok.com/tag/mrcleanmagiceraser",
+          "appeal": "Multi-surface use (crayon on walls, sneaker soles) makes it a versatile 'one product, many hacks' format creators love."
+        },
+        {
+          "platform": "instagram",
+          "url": "https://www.instagram.com/explore/tags/magiceraser/",
+          "appeal": "Grid-friendly before/after carousel posts perform well as saved 'cleaning hack' reference content."
+        }
+      ],
+      "mentions52w": [
+        63,
+        57,
+        59,
+        64,
+        59,
+        60,
+        63,
+        60,
+        64,
+        59,
+        60,
+        64,
+        63,
+        65,
+        63,
+        65,
+        67,
+        66,
+        61,
+        61,
+        65,
+        65,
+        60,
+        67,
+        63,
+        62,
+        66,
+        67,
+        65,
+        61,
+        65,
+        68,
+        68,
+        68,
+        64,
+        63,
+        69,
+        62,
+        64,
+        68,
+        64,
+        69,
+        68,
+        66,
+        71,
+        68,
+        64,
+        70,
+        68,
+        66,
+        65,
+        70
+      ],
+      "src": "https://www.tiktok.com/tag/magiceraser",
+      "briefs": {
+        "influencer": "# CREATOR/INFLUENCER BRIEF\n\n## Objective\nRide the Magic Eraser transformation trend to reinforce Mr. Clean as the go-to miracle tool for tough messes, while getting ahead of scratching complaints with clear, credible \"how to use it right\" guidance that protects brand trust.\n\n## Which P&G brand\nMr. Clean (Magic Eraser)\n\n## Target creators\n- CleanTok/HomeTok creators (100K–1.5M followers) known for before/after transformation content\n- Home renovation & rental-restoration niche creators (landlords, apartment flippers, move-out cleaning)\n- Shoe cleaning/sneakerhead creators\n- 1–2 \"cleaning science\" or myth-busting creators for credibility on the scratching topic\n\n## Key message\n\"Magic Eraser cleans like magic — when you know where (and how) to use it. On the right surfaces, it erases the impossible. Here's exactly how to get the transformation without the risk.\"\n\n## Hook / opening\n\"Everyone's showing you what Magic Eraser CAN do. I'm showing you what NOT to do — so you get the magic, not the scratch.\"\n(Alt: \"The Magic Eraser hack nobody's telling you about — the 3-second test before you scrub anything.\")\n\n## Do\n- Show a real dramatic before/after (scuffed shoes, stove grease, grout, walls)\n- Include a quick \"surface check\" moment: test on hidden spot first, avoid satin/glossy paint & delicate finishes\n- Demonstrate light pressure + damp (not soaked) eraser technique\n- Caption/voiceover should name safe surfaces explicitly (matte walls, ceramic, rubber soles, painted trim)\n- Tag @MrClean and use brand hashtags\n- Keep tone fun/satisfying — this is entertainment first, PSA second\n\n## Don't\n- Don't use on stained wood, leather, glossy/satin painted walls, car exteriors, or screens\n- Don't oversell as \"works on literally anything\" — avoid absolute claims\n- Don't skip the caution beat just for a cleaner edit — it's the trust-building part\n- Don't scrub aggressively or use bone-dry/overly wet eraser on camera\n\n## Suggested content\n1. **\"Magic or Myth\" duet/stitch** reacting to a viral MC clip, confirming what's real + adding the missed safety tip\n2. **Before/after transformation** with on-screen text: \"✅ Safe here\" / \"❌ Skip this surface\"\n3. **\"3-Second Test\" tutorial**: hidden-spot check before full application\n4. **Myth-busting creator format**: \"I tried Magic Eraser on 5 surfaces — here's what happened\"\n\n## Hashtags & CTA\n#MagicEraserHack #MrClean #CleanTok #CleanItRight #TransformationTuesday\nCTA: \"Test it small, then go big. Tag us in your Magic Eraser transformation!\"\n\n## KPI\n- Engagement rate ≥6% on branded content\n- Sentiment shift: reduce \"scratched my walls\" complaint mentions by 15%\n- Share of voice vs. UGC scratching complaints\n- View-through rate on tutorial/safety content ≥50%\n- Branded hashtag UGC volume (target: 500+ organic posts in 30 days)",
+        "post": "## Platform & format\nTikTok primary (before/after transformation video, 15-20s), repurposed as Instagram Reel + carousel breakdown for the \"safe surfaces\" guide.\n\n## Caption (ready to post)\nYes, it's basically magic. No, it's not invincible. 🧽✨\n\nMagic Eraser eats grease, scuffs, crayon, and grout stains for breakfast — but it's a gentle abrasive, which means satin/glossy paint, non-stick pans, and shiny electronics need a softer touch (or just... a different tool, bestie).\n\nRule of thumb: if it's matte, scuffed, or crusty — erase away. If it's shiny, painted, or \"please don't scratch this\" — test a small spot first or skip it.\n\nWe built the magic. We're just here to keep it from backfiring on your baseboards. 💙\n\n## Hook (first line / first 2s)\n\"Magic Eraser will clean ANYTHING* 👀 *survey says: read the fine print\"\n\n## Visual direction\nFast-cut before/afters (scuffed sneaker → clean, grimy stovetop → shining, grungy grout → white) set to trending upbeat/glitch sound. Mid-video hard cut to a \"wait—\" moment: text overlay \"but NOT this ❌\" over a satin-finish wall or glossy furniture, showing a faint scratch test in slow-mo. End on a clean checklist graphic: ✅ Safe surfaces vs 🚫 Use caution.\n\n## Hashtags\n#MagicEraser #MrClean #CleanTok #CleaningHacks #BeforeAndAfter #CleaningTips #HomeHacks\n\n## CTA\n\"Drop your wildest Magic Eraser save below 👇 (bonus points if it's disgusting) — and follow for the do's & don'ts before your next deep clean.\""
+      }
+    },
+    {
+      "type": "owned",
+      "lbl": "Cascade Efficacy Complaints",
+      "title": "Cascade 'dishes aren't clean anymore' complaint thread",
+      "summary": "A recurring consumer narrative on Reddit and TikTok claims Cascade pods leave residue or film on dishes/glassware, with commenters debating hard water, rinse-aid settings, and formula changes as the cause.",
       "platforms": [
         "tiktok",
         "reddit"
@@ -167,82 +581,568 @@
       "signal": 61,
       "sent": "neg",
       "respond": true,
-      "angle": "Value + convenience reframe; WetJet deep-clean demos; consider washable-pad narrative.",
-      "src": "https://www.tiktok.com/search?q=swiffer+worth+it"
+      "brands": [
+        "cascade"
+      ],
+      "angle": "Get ahead of the residue narrative with clear troubleshooting content (rinse aid, hard water, loading tips) before it hardens into a brand perception problem.",
+      "response": "Have Cascade's TikTok/Reddit-facing team post a myth-busting 'why dishes look cloudy' explainer video and drop it as a helpful reply directly in the top r/CleaningTips threads on the topic.",
+      "examples": [
+        {
+          "platform": "tiktok",
+          "url": "https://www.tiktok.com/tag/cascade",
+          "appeal": "Frustration/relatable-complaint videos ('is it just me or...') invite high comment engagement from people troubleshooting the same issue."
+        },
+        {
+          "platform": "tiktok",
+          "url": "https://www.tiktok.com/tag/dishwasherhacks",
+          "appeal": "Side-by-side film-vs-clean glass comparisons are visually diagnostic and easy to screenshot/share."
+        },
+        {
+          "platform": "instagram",
+          "url": "https://www.instagram.com/explore/tags/cascadeplatinum/",
+          "appeal": "Kitchen-reveal Reels showing spotless vs. cloudy dishes drive saves from people seeking a fix."
+        }
+      ],
+      "mentions52w": [
+        52,
+        48,
+        52,
+        50,
+        49,
+        50,
+        51,
+        53,
+        48,
+        52,
+        48,
+        51,
+        49,
+        50,
+        52,
+        53,
+        52,
+        50,
+        52,
+        53,
+        50,
+        54,
+        53,
+        50,
+        53,
+        54,
+        51,
+        50,
+        53,
+        53,
+        51,
+        53,
+        53,
+        51,
+        53,
+        51,
+        56,
+        50,
+        57,
+        51,
+        54,
+        56,
+        51,
+        53,
+        56,
+        57,
+        55,
+        56,
+        54,
+        58,
+        53,
+        55
+      ],
+      "src": "https://www.reddit.com/r/CleaningTips/",
+      "briefs": {
+        "influencer": "## Objective\nInterrupt the \"Cascade doesn't clean anymore\" narrative before it calcifies into a brand-wide trust issue. Shift conversation from \"broken formula\" to \"fixable setup\" by arming consumers with real troubleshooting fixes (hard water, rinse aid, loading) via credible third-party voices — not brand ads.\n\n## Which P&G brand\nCascade (primary). Dawn may be looped in only as a co-mention for pre-rinse/grease-cutting context if organic.\n\n## Target creators\n- Cleaning/home-hack creators (mid-tier, 50K–500K) with high trust and low \"ad\" fatigue — think \"appliance whisperer\" archetypes\n- Water treatment / plumbing pros who can speak to hard water credibly\n- Skeptical debunker-style creators (MythBusters-for-home-tips tone) — critically, NOT overly polished brand-safe creators; audience needs to believe them\n- Avoid mega-influencers with obvious brand deal history; authenticity > reach here\n\n## Key message\n\"Your dishwasher isn't broken and neither is Cascade — 90% of filming/residue complaints trace back to 3 fixable things: water hardness, rinse aid levels, and loading pattern. Here's how to check yours in under 2 minutes.\"\n\n## Hook / opening\n\"I saw everyone blaming Cascade for cloudy glasses — so I tested it myself.\" / \"Dishwasher leaving film? It's probably not the detergent. Here's the actual culprit.\"\n\n## Do\n- Show real diagnostic steps: hard water test strip, rinse aid gauge check, spacing/loading demo\n- Acknowledge the complaint directly — don't dismiss or gaslight viewers\n- Use before/after with corrected settings, not just brand footage\n- Disclose partnership per FTC, but keep tone investigative/neutral\n- Include rinse aid explainer (many machines run empty without users knowing)\n\n## Don't\n- Don't say \"it's not our fault\" or shift blame entirely to hard water without acknowledgment\n- Don't use overly branded studio sets — needs to feel like a home test\n- Don't ignore or delete original complaint threads; link fixes as replies where possible\n- Don't promise total fix for extreme hard water areas — be honest about limits (softener needed)\n\n## Suggested content\n1. TikTok \"I tested the Cascade residue theory\" — duet/stitch original complaint videos with real fix\n2. Reddit AMA-style post in r/CleaningTips or r/HomeImprovement from a plumbing/appliance pro\n3. Split-screen: same dishwasher, rinse aid on vs. off\n4. \"3 settings check before you blame your detergent\" checklist carousel\n5. Hard water map graphic + test strip demo tied to regional complaint clusters\n\n## Hashtags & CTA\n#CascadeClean #DishwasherHacks #RinseAidCheck #CleanTok\nCTA: \"Check your rinse aid setting tonight — comment your results\" (drives engagement + data on real cause distribution)\n\n## KPI\n- Sentiment shift: negative mentions -15% within 30 days\n- Share of voice: troubleshooting/fix content >30% of new thread replies\n- Engagement: 5%+ comment rate referencing \"tried this, it worked\"\n- Earned pickup: organic stitches/duets from non-partnered creators",
+        "post": "## Platform & format\nTikTok video (15-20s, POV/talking head + on-screen text overlay) — cross-posted to Reddit as native text+video post in r/Cascade-adjacent threads / product subreddits\n\n## Caption (ready to post)\nOk we see you 👀 the \"why is there film on my glasses\" posts are everywhere rn. Before you swap detergents — try this. 90% of the time it's water hardness or rinse aid running empty, NOT your pods. Full troubleshoot below 🔧\n\n## Hook (first line / first 2s)\n\"If your glasses look cloudy after the dishwasher, it's probably NOT the detergent — it's this.\"\n\n## Visual direction\nSplit screen: left side shows cloudy glass held up to light, right side same glass after fix. Quick cuts showing: checking rinse aid compartment (empty vs full), a water hardness test strip dipping into a glass, pod placement in the dispenser (not loose in the tub), and final clear glass held up triumphant. Text overlays punch key stats/tips. End card: Cascade logo + \"we got you.\"\n\n## Hashtags\n#CascadeClean #DishwasherHacks #CleaningTips #HardWaterProblems #KitchenTok #GetItClean\n\n## CTA\nDrop your water hardness in the comments — we'll tell you the exact rinse aid setting to use. 👇"
+      }
     },
     {
-      "brands": [
-        "mrclean"
+      "type": "owned",
+      "lbl": "Swiffer & Febreze Skepticism",
+      "title": "Swiffer waste and Febreze 'masking not cleaning' debate",
+      "summary": "Sustainability-minded creators keep questioning Swiffer's disposable pad waste versus reusable mops, while a parallel meme trend jokes that Febreze only masks odors instead of eliminating them, fueling repurposing hacks like spraying it inside vacuum bags or vents.",
+      "platforms": [
+        "tiktok",
+        "instagram",
+        "reddit"
       ],
+      "signal": 58,
+      "sent": "mix",
+      "respond": true,
+      "brands": [
+        "swiffer",
+        "febreze"
+      ],
+      "angle": "Reframe both products around a genuine functional benefit (convenience for Swiffer, true odor-elimination science for Febreze) to counter the 'gimmick' framing.",
+      "response": "Seed short-form content from Swiffer/Febreze handles that shows real ingredient/mechanism explainers (odor-eliminating molecule science, dry-sheet dust pickup vs. traditional mop) to reframe the skepticism with credible proof points.",
+      "examples": [
+        {
+          "platform": "tiktok",
+          "url": "https://www.tiktok.com/tag/febreze",
+          "appeal": "Relatable 'does it actually work' skepticism format invites duets and debate, driving reach."
+        },
+        {
+          "platform": "tiktok",
+          "url": "https://www.tiktok.com/tag/swifferhack",
+          "appeal": "Repurposing Swiffer dusters for blinds/car vents/lampshades is a novel, easy-to-copy hack format."
+        },
+        {
+          "platform": "instagram",
+          "url": "https://www.instagram.com/explore/tags/cleaningtok/",
+          "appeal": "Aesthetic 'clean home reset' Reels bundle multiple products together for satisfying montage-style content."
+        }
+      ],
+      "mentions52w": [
+        45,
+        46,
+        45,
+        47,
+        46,
+        49,
+        46,
+        47,
+        46,
+        47,
+        47,
+        47,
+        48,
+        46,
+        45,
+        48,
+        45,
+        47,
+        48,
+        50,
+        47,
+        48,
+        49,
+        50,
+        49,
+        46,
+        53,
+        50,
+        53,
+        50,
+        48,
+        53,
+        47,
+        48,
+        49,
+        52,
+        49,
+        50,
+        49,
+        52,
+        49,
+        51,
+        50,
+        51,
+        51,
+        53,
+        52,
+        51,
+        55,
+        49,
+        53,
+        54
+      ],
+      "src": "https://www.tiktok.com/tag/febreze",
+      "briefs": {
+        "influencer": "## Objective\nCounter \"gimmick\" narrative around Swiffer (waste) and Febreze (masking not cleaning) by reframing each around a real, defensible functional benefit — convenience/efficacy for Swiffer, odor-elimination science for Febreze — without being defensive or dismissive of sustainability/skeptic concerns.\n\n## Which P&G brand\nSwiffer + Febreze (dual-brand brief; creators can pick one or do a paired \"skepticism series\")\n\n## Target creators\n- Cleaning/organization creators (mid-tier, 50K–500K) who've done \"reusable vs. disposable\" or \"is X worth it\" content\n- Science/myth-busting creators (e.g., \"chemistry of clean\" explainer style)\n- Sustainability-adjacent creators who are *fair*, not anti-brand crusaders — look for nuance in past posts\n- Home hack/lifehack accounts already doing Febreze repurposing content (co-opt, don't fight)\n- Reddit: seed via authentic AMA-style or \"ask a scientist\" presence in r/CleaningTips, r/HomeImprovement\n\n## Key message\nSwiffer = engineered for targeted convenience (quick daily pickup, not a mop replacement) — waste tradeoff = time/effort tradeoff, and dry/wet cloths are recyclable via take-back where available.\nFebreze = odor ELIMINATION via cyclodextrin technology that traps odor molecules at a molecular level — it's not perfume-masking, it's chemistry. Show, don't just claim.\n\n## Hook / opening\n\"We saw the 'Febreze just masks smells' videos... so we tested it under a blacklight.\" OR\n\"Swiffer isn't trying to replace your mop. Here's what it's actually engineered to do.\" — lead with the skepticism itself, not a rebuttal tone.\n\n## Do\n- Acknowledge the critique first (waste concern / masking meme) before pivoting to explanation\n- Use visual proof: odor-molecule diagrams, before/after sniff tests, blacklight demos, side-by-side convenience timing (Swiffer quick-pass vs. full mop routine)\n- Mention real sustainability efforts (recyclable pad programs, concentrated formulas) factually, no overclaiming\n- Let creators keep their skeptical POV/voice — brand as answer to a question, not a scripted ad\n- Include a clear \"best use case\" framing (Swiffer = daily maintenance; not deep clean)\n\n## Don't\n- Don't claim products are \"100% sustainable\" or overstate eco-credentials\n- Don't mock or dismiss the sustainability/skepticism community\n- Don't use hard-sell CTAs (\"buy now\") — this is trust-repair content\n- Don't ignore the vent/vacuum-bag hack trend — acknowledge creatively, redirect to intended safe use\n- Don't over-script; avoid brand-speak like \"revolutionary\" or \"game-changing\"\n\n## Suggested content\n1. \"Blacklight test\" — Febreze odor molecule visual demo debunking masking claim\n2. \"Timed convenience test\" — Swiffer quick pass vs. full reusable mop routine, honest pros/cons\n3. Reddit AMA-style post/comment thread: brand scientist or rep answers top skepticism threads directly\n4. \"What Swiffer/Febreze is actually FOR\" myth-busting carousel (IG)\n5. Duet/stitch existing skeptic videos with added science context, not rebuttal tone\n\n## Hashtags & CTA\n#CleanFacts #NotJustMasking #SwifferScience",
+        "post": "## Platform & format\nTikTok + IG Reels (same cut, native captions burned in) — 15–20 sec myth-busting duet-bait video, cross-posted to Reddit as a text+video post in r/CleaningTips / r/ProductTesting style (\"we asked our chemists to respond to the discourse\").\n\n## Caption (ready to post)\n\"Ok we saw the discourse. Let's talk science, not shade 🧪\n\nSwiffer isn't lazy — it's engineered for the mess you don't have time for. One pad, one pass, zero bacteria party on your reusable mop that \"looks clean\" but isn't.\n\nFebreze doesn't hide smells. Our molecules trap and neutralize odor at a chemical level — patented tech, not a car freshener in a can.\n\nConvenience and clean aren't opposites. That's kind of our whole thing.\"\n\n## Hook (first line / first 2s)\n\"You called us gimmicks. Let's get into it.\" (text-on-screen, deadpan delivery, no music drop yet)\n\n## Visual direction\n- Split screen: left = reusable mop head under blacklight/UV showing bacteria residue vs Swiffer pad post-use showing clean surface.\n- Cut to lab-coat \"scientist\" (real R&D employee if possible) holding up Febreze molecule diagram, simple animation of odor molecule getting trapped/broken down (not sprayed over).\n- End card: both products side by side, text overlay \"Convenience ≠ Compromise.\"\n- Keep energy Gen-Z documentary style — handheld, quick cuts, captions punchy, no soft lighting corporate vibe.\n\n## Hashtags\n#SwifferScience #FebrezeFacts #CleaningTok #ProductTest #NotAGimmick #PGHomeCare #CleanTok #OdorScience\n\n## CTA\n\"Drop your cleaning debate below — our scientists are reading 👇 (yes, actually).\""
+      }
+    },
+    {
       "type": "competitor",
       "lbl": "The Pink Stuff",
-      "title": "The Pink Stuff momentum still elevated",
-      "summary": "Cult paste sustains heavy creator adoption for ‘impossible’ stain jobs; strong earned reach, near-zero paid.",
+      "title": "Pink Stuff paste still dominates #CleanTok transformations",
+      "summary": "Stardrops' cheap, pink multi-surface paste continues to rack up oven, stove, shoe and grill 'before/after' transformation videos, positioning it as the go-to miracle degreaser against baked-on grime that undercuts pricier P&G degreasing solutions.",
       "platforms": [
         "tiktok",
         "instagram",
         "youtube"
       ],
-      "signal": 85,
+      "signal": 82,
       "sent": "pos",
       "respond": true,
-      "angle": "Direct Magic Eraser overlap. Counter with a heavy-duty head-to-head scrub demo + creator seeding.",
-      "src": "https://www.tiktok.com/search?q=the+pink+stuff"
+      "brands": [
+        "mrclean",
+        "dawn"
+      ],
+      "angle": "Reclaim the 'tough grease, cheap price' territory by seeding Mr. Clean Magic Eraser and Dawn Powerwash in the same satisfying before/after transformation format that made Pink Stuff go viral.",
+      "response": "Seed a Mr. Clean Magic Eraser vs. 'pink paste' head-to-head oven/stovetop challenge with 2-3 mid-tier CleanTok creators, framed as a satisfying speed + no-scrub-effort comparison, and boost the winning cut as a paid TikTok Spark Ad.",
+      "examples": [
+        {
+          "platform": "tiktok",
+          "url": "https://www.tiktok.com/tag/pinkstuff",
+          "appeal": "Hashtag hub full of oven-door and stovetop 'miracle paste' transformations with dramatic before/after wipes that satisfy the ASMR/grime-removal itch."
+        },
+        {
+          "platform": "tiktok",
+          "url": "https://www.tiktok.com/tag/cleantok",
+          "appeal": "Broader cleaning community feed where Pink Stuff repeatedly resurfaces as the default 'try this $6 miracle product' recommendation, driving impulse retail trips."
+        },
+        {
+          "platform": "instagram",
+          "url": "https://www.instagram.com/explore/tags/pinkstuff/",
+          "appeal": "Reel-format grid of glossy stainless-steel and grout restorations that lean on high-contrast before/after thumbnails to stop the scroll."
+        }
+      ],
+      "mentions52w": [
+        62,
+        64,
+        65,
+        62,
+        66,
+        61,
+        68,
+        66,
+        67,
+        64,
+        65,
+        67,
+        63,
+        68,
+        68,
+        66,
+        68,
+        68,
+        67,
+        64,
+        62,
+        65,
+        67,
+        66,
+        70,
+        68,
+        66,
+        70,
+        71,
+        68,
+        66,
+        65,
+        70,
+        69,
+        71,
+        67,
+        66,
+        66,
+        70,
+        72,
+        68,
+        65,
+        65,
+        65,
+        65,
+        66,
+        72,
+        68,
+        68,
+        70,
+        67,
+        70
+      ],
+      "src": "https://www.thepinkstuff.com",
+      "briefs": {
+        "influencer": "## Objective\nReclaim \"tough grease, cheap price\" territory from Pink Stuff by seeding Dawn Powerwash and Mr. Clean Magic Eraser into the same before/after transformation format dominating #CleanTok — proving P&G products cut baked-on grime faster and with less scrubbing.\n\n## Which P&G brand\nDawn Powerwash (lead) + Mr. Clean Magic Eraser (secondary, for oven/stove/shoe surfaces)\n\n## Target creators\n- Mid-tier cleaning/organization creators (50K–500K followers) already doing transformation content\n- Kitchen/home creators who've posted Pink Stuff videos in last 60 days (direct outreach)\n- 2-3 skeptic/comparison creators willing to do \"I tested Pink Stuff vs. Dawn Powerwash\" head-to-heads\n- Avoid mega-celebrity talent — authenticity and grime-level credibility matter more than reach\n\n## Key message\n\"No paste, no elbow grease, no wait time — just spray, foam, wipe.\" Position Dawn Powerwash's foaming action and Magic Eraser's micro-scrubbers as faster, less messy alternatives to a paste that requires scrubbing and rinsing.\n\n## Hook / opening\nOpen on the nastiest possible grease: crusted stovetop, blackened oven glass, grimy sneaker sole, greasy grill grate. Zero narration — just the disgusting \"before\" shot, product application, and jump-cut to \"after.\" Let the visual do the convincing in first 2 seconds (critical for retention).\n\n## Do\n- Use identical filming format to Pink Stuff trend: overhead shot, one swipe/wipe reveal, satisfying sound design (foam fizz, squeak-clean sound)\n- Show real elapsed time or time-stamp overlay (\"47 seconds, one swipe\")\n- Include a visible product shot/logo in first 3 seconds\n- Let creators use their own voice/style — briefing is format-driven, not script-driven\n- Encourage side-by-side comparison content (\"tried the viral pink paste — here's what actually worked faster\")\n\n## Don't\n- Don't disparage Pink Stuff by name/brand directly — compete on results, not trash talk\n- Don't over-produce — raw, phone-shot authenticity outperforms polished ads in this format\n- Don't add heavy scripted VO or brand jargon (\"powerful surfactant technology\") — let the transformation speak\n- Don't use surfaces that require multiple applications — pick winnable grease battles\n\n## Suggested content\n1. **Oven glass door** — Magic Eraser vs. baked-on grease, single wipe reveal\n2. **Stovetop burner rings** — Dawn Powerwash foam-sit-wipe, 60-second timer overlay\n3. **Grill grates** — outdoor before/after, hose rinse finish\n4. **White sneaker soles** — Magic Eraser detail shot, satisfying close-up\n5. **\"I tried the viral Pink Stuff — then tried this\" duet-bait format** for comparison creators\n\n## Hashtags & CTA\n#CleanTok #DawnPowerwash #MrCleanMagicEraser #GreaseGone #BeforeAndAfterClean\nCTA: \"Duet your dirtiest surface — let's see who wins.\"\n\n## KPI\n- Video completion rate ≥ 65% (transformation format benchmark)\n- Engagement rate ≥ 8% across seeded posts\n- Share/duet volume (aim to spawn organic",
+        "post": "## Platform & format\nTikTok primary (vertical video, 15-30s satisfying transformation cut) → repurpose to IG Reels + YouTube Shorts. Split-screen or single continuous wipe transition, same format that made Pink Stuff pastes blow up.\n\n## Caption (ready to post)\ngrease doesn't stand a chance 🫡 no scrubbing, no paste, no drama. Dawn Powerwash sprays it off, Magic Eraser erases what's left. baked-on year-old grill grime? gone in one wipe. we'll wait for the \"wait it's really that easy\" comments.\n\n## Hook (first line / first 2s)\n\"POV: your oven rack looked like this for 8 months 😭\" *(camera pans to disgusting baked-on grease before zooming into product)*\n\n## Visual direction\n- Open tight on the nastiest grease/grime shot you can find (oven rack, stovetop, grill, shoe sole)\n- Spray Dawn Powerwash foam on, let sit 3 sec\n- One-wipe reveal with Mr. Clean Magic Eraser — no scrubbing motion, just a single satisfying swipe\n- Slow-mo on the \"clean line\" reveal (the classic CleanTok half-dirty/half-clean shot)\n- End on both products sitting together, label facing camera, in front of the shining clean surface\n- Text overlay: \"no paste. no elbow grease. just foam + eraser magic.\"\n\n## Hashtags\n#CleanTok #DawnPowerwash #MagicEraser #BeforeAndAfter #SatisfyingClean #GreaseBeGone #PandGHome #CleaningHacks\n\n## CTA\n\"Duet this with your worst grease disaster — we'll send you a Powerwash + Magic Eraser combo to fix it 👀\""
+      }
     },
     {
+      "type": "competitor",
+      "lbl": "Force of Nature",
+      "title": "Hypochlorous-acid 'make your own cleaner' devices gain traction",
+      "summary": "Force of Nature's EPA-registered electrolyzed-water starter kit keeps growing among 'non-toxic home' and mom creators who tout replacing an entire cabinet of chemical sprays with one refillable device, directly challenging the disinfectant claims Dawn/Febreze rely on.",
+      "platforms": [
+        "tiktok",
+        "instagram",
+        "facebook"
+      ],
+      "signal": 74,
+      "sent": "pos",
+      "respond": true,
       "brands": [
+        "dawn",
         "febreze",
         "mrclean"
       ],
+      "angle": "Counter the 'toxic-free' narrative by amplifying third-party safety data and EPA-registration facts already behind Dawn/Febreze/Mr. Clean's disinfecting lines, rather than ceding the clean-living conversation.",
+      "response": "Partner with a registered dietitian/toxicologist-creator to publish a myth-busting comparison video on ingredient safety and cost-per-use, distributed on Febreze and Dawn IG/TikTok channels to reassure the 'non-toxic curious' audience without disparaging the competitor directly.",
+      "examples": [
+        {
+          "platform": "tiktok",
+          "url": "https://www.tiktok.com/tag/forceofnature",
+          "appeal": "Unboxing-style videos of the starter kit's foaming reaction are inherently novel and 'science-y,' which drives comments asking how it works."
+        },
+        {
+          "platform": "instagram",
+          "url": "https://www.instagram.com/forceofnatureclean/",
+          "appeal": "Brand's own Reels lean on 'one device replaces 5 toxic sprays' framing with tidy pantry-cabinet reveals that are highly saveable/shareable for home-organization audiences."
+        },
+        {
+          "platform": "tiktok",
+          "url": "https://www.tiktok.com/tag/nontoxiccleaning",
+          "appeal": "Umbrella hashtag where Force of Nature is repeatedly cited alongside pregnancy/baby-safe home content, tapping into a highly motivated, share-happy parent audience."
+        }
+      ],
+      "mentions52w": [
+        35,
+        36,
+        37,
+        40,
+        38,
+        36,
+        41,
+        39,
+        42,
+        35,
+        36,
+        40,
+        41,
+        43,
+        37,
+        41,
+        42,
+        39,
+        42,
+        42,
+        47,
+        45,
+        42,
+        43,
+        45,
+        45,
+        48,
+        45,
+        49,
+        47,
+        51,
+        47,
+        49,
+        49,
+        55,
+        55,
+        56,
+        55,
+        52,
+        54,
+        60,
+        58,
+        58,
+        56,
+        57,
+        64,
+        64,
+        62,
+        65,
+        61,
+        66,
+        65
+      ],
+      "src": "https://www.forceofnatureclean.com",
+      "briefs": {
+        "influencer": "# CREATOR/INFLUENCER BRIEF\n\n## Objective\nReframe the \"clean-living\" narrative so P&G disinfecting brands are seen as *already* the safe, science-backed choice — without dismissing the audience's non-toxic values or attacking Force of Nature directly. Win back trust with EPA-registration and third-party safety data as the hero proof points.\n\n## Which P&G brand\n**Mr. Clean** (EPA-registered disinfecting lines) as lead brand; **Dawn** and **Febreze** as supporting mentions where relevant (grease-cutting safety, odor science).\n\n## Target creators\n- \"Non-toxic home\" and clean-living moms (50K–500K followers) who already do product comparisons/label breakdowns\n- Micro-creators in cleaning/organization niche who've done DIY hypochlorous-acid content — invite them to do a *balanced* follow-up\n- Science/skeptic creators (\"myth-busting,\" ingredient-label deep divers) who audiences trust for objectivity\n- Avoid mommy-influencers who've already publicly endorsed Force of Nature — don't put them in an awkward brand-loyalty spot\n\n## Key message\n\"Non-toxic doesn't mean unregulated. EPA registration exists *because* disinfecting claims require rigorous, third-party-verified safety and efficacy testing — the same standard Mr. Clean disinfecting products meet. You don't have to choose between safe and effective.\"\n\n## Hook / opening\n\"Wait — is your DIY cleaner actually EPA-registered? Let's read the fine print together 👀\"\nor\n\"I compared the safety data sheets on my homemade cleaner vs. my Mr. Clean spray. The results surprised me.\"\n\n## Do\n- Lead with curiosity/education, not brand defense\n- Show side-by-side EPA registration lookup (public database) as a \"control-F this yourself\" moment\n- Cite specific third-party bodies (EPA, independent labs) by name, not vague \"studies show\"\n- Acknowledge why people are drawn to DIY (cost, ingredient transparency) before pivoting to safety data\n- Keep tone collaborative: \"here's what I learned,\" not \"here's why you're wrong\"\n\n## Don't\n- Don't name or disparage Force of Nature directly\n- Don't use fear-based language (\"dangerous,\" \"toxic DIY\") — stay factual, not alarmist\n- Don't oversell \"chemical-free\" claims Mr. Clean can't fully own — focus on *regulated and proven*, not \"natural\"\n- Don't make it feel like a scripted ad — must retain creator's authentic comparison-video format\n\n## Suggested content\n1. **\"I fact-checked my DIY cleaner\" video** — creator looks up EPA registration numbers live, explains what registration actually requires\n2. **\"What's really in my cabinet\" cabinet-swap parody** — instead of \"replacing everything with one device,\" show why *specific* EPA-registered products still earn a spot\n3. **Carousel/Reel: \"3 questions to ask before trusting any disinfectant\"** — non-toxic homes checklist featuring EPA registration as #1 criterion\n4. **Duet/stitch format** responding to existing FoN content with add-on info, not contradiction\n\n## Hashtags & CTA\n`#EPARegistered #KnowYourClean #Mr.CleanFacts #NonToxicNerdOut #CleanWithProof`\nCTA: \"Look up your product's EPA reg number — link in bio to the public database.\"\n\n## KPI\n- Sentiment shift: track % positive/neutral mentions of Mr. Clean disin",
+        "post": "## Platform & format\nTikTok + IG Reels (same cut, native captions) / Facebook static carousel for the data-nerd crowd. Short-form video, 15-22s, UGC-style talking head + on-screen text overlays.\n\n## Caption (ready to post)\nDIY disinfectant kits are having a moment. Cool science. But \"made it in my kitchen\" ≠ \"EPA-registered to kill 99.9% of germs.\"\n\nMr. Clean's disinfecting line is tested, registered, and proven — not vibes-tested. Same peace of mind, zero guesswork, zero mixing required.\n\nNon-toxic doesn't mean unregulated. Read the label. Trust the data. Clean smarter. 🧼\n\n## Hook (first line / first 2s)\n\"Making your own disinfectant at home? Let's talk about what 'EPA-registered' actually means.\"\n\n## Visual direction\n- Open on creator holding up a hypochlorous acid device next to a bottle of Mr. Clean disinfecting spray, side by side.\n- Quick cut to EPA registration number zoom-in on Mr. Clean label.\n- Text overlay stat callouts: \"99.9% of bacteria & viruses*\" / \"EPA List N\" / \"No mixing. No guesswork.\"\n- Split-screen: DIY kit's variable output (pH/concentration inconsistency graphic) vs. Mr. Clean's consistent formula icon.\n- End on hand spraying countertop + wipe, product hero shot, logo lockup.\n\n## Hashtags\n#MrClean #EPARegistered #ScienceOverVibes #CleanFacts #DisinfectingDoneRight #HomeCareHacks #NonToxicNonsense\n\n## CTA\nComment \"LABEL\" and we'll break down exactly what EPA registration guarantees — link in bio to see the full safety data sheet."
+      }
+    },
+    {
       "type": "competitor",
-      "lbl": "Hypochlorous acid",
-      "title": "Hypochlorous-acid (HOCl) cleaners surging",
-      "summary": "‘Force of Nature’-style HOCl sprays framed as safe, non-toxic, kid/pet-friendly; fast-growing clean-living challenger.",
+      "lbl": "Scrub Daddy / Daddy Suds",
+      "title": "Scrub Daddy's new dish soap line takes direct aim at Dawn",
+      "summary": "Beyond the perennial FlexTexture smiley sponge, Scrub Daddy's expansion into 'Daddy Suds' dish soap is generating fresh unboxing and grease-cutting demo content that positions the brand as a full dish-care system rivaling Dawn, not just an accessory.",
       "platforms": [
         "tiktok",
-        "instagram"
+        "instagram",
+        "youtube"
       ],
-      "signal": 80,
+      "signal": 78,
       "sent": "pos",
       "respond": true,
-      "angle": "Emerging threat to multi-surface & air-care. Track claims; prep a ‘proven clean, no compromise’ counter-narrative.",
-      "src": "https://www.tiktok.com/search?q=hypochlorous+acid+cleaner"
-    },
-    {
       "brands": [
-        "mrclean"
-      ],
-      "type": "competitor",
-      "lbl": "Purple cleaner",
-      "title": "‘Purple cleaner’ dupes targeting Mr. Clean",
-      "summary": "Generic purple multi-surface cleaners positioned as cheaper Mr. Clean alternatives; heavy dupe-culture framing.",
-      "platforms": [
-        "tiktok"
-      ],
-      "signal": 69,
-      "sent": "mix",
-      "respond": false,
-      "angle": "Defend with brand-trust + efficacy proof; monitor pricing/perception gap.",
-      "src": "https://www.tiktok.com/search?q=purple+cleaner"
-    },
-    {
-      "brands": [
-        "cascade",
         "dawn"
       ],
-      "type": "competitor",
-      "lbl": "Blueland",
-      "title": "Refill-tablet sustainability push",
-      "summary": "Tablet & concentrate brands leaning on plastic-reduction; resonates with ‘underconsumption’ sentiment.",
-      "platforms": [
-        "instagram",
-        "tiktok"
+      "angle": "Defend Dawn's 'grease-cutting #1 dish soap' equity with head-to-head grease-cut demos before Daddy Suds unboxing content compounds into a category-share narrative.",
+      "response": "Send Dawn Powerwash Dish Spray to top Scrub Daddy-adjacent kitchen creators for a side-by-side grease-cut speed test video, seeding the hashtag #DawnPowerwash alongside the existing #ScrubDaddy conversation to insert Dawn into the same feed.",
+      "examples": [
+        {
+          "platform": "tiktok",
+          "url": "https://www.tiktok.com/tag/scrubdaddy",
+          "appeal": "The color-changing, texture-shifting sponge is a built-in visual hook (firm in cold water, squishy in warm) that plays perfectly to satisfying/ASMR cleaning content."
+        },
+        {
+          "platform": "instagram",
+          "url": "https://www.instagram.com/scrubdaddy/",
+          "appeal": "Brand account mixes playful smiley-face product design with grease-cutting demo Reels, giving it a mascot-like shareability rare among cleaning brands."
+        },
+        {
+          "platform": "tiktok",
+          "url": "https://www.tiktok.com/tag/daddysuds",
+          "appeal": "Early unboxing/first-use videos of the new dish soap generate curiosity comments comparing it directly to Dawn, fueling a head-to-head narrative creators love to test."
+        }
       ],
-      "signal": 64,
-      "sent": "pos",
-      "respond": false,
-      "angle": "Watch sustainability perception gap vs P&G refill efforts; message accordingly.",
-      "src": "https://www.instagram.com/explore/tags/blueland/"
+      "mentions52w": [
+        23,
+        15,
+        17,
+        18,
+        20,
+        15,
+        25,
+        17,
+        18,
+        22,
+        26,
+        21,
+        21,
+        23,
+        26,
+        29,
+        26,
+        25,
+        31,
+        30,
+        32,
+        35,
+        33,
+        29,
+        38,
+        34,
+        42,
+        40,
+        41,
+        37,
+        42,
+        40,
+        47,
+        47,
+        46,
+        52,
+        56,
+        59,
+        53,
+        59,
+        60,
+        60,
+        66,
+        64,
+        75,
+        75,
+        79,
+        77,
+        85,
+        78,
+        82,
+        85
+      ],
+      "src": "https://www.scrubdaddy.com",
+      "briefs": {
+        "influencer": "# Creator/Influencer Brief\n\n## Objective\nReinforce Dawn's #1 grease-cutting equity with proactive, credible side-by-side demo content before Daddy Suds unboxing/hype content solidifies a \"credible Dawn rival\" narrative in the category conversation.\n\n## Which P&G brand\nDawn\n\n## Target creators\n- Cleaning/kitchen demo creators (mid-tier, 50K–500K, high trust/authenticity over reach)\n- Home & lifestyle TikTokers known for satisfying grease-cut, sponge-test, \"which soap wins\" content\n- A couple of credible kitchen/chef or restaurant-cleaning pros for authority\n- Avoid mega-influencers who feel like obvious paid defense — prioritize believable, receipts-driven voices\n\n## Key message\nDawn cuts tough grease faster and more completely than the new guy — same bottle, same trusted formula that's been the #1 grease-cutting dish soap for years. New packaging or brand extensions don't change the chemistry.\n\n## Hook / opening\n\"Everyone's talking about the new Daddy Suds soap... so we had to test it. Grease vs. Dawn vs. the new challenger — one soap left a film.\"\n\n## Do\n- Run real, unscripted side-by-side grease-cut tests (baked-on grease, roasting pan, greasy plate) — show, don't just claim\n- Let the visual result do the talking — bubbles cutting through grease in real time\n- Keep tone confident, not defensive or snarky about Scrub Daddy\n- Reference Dawn's long-standing wildlife rescue / grease-cutting heritage where natural\n- Post while unboxing/Daddy Suds content is trending for contrast/comparison discovery\n\n## Don't\n- Don't disparage Scrub Daddy the sponge (still a beloved category darling) — stay focused on soap performance only\n- Don't overclaim scientific testing — keep it kitchen-relatable, not lab-condition staged\n- Don't ignore or mock the trend — acknowledge it, then let the demo win the argument\n- Don't over-script — feels like an ad if too polished\n\n## Suggested content\n1. \"Grease-Off Challenge\": same pan, same grime, Dawn vs. Daddy Suds, real-time cut test\n2. \"One Squirt Test\": minimal product, max grease, who wins with less\n3. \"Dish Pile Duel\": stack of dirty dishes, timed clean-through comparison\n4. Founder/dishwasher-of-a-restaurant testimonial format — \"we tested it on the line\"\n\n## Hashtags & CTA\n#DawnVsAnything #GreaseCutChallenge #Dawn #CutTheGrease\nCTA: \"Try the grease test yourself — tag us with your results.\"\n\n## KPI\n- Share of voice vs. Daddy Suds conversation (owned vs. earned mentions)\n- Engagement rate on comparison demo content (target: outperform category avg by 20%+)\n- Sentiment lift for \"Dawn = #1 grease cutter\" association in comments/UGC\n- View-through rate on demo videos (proxy for credibility/attention)",
+        "post": "## Platform & format\nTikTok + Instagram Reels (60s split-screen demo), cross-posted to YouTube Shorts\n\n## Caption (ready to post)\nThere's a new sponge in town talking soap now? Cute. We've been cutting grease since your grandma's kitchen. Same bottle, same blue, same #1 grease-cutting power. Watch this before you \"unbox\" anything else. 💧🔥\n\n## Hook (first line / first 2s)\n\"Everyone's testing the new soap on the block. We brought our own receipts.\"\n\n## Visual direction\nSplit screen: baked-on grease pan on both sides. One drop of Dawn vs. a big squirt of the new suds. Real-time timer overlay. Dawn cuts through in seconds — camera lingers on the squeaky-clean pan flip. End card: \"Dawn. The Original Grease-Fighter. No gimmicks, just grease gone.\" Keep it kitchen-real, no studio gloss — steam, suds, dish rack in frame.\n\n## Hashtags\n#DawnPower #GreaseGoneWithDawn #DishSoapShowdown #CleanKitchenTikTok #DawnDishSoap\n\n## CTA\nDrop your toughest grease pic below 👇 we'll Dawn it live in the comments."
+      }
+    },
+    {
+      "type": "competitor",
+      "lbl": "Fabuloso Scent-Layering / Mopping ASMR",
+      "title": "Fabuloso scent-mixing mopping videos keep flooding feeds",
+      "summary": "Creators continue to post satisfying mop-bucket and floor-cleaning ASMR videos layering different Fabuloso scent variants, keeping the purple/colorful multipurpose cleaner category top-of-feed and squeezing floor-care share from Swiffer WetJet and Mr. Clean solutions.",
+      "platforms": [
+        "tiktok",
+        "facebook",
+        "instagram"
+      ],
+      "signal": 68,
+      "sent": "mix",
+      "respond": true,
+      "brands": [
+        "swiffer",
+        "mrclean",
+        "febreze"
+      ],
+      "angle": "Use the scent-obsession behind Fabuloso's virality to push Swiffer WetJet and Febreze-scented Mr. Clean solutions into the same mop-bucket ASMR and scent-layering content format.",
+      "response": "Commission a floor-care ASMR series pairing Swiffer WetJet with limited-edition Febreze-scented solution refills, distributed via facebook/tiktok cleaning groups where the Fabuloso scent-mixing trend already lives.",
+      "examples": [
+        {
+          "platform": "tiktok",
+          "url": "https://www.tiktok.com/tag/fabuloso",
+          "appeal": "Slow-motion pours of the colorful liquid into mop buckets plus close-up 'sniff test' reactions make for highly satisfying, sensory-driven short clips."
+        },
+        {
+          "platform": "tiktok",
+          "url": "https://www.tiktok.com/tag/moppingasmr",
+          "appeal": "Overhead tile-mopping shots with foamy, fragrant water are a recurring satisfying-cleaning subgenre that consistently pulls high completion rates."
+        },
+        {
+          "platform": "instagram",
+          "url": "https://www.instagram.com/explore/tags/fabuloso/",
+          "appeal": "Reels mixing multiple Fabuloso scent bottles into custom 'combos' invite comment-section debates over favorite scent pairings, driving strong engagement loops."
+        }
+      ],
+      "mentions52w": [
+        57,
+        57,
+        52,
+        56,
+        53,
+        51,
+        55,
+        58,
+        52,
+        56,
+        57,
+        57,
+        58,
+        54,
+        54,
+        54,
+        53,
+        56,
+        59,
+        55,
+        59,
+        59,
+        55,
+        60,
+        54,
+        54,
+        56,
+        58,
+        61,
+        56,
+        59,
+        55,
+        61,
+        58,
+        55,
+        59,
+        58,
+        57,
+        60,
+        55,
+        59,
+        57,
+        62,
+        61,
+        62,
+        60,
+        62,
+        58,
+        63,
+        60,
+        62,
+        57
+      ],
+      "src": "https://www.fabuloso.com",
+      "briefs": {
+        "influencer": "## Objective\nHijack the Fabuloso scent-layering/mop ASMR trend to insert Swiffer WetJet + Mr. Clean (Febreze-scented) into the same content format, converting scent-obsessed viewers into trial without competitor-bashing.\n\n## Which P&G brand\nSwiffer WetJet (lead) + Mr. Clean with Febreze Scent (co-star)\n\n## Target creators\n- Clean-fluencers / \"cleantok\" creators (50K–500K followers, mop ASMR history)\n- Home organization & satisfying-content niches (oddly satisfying, ASMR cleaning)\n- Multicultural household creators (Fabuloso's core fanbase skews Latino) — recruit bilingual creators to stay culturally credible\n- Micro-creators (10K–50K) for volume + authenticity, 3–5 macro for reach\n\n## Key message\n\"The scent obsession is real — now put it in your mop bucket AND your floor solution.\" Swiffer WetJet + Mr. Clean Febreze scents deliver the same layered, ASMR-worthy scent payoff, with a cleaner floor to back it up.\n\n## Hook / opening\nOpen mid-ASMR: pour sound, bucket fill, close-up scent swirl — then reveal it's WetJet solution or Mr. Clean, not Fabuloso. Text overlay: \"wait... this isn't Fabuloso?\" or \"wildcard scent combo #47\"\n\n## Do\n- Lean fully into ASMR conventions: pour sounds, bubbles, satisfying mop glide, slow-mo bucket swirls\n- Show real scent-layering (e.g., Mr. Clean Febreze Meadows & Rain + Swiffer WetJet Lavender)\n- Keep it visually saturated/colorful like the trend demands\n- Let creators use their own bucket/mop rituals — don't overscript\n- Include one genuine \"sniff test\" or reaction moment\n- Disclose partnership per FTC (#ad/#sponsored)\n\n## Don't\n- Don't disparage Fabuloso or name-check competitors negatively\n- Don't force a hard sales pitch — this is a vibe/format play, not a spec sheet\n- Don't over-produce — trend currency is authenticity/rawness\n- Don't ignore WetJet's actual mechanism (mop+solution) — show it working, not just smelling nice\n\n## Suggested content\n1. \"Scent-layering starter pack\" — 3 Mr. Clean/Febreze scents + WetJet combo poured in sequence, ASMR mic'd\n2. \"Rating my mop water\" trend format — creators score their own scent combos 1-10\n3. Before/after floor shine + lingering scent reveal (camera pans back after mop dries)\n4. Duet/stitch bait: \"Try this combo next\" — invite comment-section scent requests for a follow-up video\n\n## Hashtags & CTA\n#ScentLayering #MopASMR #CleanTok #SwifferWetJet #MrCleanFebreze #MoppingSounds\nCTA: \"Drop your dream scent combo below — we'll mix it next\" (drives comments + sequel content)\n\n## KPI\n- Video completion rate ≥ 60% (ASMR format benchmark)\n- Comment share-of-voice: Swiffer/Mr. Clean mentions vs. Fabuloso in floor-care ASMR content (target 15% lift in 30 days)\n- UGC duets/stitches generated (target 200+)\n- Sentiment: neutral-to-positive ≥ 75%",
+        "post": "## Platform & format\nTikTok primary (vertical video, 15-30s ASMR mop/pour cut), cross-post to Instagram Reels + Facebook Reels\n\n## Caption (ready to post)\nwe heard you like layering scents 👀 so we made Mr. Clean smell like your favorite Febreze AND put it in a mop that skips the bucket entirely. same satisfying pour, zero wringing, floors that actually stay clean. scent-stack THIS.\n\n## Hook (first line / first 2s)\n\"You've been scent-layering wrong this whole time.\"\n\n## Visual direction\nOpen on overhead shot of Mr. Clean + Febreze bottle pouring in slow-mo (color/liquid ASMR, satisfying glug sound up front). Cut to Swiffer WetJet gliding across floor — no bucket, no dirty water, clean reflective shine reveal. Split-screen comparison: mop bucket getting murky vs WetJet pad staying visibly cleaner. End on product lineup with scent swirl graphic overlay.\n\n## Hashtags\n#ScentLayering #MoppingASMR #CleanTok #SwifferWetJet #MrClean #FebrezeFresh #SatisfyingClean #FloorCareUpgrade\n\n## CTA\nDuet this with YOUR scent combo — best stack gets featured 🧼✨ link in bio to shop the lineup."
+      }
     }
   ]
 }
