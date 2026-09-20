@@ -28,7 +28,7 @@ import { pathToFileURL } from "node:url";
 const GEMINI_KEY = process.env.GEMINI_API_KEY;
 const CLAUDE_KEY = process.env.ANTHROPIC_API_KEY;
 
-const GEMINI_MODEL = process.env.WATCH_GEMINI_MODEL || "gemini-2.5-flash";
+const GEMINI_MODEL = process.env.WATCH_GEMINI_MODEL || "gemini-3.6-flash";
 const CLAUDE_MODEL = process.env.WATCH_CLAUDE_MODEL || "claude-sonnet-5";
 const SEARCH_TOOL  = "web_search_20260209";
 const GEMINI_BASE  = "https://generativelanguage.googleapis.com/v1beta";
@@ -355,12 +355,17 @@ function reconcile(watched, verified) {
       source: v.source || "",
     };
   });
+  // Only score claims that were actually checked — otherwise a skipped or
+  // failed cross-check reads as "0% confirmed", which looks like a damning
+  // verdict rather than the absence of one.
+  const checked = claims.filter(c => c.status !== "unchecked");
   return {
     claims,
+    checked,
     conflicts: claims.filter(c => c.status === "contradicted"),
     unverified: claims.filter(c => c.status === "unverified"),
-    confidence: claims.length
-      ? Math.round(100 * claims.filter(c => c.status === "confirmed").length / claims.length)
+    confidence: checked.length
+      ? Math.round(100 * checked.filter(c => c.status === "confirmed").length / checked.length)
       : null,
   };
 }
@@ -410,8 +415,9 @@ function toMarkdown(watched, rec, verified, opts) {
   }
 
   if (rec.claims.length) {
-    L.push("## Claim check", "");
-    if (rec.confidence !== null) L.push(`${rec.confidence}% of ${rec.claims.length} claims independently confirmed.`, "");
+    L.push(rec.confidence === null ? "## Claims the video makes" : "## Claim check", "");
+    if (rec.confidence === null) L.push("_Not cross-checked — nothing below has been independently verified._", "");
+    else L.push(`${rec.confidence}% of ${rec.checked.length} checked claims confirmed.`, "");
     L.push("| | Claim | Time | Note |", "|---|---|---|---|");
     rec.claims.forEach(c => L.push(
       `| ${STATUS_MARK[c.status]} | ${esc(c.verbatim || c.text)} | ${esc(c.t) || "—"} | ${esc(c.correction) || (c.source ? `[src](${c.source})` : "—")} |`));

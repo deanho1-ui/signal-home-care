@@ -66,6 +66,11 @@ brief.
   to Gemini instead; that is what makes non-YouTube platforms work.
 - **Gemini's YouTube ingest needs a public or unlisted URL.** Private videos
   fail. Download those first and pass the local path's URL through yt-dlp.
+- **`gemini-2.5-flash` no longer serves new API keys.** The API still lists it,
+  but `generateContent` returns 404 pointing at `gemini-3.6-flash` — which is
+  the default here, verified working on video. `gemini-3.8-flash` also exists
+  and returned 503 (demand spike) when tried; `gemini-3.5-flash` and
+  `gemini-3-flash-preview` both work too.
 - Free-tier Gemini has per-day request and video-length limits. A long video
   may need `WATCH_GEMINI_MODEL` pointed at a larger model and a paid key.
 
@@ -73,5 +78,5 @@ brief.
 
 | Env | Default |
 |---|---|
-| `WATCH_GEMINI_MODEL` | `gemini-2.5-flash` |
+| `WATCH_GEMINI_MODEL` | `gemini-3.6-flash` |
 | `WATCH_CLAUDE_MODEL` | `claude-sonnet-5` |

@@ -151,8 +151,10 @@ Two models read the video independently:
 | `--no-verify` | Skip the Claude cross-check — faster, less trustworthy |
 | `--keep` | Keep the downloaded video file |
 
-Get a free Gemini key at <https://aistudio.google.com/apikey>. Models are
-overridable via `WATCH_GEMINI_MODEL` and `WATCH_CLAUDE_MODEL`.
+Get a free Gemini key at <https://aistudio.google.com/apikey>. Defaults are
+`gemini-3.6-flash` and `claude-sonnet-5`, overridable via `WATCH_GEMINI_MODEL`
+and `WATCH_CLAUDE_MODEL`. (Note `gemini-2.5-flash` is still listed by the API
+but no longer serves new keys.)
 
 In Claude Code, the `video-to-agent` skill drives all of this for you — just
 paste a link.
