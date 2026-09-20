@@ -129,7 +129,16 @@ Point it at a video and it writes reconciled notes to `notes/`. Useful for the
 saved-TikTok pile and for turning a tutorial into something actionable.
 
 ```bash
-GEMINI_API_KEY=... ANTHROPIC_API_KEY=... node scripts/watch.mjs "<video-url>"
+cp .env.example .env          # then paste your keys into .env (gitignored)
+node --env-file=.env scripts/watch.mjs "<video-url>"
+```
+
+Or set them in your shell for the session instead:
+
+```bash
+export GEMINI_API_KEY=...
+export ANTHROPIC_API_KEY=...
+node scripts/watch.mjs "<video-url>"
 ```
 
 Two models read the video independently:
