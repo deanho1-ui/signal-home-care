@@ -5,8 +5,9 @@ A static dashboard that tracks social trends for each Home Care brand team
 turns any trend into an influencer brief or branded post.
 
 - **Hosting:** GitHub Pages (free, static)
-- **Auto-refresh:** a scheduled GitHub Action researches public sources once a
-  week, writes `data/trends.json`, and commits it — the site reads that file.
+- **Refresh:** a GitHub Action researches public sources, writes
+  `data/trends.json`, and commits it — the site reads that file. The weekly
+  schedule is currently **off**; run it by hand from the Actions tab.
 - **Compliance:** public sources only (Google Trends, Reddit, TikTok, news,
   creator coverage). No Sprinklr / Brandwatch data is ever sent anywhere.
 
@@ -31,13 +32,15 @@ turns any trend into an influencer brief or branded post.
    Your site goes live at `https://<your-username>.github.io/<repo>/`.
 
 4. **Enable Actions** (first time). Open the **Actions** tab and enable
-   workflows if prompted. The refresh runs every **Monday 12:00 UTC**.
+   workflows if prompted. The refresh does **not** run on a schedule right
+   now — you trigger it yourself.
 
 5. **Run the first refresh now** (optional): **Actions → Weekly Signal refresh
    → Run workflow.** It researches, pre-writes briefs for the respond-now
    trends, and commits `data/trends.json`. Pages redeploys in a minute or two.
 
-That's it — from then on it updates itself weekly with zero effort.
+That's it. Re-run it whenever you want fresh trends — or re-enable the weekly
+schedule (see below) to have it update itself.
 
 ---
 
@@ -51,12 +54,17 @@ order of **a few cents to ~$1 a week**, depending on model. Swap the model in
 
 ---
 
-## Change the schedule
+## The schedule (currently off)
 
-Edit the cron line in `.github/workflows/refresh.yml`:
+Automatic runs are disabled — `refresh.yml` only has `workflow_dispatch`, so
+the job runs when you press the button and never on its own.
+
+To turn weekly runs back on, uncomment the `schedule:` block in
+`.github/workflows/refresh.yml`:
 
 ```yaml
-- cron: "0 12 * * 1"   # min hour day month weekday (UTC). Mon = 1.
+schedule:
+  - cron: "0 12 * * 1"   # min hour day month weekday (UTC). Mon = 1.
 ```
 
 Twice a week, for example: `0 12 * * 1,4` (Mon & Thu).

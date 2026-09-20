@@ -1,9 +1,10 @@
 name: Weekly Signal refresh
 
 on:
-  schedule:
-    - cron: "0 12 * * 1"        # every Monday 12:00 UTC (~7-8am ET)
-  workflow_dispatch:            # lets you run it early from the Actions tab
+  # Weekly schedule is OFF. Uncomment to turn it back on.
+  # schedule:
+  #   - cron: "0 12 * * 1"      # every Monday 12:00 UTC (~7-8am ET)
+  workflow_dispatch:            # run it by hand from the Actions tab
 
 permissions:
   contents: write               # allow the job to commit trends.json
