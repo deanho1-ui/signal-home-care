@@ -123,6 +123,42 @@ client while enabling live generation.
 
 ---
 
+## Watching videos (`scripts/watch.mjs`)
+
+Point it at a video and it writes reconciled notes to `notes/`. Useful for the
+saved-TikTok pile and for turning a tutorial into something actionable.
+
+```bash
+GEMINI_API_KEY=... ANTHROPIC_API_KEY=... node scripts/watch.mjs "<video-url>"
+```
+
+Two models read the video independently:
+
+- **Gemini watches it** — frames, on-screen text, audio, timestamps. YouTube
+  URLs go straight in; TikTok, Reels and X are downloaded with `yt-dlp` first
+  and uploaded (a TikTok link cannot be "converted" to a YouTube one — the
+  video only exists on TikTok).
+- **Claude checks it** — it never sees the video, it just web-searches every
+  factual claim Gemini pulled out. Misheard tool names and dead links surface
+  here.
+- **Disagreements are flagged**, not averaged, in a `⚠️ Conflicts` section.
+
+| Flag | Effect |
+|---|---|
+| `--ask "…"` | Focus the analysis on a specific question |
+| `--spec` | Also write `notes/<slug>.spec.json`, ready for `skill-creator` |
+| `--out DIR` | Output directory (default `notes/`) |
+| `--no-verify` | Skip the Claude cross-check — faster, less trustworthy |
+| `--keep` | Keep the downloaded video file |
+
+Get a free Gemini key at <https://aistudio.google.com/apikey>. Models are
+overridable via `WATCH_GEMINI_MODEL` and `WATCH_CLAUDE_MODEL`.
+
+In Claude Code, the `video-to-agent` skill drives all of this for you — just
+paste a link.
+
+---
+
 ## Test locally
 
 ```bash
