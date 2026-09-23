@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Book</title>
+<meta name="description" content="A book in the series." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="index.html" data-series-name>Book Series</a>
+    <nav class="nav">
+      <a href="index.html#books">All Books</a>
+      <a href="index.html#author">Author</a>
+      <a href="index.html#newsletter" data-newsletter-nav>Newsletter</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero" data-book-hero>
+    <div class="wrap">
+      <p><a class="back-link" href="index.html#books">&larr; Back to all books</a></p>
+      <div class="book-hero-grid" style="margin-top:24px">
+        <div class="hero-cover" data-book-cover></div>
+        <div>
+          <p class="eyebrow" data-book-eyebrow>The Series</p>
+          <h1 data-book-title>Loading…</h1>
+          <p class="lead" data-book-subtitle></p>
+          <p class="meta" data-book-release></p>
+          <div class="formats" data-book-formats></div>
+          <div data-book-blurb></div>
+          <div class="hero-actions" data-book-actions></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="panel" data-book-quote-section hidden>
+    <div class="wrap narrow">
+      <blockquote class="pullquote">
+        <span data-book-quote></span>
+        <cite data-book-quote-source></cite>
+      </blockquote>
+    </div>
+  </section>
+
+  <section data-book-excerpt-section hidden>
+    <div class="wrap narrow">
+      <div class="center"><p class="eyebrow">An Excerpt</p></div>
+      <div class="excerpt" style="column-count:2" data-book-excerpt></div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="brand" data-series-name>Book Series</div>
+    <div class="socials" data-socials></div>
+    <div class="copyright">&copy; <span data-year></span> <span data-author-name>The Author</span>. All rights reserved.</div>
+  </div>
+</footer>
+
+<script src="assets/site.js"></script>
+</body>
+</html>

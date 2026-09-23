@@ -1,0 +1,55 @@
+{
+  "_comment": "EDIT THIS FILE to run your site. Replace the placeholder text (anything in [brackets]) with your real details, drop cover images into assets/covers/, and the pages update themselves. Add a future book by copying one entry in the 'books' array.",
+
+  "series": {
+    "name": "[Your Series Name]",
+    "tagline": "[One evocative line about the series]",
+    "description": "[A short paragraph introducing the world / premise of the series. This shows on the home page under the series name.]",
+    "author": "[Author Name]",
+    "authorBio": "[A few sentences about you as the author — what you write, where you're from, what readers can expect.]",
+    "authorPhoto": "",
+    "newsletterEnabled": true,
+    "newsletterBlurb": "Be the first to hear when the next book is released.",
+    "newsletterActionUrl": "",
+    "socials": {
+      "instagram": "",
+      "x": "",
+      "tiktok": "",
+      "goodreads": "",
+      "facebook": ""
+    }
+  },
+
+  "books": [
+    {
+      "slug": "book-one",
+      "number": 1,
+      "title": "[Book One Title]",
+      "subtitle": "",
+      "status": "available",
+      "releaseDate": "",
+      "cover": "",
+      "blurb": "[Paste the back-cover blurb / synopsis for book one here. This is the main pitch a visitor reads on the book page. Two or three punchy paragraphs work well.]",
+      "quote": "",
+      "quoteSource": "",
+      "excerpt": "",
+      "buyUrl": "https://a.co/d/08nhSPx0",
+      "formats": ["Kindle", "Paperback"]
+    },
+    {
+      "slug": "book-two",
+      "number": 2,
+      "title": "[Book Two Title]",
+      "subtitle": "",
+      "status": "coming-soon",
+      "releaseDate": "[e.g. Spring 2026]",
+      "cover": "",
+      "blurb": "[Teaser for the next book — or leave the whole entry out until you're ready to announce it.]",
+      "quote": "",
+      "quoteSource": "",
+      "excerpt": "",
+      "buyUrl": "",
+      "formats": []
+    }
+  ]
+}
